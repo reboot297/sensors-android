@@ -20,4 +20,12 @@
     <string name="action_about">About</string>
     <string name="action_privacy">Privacy Policy</string>
 
+    <string name="home_button_raw_data">Raw Data</string>
+
+    <string name="raw_data_label_environment">Environment sensors:\n</string>
+
+    <string name="raw_data_item_pressure">Pressure</string>
+
+    <string name="screen_raw_data_title">Raw Data</string>
+
 </resources>
