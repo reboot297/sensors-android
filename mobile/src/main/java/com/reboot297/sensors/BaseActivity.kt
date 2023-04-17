@@ -16,9 +16,14 @@
 
 package com.reboot297.sensors
 
+import android.content.Intent
+import android.content.Intent.ACTION_VIEW
+import android.net.Uri
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+
+private const val PRIVACY_URL = "https://sites.google.com/view/reboot297-sensors/home"
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -29,9 +34,19 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_privacy -> true //TODO (Viktor) open privacy policy
+            R.id.action_privacy -> {
+                openPrivacy()
+                return true
+            }
+
             R.id.action_about -> true //TODO(Viktor) open about screen
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun openPrivacy() {
+        startActivity(Intent(ACTION_VIEW).apply {
+            data = Uri.parse(PRIVACY_URL)
+        })
     }
 }
