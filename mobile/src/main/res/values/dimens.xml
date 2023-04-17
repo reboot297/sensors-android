@@ -16,4 +16,9 @@
 
 <resources>
 
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="raw_data_item_text_size">18sp</dimen>
+
+    <dimen name="app_raw_details_value_text_size">18sp</dimen>
+    <dimen name="app_raw_details_label_text_size">16sp</dimen>
 </resources>

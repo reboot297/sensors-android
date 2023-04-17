@@ -20,4 +20,68 @@
     <string name="action_about">About</string>
     <string name="action_privacy">Privacy Policy</string>
 
+    <string name="home_button_raw_data">Raw Data</string>
+
+    <string name="raw_data_label_environment">Environment sensors:\n</string>
+
+    <string name="raw_data_item_pressure">Pressure</string>
+
+    <string name="screen_raw_data_title">Raw Data</string>
+    <string name="screen_pressure_details">Pressure</string>
+
+    <string name="warning_api_24"><![CDATA[Available on devices with API >= 24]]></string>
+    <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
+
+    <string name="details_start_listening">Start Listening</string>
+
+    <string name="details_sensor_name">Name:</string>
+    <string name="details_sensor_id">Id:</string>
+    <string name="details_sensor_type">Type:</string>
+    <string name="details_sensor_type_id">Type Id:</string>
+    <string name="details_sensor_vendor">Vendor:</string>
+    <string name="details_sensor_version">Version:</string>
+    <string name="details_sensor_power">Power:</string>
+    <string name="details_sensor_max_range">Max Range:</string>
+    <string name="details_sensor_resolution">Resolution:</string>
+    <string name="details_sensor_min_delay">Min delay:</string>
+    <string name="details_sensor_max_delay">Max Delay:</string>
+    <string name="details_sensor_fifo_max">FIFO max events count:</string>
+    <string name="details_sensor_fifo_reserved">FIFO reserved events count:</string>
+    <string name="details_sensor_is_wakeup">Is WakeUp sensor:</string>
+    <string name="details_sensor_unit">Unit:</string>
+    <string name="details_sensor_reporting_mode">Reporting mode:</string>
+    <string name="details_sensor_additional_info">Is additional info supported:</string>
+    <string name="details_sensor_direct_report_rate_level">Highest direct report rate level:</string>
+    <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
+
+    <string name="unit_pressure">hPa</string>
+
+    <string name="format_unit_pressure">%1$s hPa</string>
+    <string name="format_unit_power">%1$s mA</string>
+    <string name="format_unit_microseconds">%1$s microseconds</string>
+
+
+    <string-array name="reporting_modes">
+        <item>REPORTING_MODE_CONTINUOUS</item>
+        <item>REPORTING_MODE_ON_CHANGE</item>
+        <item>REPORTING_MODE_ONE_SHOT</item>
+        <item>REPORTING_MODE_SPECIAL_TRIGGER</item>
+    </string-array>
+
+    <string-array name="report_rate_levels">
+        <item>RATE_STOP</item>
+        <item>RATE_NORMAL(50Hz)</item>
+        <item>RATE_FAST(~200Hz)</item>
+        <item>RATE_VERY_FAST(~800Hz)</item>
+    </string-array>
+
+    <string name="accuracy_no_contact">SENSOR_STATUS_NO_CONTACT</string>
+    <string-array name="accuracy_values">
+        <item>SENSOR_STATUS_UNRELIABLE</item>
+        <item>SENSOR_STATUS_ACCURACY_LOW</item>
+        <item>SENSOR_STATUS_ACCURACY_MEDIUM</item>
+        <item>SENSOR_STATUS_ACCURACY_HIGH</item>
+    </string-array>
+
+
 </resources>
