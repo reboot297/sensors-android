@@ -10,6 +10,15 @@
         android:theme="@style/Theme.Sensors"
         tools:targetApi="33">
         <activity
+            android:name=".PressureDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_pressure_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+
+        <activity
             android:name=".RawDataActivity"
             android:exported="false"
             android:label="@string/screen_raw_data_title">

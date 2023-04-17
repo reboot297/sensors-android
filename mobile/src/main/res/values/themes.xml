@@ -22,4 +22,14 @@
     </style>
 
     <style name="Theme.Sensors" parent="Base.Theme.Sensors" />
+
+    <style name="App.Raw.Details.Label" parent="">
+        <item name="android:textSize">@dimen/app_raw_details_label_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="App.Raw.Details.Value" parent="">
+        <item name="android:textSize">@dimen/app_raw_details_value_text_size</item>
+        <item name="android:textStyle">normal</item>
+    </style>
 </resources>
