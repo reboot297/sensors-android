@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~           http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".PressureDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_padding">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/app_name_value"
+                style="@style/App.Raw.Details.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/app_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/app_version_label"
+                style="@style/App.About.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_version_label"
+                app:layout_constraintTop_toBottomOf="@id/app_name_value" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/app_version_value"
+                style="@style/App.About.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/app_version_label"
+                tools:text="0" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/author_label"
+                style="@style/App.About.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_author_label"
+                app:layout_constraintTop_toBottomOf="@+id/app_version_value" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/author_value"
+                style="@style/App.About.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_author"
+                app:layout_constraintTop_toBottomOf="@+id/author_label" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/email_label"
+                style="@style/App.About.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_email_label"
+                app:layout_constraintTop_toBottomOf="@+id/author_value" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/email_value"
+                style="@style/App.About.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:text="@string/about_email"
+                app:layout_constraintTop_toBottomOf="@+id/email_label" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/source_label"
+                style="@style/App.About.Label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_source_label"
+                app:layout_constraintTop_toBottomOf="@+id/email_value" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/source_value"
+                style="@style/App.About.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:text="@string/about_source"
+                app:layout_constraintTop_toBottomOf="@+id/source_label" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/description_value"
+                style="@style/App.About.Value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="@string/about_description"
+                app:layout_constraintTop_toBottomOf="@+id/source_value" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

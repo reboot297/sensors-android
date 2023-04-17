@@ -14,14 +14,15 @@
   ~  limitations under the License.
   -->
 
-<resources>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.reboot297.sensors.HomeActivity">
 
-    <dimen name="screen_padding">16dp</dimen>
-    <dimen name="raw_data_item_text_size">18sp</dimen>
+    <item
+        android:id="@+id/action_privacy"
+        android:orderInCategory="100"
+        android:title="@string/action_privacy"
+        app:showAsAction="never" />
 
-    <dimen name="app_raw_details_value_text_size">18sp</dimen>
-    <dimen name="app_raw_details_label_text_size">16sp</dimen>
-
-    <dimen name="app_about_value_text_size">18sp</dimen>
-    <dimen name="app_about_label_text_size">16sp</dimen>
-</resources>
+</menu>
