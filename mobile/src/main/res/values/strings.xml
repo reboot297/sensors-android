@@ -28,6 +28,7 @@
 
     <string name="screen_raw_data_title">Raw Data</string>
     <string name="screen_pressure_details">Pressure</string>
+    <string name="screen_about">About…</string>
 
     <string name="warning_api_24"><![CDATA[Available on devices with API >= 24]]></string>
     <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
@@ -83,5 +84,13 @@
         <item>SENSOR_STATUS_ACCURACY_HIGH</item>
     </string-array>
 
+    <string name="about_version_label">Version:</string>
+    <string name="about_author_label">Author:</string>
+    <string name="about_author">Viktor Pop</string>
+    <string name="about_email_label">Email:</string>
+    <string name="about_email" translatable="false">reboot297@gmail.com</string>
+    <string name="about_source_label">Source:</string>
+    <string name="about_source" translatable="false">https://github.com/reboot297/sensors-android</string>
+    <string name="about_description">Simple application to view sensors info on android device</string>
 
 </resources>

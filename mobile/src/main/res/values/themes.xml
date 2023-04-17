@@ -14,7 +14,7 @@
   ~  limitations under the License.
   -->
 
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Sensors" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -30,6 +30,16 @@
 
     <style name="App.Raw.Details.Value" parent="">
         <item name="android:textSize">@dimen/app_raw_details_value_text_size</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="App.About.Label" parent="">
+        <item name="android:textSize">@dimen/app_about_label_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="App.About.Value" parent="">
+        <item name="android:textSize">@dimen/app_about_value_text_size</item>
         <item name="android:textStyle">normal</item>
     </style>
 </resources>

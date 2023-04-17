@@ -17,43 +17,50 @@
 package com.reboot297.sensors
 
 import android.content.Intent
-import android.content.Intent.ACTION_VIEW
 import android.net.Uri
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.reboot297.sensors.databinding.ActivityAboutBinding
 
-const val PRIVACY_URL = "https://sites.google.com/view/reboot297-sensors/home"
+class AboutActivity : AppCompatActivity() {
 
-open class BaseActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAboutBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.appVersionValue.text = BuildConfig.VERSION_NAME
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_home, menu)
+        menuInflater.inflate(R.menu.menu_about, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_privacy -> {
-                openPrivacy()
+            android.R.id.home -> {
+                finish()
                 return true
             }
 
-            R.id.action_about -> {
-                openAbout()
-                true
+            R.id.action_privacy -> {
+                openPrivacy()
+                return true
             }
 
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun openAbout() {
-        startActivity(Intent(this, AboutActivity::class.java))
-    }
-
     private fun openPrivacy() {
-        startActivity(Intent(ACTION_VIEW).apply {
+        startActivity(Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(PRIVACY_URL)
         })
     }
