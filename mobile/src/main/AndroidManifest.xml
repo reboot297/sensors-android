@@ -13,6 +13,15 @@
             android:name=".AboutActivity"
             android:exported="false"
             android:label="@string/screen_about" />
+
+        <activity
+            android:name=".raw.motion.AccelerometerDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_accelerometer_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
         <activity
             android:name=".raw.position.ProximityDetailsActivity"
             android:exported="false"

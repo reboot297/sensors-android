@@ -23,6 +23,7 @@ import com.reboot297.sensors.raw.environment.AmbientTemperatureDetailsActivity
 import com.reboot297.sensors.raw.environment.LightDetailsActivity
 import com.reboot297.sensors.raw.environment.PressureDetailsActivity
 import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
+import com.reboot297.sensors.raw.motion.AccelerometerDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -61,6 +62,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.proximityItemView.setOnClickListener {
             startActivity(Intent(this, ProximityDetailsActivity::class.java))
+        }
+
+        binding.accelerometerItemView.setOnClickListener {
+            startActivity(Intent(this, AccelerometerDetailsActivity::class.java))
         }
     }
 }
