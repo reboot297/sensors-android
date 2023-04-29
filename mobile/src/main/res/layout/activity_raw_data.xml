@@ -56,6 +56,14 @@
             android:textSize="@dimen/raw_data_item_text_size" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accelerometer_uncalibrated_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_accelerometer_uncalibrated"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/position_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

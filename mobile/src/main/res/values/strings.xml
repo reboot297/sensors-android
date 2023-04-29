@@ -27,6 +27,7 @@
     <string name="raw_data_label_motion">Motion sensors:</string>
 
     <string name="raw_data_item_accelerometer">Accelerometer</string>
+    <string name="raw_data_item_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
     <string name="raw_data_item_proximity">Proximity</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
@@ -37,6 +38,7 @@
     <string name="screen_ambient_temperature_details">Ambient Temperature</string>
     <string name="screen_proximity_details">Proximity</string>
     <string name="screen_accelerometer_details">Accelerometer</string>
+    <string name="screen_accelerometer_uncalibrated_details">Accelerometer Uncalibrated</string>
     <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_relative_humidity_details">Relative humidity</string>

@@ -17,6 +17,7 @@
 package com.reboot297.sensors
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import com.reboot297.sensors.databinding.ActivityRawDataBinding
 import com.reboot297.sensors.raw.environment.AmbientTemperatureDetailsActivity
@@ -24,6 +25,7 @@ import com.reboot297.sensors.raw.environment.LightDetailsActivity
 import com.reboot297.sensors.raw.environment.PressureDetailsActivity
 import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
 import com.reboot297.sensors.raw.motion.AccelerometerDetailsActivity
+import com.reboot297.sensors.raw.motion.AccelerometerUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -66,6 +68,17 @@ class RawDataActivity : BaseActivity() {
 
         binding.accelerometerItemView.setOnClickListener {
             startActivity(Intent(this, AccelerometerDetailsActivity::class.java))
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            binding.accelerometerUncalibratedItemView.isEnabled = true
+            binding.accelerometerUncalibratedItemView.setOnClickListener {
+                startActivity(Intent(this, AccelerometerUncalibratedDetailsActivity::class.java))
+            }
+        } else {
+            binding.accelerometerUncalibratedItemView.isEnabled = false
+            binding.accelerometerUncalibratedItemView.text =
+                getString(R.string.raw_data_item_accelerometer_uncalibrated) + "\n" + getString(R.string.warning_api_26)
         }
     }
 }
