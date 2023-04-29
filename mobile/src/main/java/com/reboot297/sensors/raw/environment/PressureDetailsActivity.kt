@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reboot297.sensors.raw.environement
+package com.reboot297.sensors.raw.environment
 
 import android.annotation.SuppressLint
 import android.content.Context

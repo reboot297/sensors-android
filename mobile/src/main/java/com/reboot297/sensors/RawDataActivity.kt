@@ -19,8 +19,9 @@ package com.reboot297.sensors
 import android.content.Intent
 import android.os.Bundle
 import com.reboot297.sensors.databinding.ActivityRawDataBinding
-import com.reboot297.sensors.raw.environement.LightDetailsActivity
-import com.reboot297.sensors.raw.environement.PressureDetailsActivity
+import com.reboot297.sensors.raw.environment.LightDetailsActivity
+import com.reboot297.sensors.raw.environment.PressureDetailsActivity
+import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
 
@@ -46,6 +47,10 @@ class RawDataActivity : BaseActivity() {
                     PressureDetailsActivity::class.java
                 )
             )
+        }
+
+        binding.relativeHumidityItemView.setOnClickListener {
+            startActivity(Intent(this, RelativeHumidityDetailsActivity::class.java))
         }
     }
 }

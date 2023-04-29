@@ -51,7 +51,7 @@
             android:id="@+id/light_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
+            android:padding="8dp"
             android:text="@string/raw_data_item_light"
             android:textSize="@dimen/raw_data_item_text_size" />
 
@@ -59,8 +59,16 @@
             android:id="@+id/pressure_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
+            android:padding="8dp"
             android:text="@string/raw_data_item_pressure"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/relative_humidity_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_relative_humidity"
             android:textSize="@dimen/raw_data_item_text_size" />
 
 
