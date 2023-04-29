@@ -31,6 +31,7 @@ import com.reboot297.sensors.raw.motion.GyroscopeDetailsActivity
 import com.reboot297.sensors.raw.motion.GyroscopeUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.motion.LinearAccelerationDetailsActivity
 import com.reboot297.sensors.raw.motion.RotationVectorDetailsActivity
+import com.reboot297.sensors.raw.motion.SignificantMotionsDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -104,6 +105,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.rotationVectorItemView.setOnClickListener {
             startActivity(Intent(this, RotationVectorDetailsActivity::class.java))
+        }
+
+        binding.significantMotionsItemView.setOnClickListener {
+            startActivity(Intent(this, SignificantMotionsDetailsActivity::class.java))
         }
     }
 }

@@ -33,6 +33,7 @@
     <string name="raw_data_item_gyroscope_uncalibrated">Gyroscope Uncalibrated</string>
     <string name="raw_data_item_linear_acceleration">Linear Acceleration</string>
     <string name="raw_data_item_rotation_vector">Rotation Vector</string>
+    <string name="raw_data_item_significant_motions">Significant Motions</string>
     <string name="raw_data_item_proximity">Proximity</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
@@ -49,6 +50,7 @@
     <string name="screen_gyroscope_uncalibrated_details">Gyroscope Uncalibrated</string>
     <string name="screen_linear_acceleration_details">Linear Acceleration</string>
     <string name="screen_rotation_vector_details">Rotation Vector</string>
+    <string name="screen_rotation_significant_motions">Significant Motions</string>
     <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_relative_humidity_details">Relative humidity</string>
@@ -131,5 +133,7 @@
     <string name="about_source_label">Source:</string>
     <string name="about_source" translatable="false">https://github.com/reboot297/sensors-android</string>
     <string name="about_description">Simple application to view sensors info on android device</string>
+
+    <string name="significant_motion_value">Last significant motion triggered at %1$s</string>
 
 </resources>
