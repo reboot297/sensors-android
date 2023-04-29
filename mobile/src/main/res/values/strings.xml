@@ -22,11 +22,13 @@
 
     <string name="home_button_raw_data">Raw Data</string>
 
-    <string name="raw_data_label_environment">Environment sensors:\n</string>
+    <string name="raw_data_label_environment">Environment sensors:</string>
 
+    <string name="raw_data_item_light">Light</string>
     <string name="raw_data_item_pressure">Pressure</string>
 
     <string name="screen_raw_data_title">Raw Data</string>
+    <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_about">About…</string>
 
@@ -56,8 +58,10 @@
     <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
 
     <string name="unit_pressure">hPa</string>
+    <string name="unit_light">lx</string>
 
     <string name="format_unit_pressure">%1$s hPa</string>
+    <string name="format_unit_light">%1$s lx</string>
     <string name="format_unit_power">%1$s mA</string>
     <string name="format_unit_microseconds">%1$s microseconds</string>
 

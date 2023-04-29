@@ -19,6 +19,8 @@ package com.reboot297.sensors
 import android.content.Intent
 import android.os.Bundle
 import com.reboot297.sensors.databinding.ActivityRawDataBinding
+import com.reboot297.sensors.raw.environement.LightDetailsActivity
+import com.reboot297.sensors.raw.environement.PressureDetailsActivity
 
 class RawDataActivity : BaseActivity() {
 
@@ -32,6 +34,10 @@ class RawDataActivity : BaseActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.lightItemView.setOnClickListener {
+            startActivity(Intent(this, LightDetailsActivity::class.java))
+        }
 
         binding.pressureItemView.setOnClickListener {
             startActivity(

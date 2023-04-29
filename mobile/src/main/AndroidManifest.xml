@@ -14,7 +14,15 @@
             android:exported="false"
             android:label="@string/screen_about" />
         <activity
-            android:name=".PressureDetailsActivity"
+            android:name=".raw.environement.LightDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_light_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.environement.PressureDetailsActivity"
             android:exported="false"
             android:label="@string/screen_pressure_details">
             <meta-data
