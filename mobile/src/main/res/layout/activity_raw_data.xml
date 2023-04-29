@@ -42,6 +42,20 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/position_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/raw_data_label_position" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/proximity_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_proximity"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/environment_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -23,7 +23,9 @@
     <string name="home_button_raw_data">Raw Data</string>
 
     <string name="raw_data_label_environment">Environment sensors:</string>
+    <string name="raw_data_label_position">Position sensors:</string>
 
+    <string name="raw_data_item_proximity">Proximity</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
     <string name="raw_data_item_pressure">Pressure</string>
@@ -31,6 +33,7 @@
 
     <string name="screen_raw_data_title">Raw Data</string>
     <string name="screen_ambient_temperature_details">Ambient Temperature</string>
+    <string name="screen_proximity_details">Proximity</string>
     <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_relative_humidity_details">Relative humidity</string>
@@ -65,12 +68,14 @@
     <string name="unit_light">lx</string>
     <string name="unit_relative_humidity">%</string>
     <string name="unit_ambient_temperature">°C</string>
+    <string name="unit_proximity">cm</string>
 
     <string name="format_unit_pressure">%1$s hPa</string>
     <string name="format_unit_ambient_temperature">%1$s °C</string>
     <string name="format_unit_light">%1$s lx</string>
     <string name="format_unit_relative_humidity">%1$s %%</string>
     <string name="format_unit_power">%1$s mA</string>
+    <string name="format_unit_proximity">%1$s cm</string>
     <string name="format_unit_microseconds">%1$s microseconds</string>
 
 
