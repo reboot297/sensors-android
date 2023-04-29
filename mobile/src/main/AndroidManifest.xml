@@ -31,6 +31,14 @@
                 android:value=".RawDataActivity" />
         </activity>
         <activity
+            android:name=".raw.motion.GravityDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_gravity_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
             android:name=".raw.position.ProximityDetailsActivity"
             android:exported="false"
             android:label="@string/screen_proximity_details">
