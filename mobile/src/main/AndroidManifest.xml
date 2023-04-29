@@ -13,6 +13,87 @@
             android:name=".AboutActivity"
             android:exported="false"
             android:label="@string/screen_about" />
+
+        <activity
+            android:name=".raw.motion.AccelerometerDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_accelerometer_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.AccelerometerUncalibratedDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_accelerometer_uncalibrated_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.GravityDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_gravity_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.GyroscopeDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_gyroscope_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.GyroscopeUncalibratedDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_gyroscope_uncalibrated_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.LinearAccelerationDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_linear_acceleration_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.RotationVectorDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_rotation_vector_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.SignificantMotionsDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_significant_motions_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.StepDetectorDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_step_detection_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.StepCounterDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_step_counter_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
         <activity
             android:name=".raw.position.ProximityDetailsActivity"
             android:exported="false"

@@ -42,6 +42,92 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/motion_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/raw_data_label_motion" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accelerometer_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_accelerometer"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accelerometer_uncalibrated_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_accelerometer_uncalibrated"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gravity_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_gravity"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gyroscope_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_gyroscope"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gyroscope_uncalibrated_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_gyroscope_uncalibrated"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/linear_acceleration_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_linear_acceleration"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rotation_vector_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_rotation_vector"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/significant_motions_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_significant_motions"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/step_detector_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_step_detector"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/step_counter_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_step_counter"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/position_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
