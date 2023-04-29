@@ -26,20 +26,20 @@ import android.os.Build
 import android.os.Bundle
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityRelativeHumidityDetailsBinding
+import com.reboot297.sensors.databinding.ActivityDetailsRelativeHumidityBinding
 
 class RelativeHumidityDetailsActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityRelativeHumidityDetailsBinding
+    private lateinit var binding: ActivityDetailsRelativeHumidityBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityRelativeHumidityDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsRelativeHumidityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)

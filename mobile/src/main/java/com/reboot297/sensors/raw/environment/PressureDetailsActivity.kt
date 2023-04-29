@@ -26,20 +26,20 @@ import android.os.Build
 import android.os.Bundle
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityPressureDetailsBinding
+import com.reboot297.sensors.databinding.ActivityDetailsPressureBinding
 
 class PressureDetailsActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityPressureDetailsBinding
+    private lateinit var binding: ActivityDetailsPressureBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityPressureDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsPressureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)

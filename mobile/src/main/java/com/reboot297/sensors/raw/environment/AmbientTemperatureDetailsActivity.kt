@@ -26,20 +26,20 @@ import android.os.Build
 import android.os.Bundle
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsLightBinding
+import com.reboot297.sensors.databinding.ActivityDetailsAmbientTemperatureBinding
 
-class LightDetailsActivity : BaseActivity(), SensorEventListener {
+class AmbientTemperatureDetailsActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsLightBinding
+    private lateinit var binding: ActivityDetailsAmbientTemperatureBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailsLightBinding.inflate(layoutInflater)
+        binding = ActivityDetailsAmbientTemperatureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -58,7 +58,7 @@ class LightDetailsActivity : BaseActivity(), SensorEventListener {
         super.onStart()
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)
         sensor?.let { displaySensorInfo(it) }
 
     }
@@ -70,7 +70,7 @@ class LightDetailsActivity : BaseActivity(), SensorEventListener {
 
     private fun startListening() {
         sensorManager.registerListener(
-            this@LightDetailsActivity,
+            this@AmbientTemperatureDetailsActivity,
             sensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
@@ -92,15 +92,15 @@ class LightDetailsActivity : BaseActivity(), SensorEventListener {
         sensorTypeIdValue.text = sensor.type.toString()
         sensorVendorValue.text = sensor.vendor
         sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_light, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_light, sensor.resolution)
+        sensorMaxRangeValue.text = getString(R.string.format_unit_ambient_temperature, sensor.maximumRange)
+        sensorResolutionValue.text = getString(R.string.format_unit_ambient_temperature, sensor.resolution)
         sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
         sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
         sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
         sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
         sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
         sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_light)
+        sensorUnitValue.text = getString(R.string.unit_ambient_temperature)
         val reportingModes = resources.getStringArray(R.array.reporting_modes)
         sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
 
@@ -112,7 +112,7 @@ class LightDetailsActivity : BaseActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.firstOrNull()?.let {
-            binding.sensorValueView.text = getString(R.string.format_unit_light, it.toString())
+            binding.sensorValueView.text = getString(R.string.format_unit_ambient_temperature, it.toString())
         }
     }
 
