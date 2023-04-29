@@ -32,6 +32,8 @@ import com.reboot297.sensors.raw.motion.GyroscopeUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.motion.LinearAccelerationDetailsActivity
 import com.reboot297.sensors.raw.motion.RotationVectorDetailsActivity
 import com.reboot297.sensors.raw.motion.SignificantMotionsDetailsActivity
+import com.reboot297.sensors.raw.motion.StepCounterDetailsActivity
+import com.reboot297.sensors.raw.motion.StepDetectorDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -109,6 +111,14 @@ class RawDataActivity : BaseActivity() {
 
         binding.significantMotionsItemView.setOnClickListener {
             startActivity(Intent(this, SignificantMotionsDetailsActivity::class.java))
+        }
+
+        binding.stepCounterItemView.setOnClickListener {
+            startActivity(Intent(this, StepCounterDetailsActivity::class.java))
+        }
+
+        binding.stepDetectorItemView.setOnClickListener {
+            startActivity(Intent(this, StepDetectorDetailsActivity::class.java))
         }
     }
 }

@@ -34,6 +34,8 @@
     <string name="raw_data_item_linear_acceleration">Linear Acceleration</string>
     <string name="raw_data_item_rotation_vector">Rotation Vector</string>
     <string name="raw_data_item_significant_motions">Significant Motions</string>
+    <string name="raw_data_item_step_counter">Step Counter</string>
+    <string name="raw_data_item_step_detector">Step Detector</string>
     <string name="raw_data_item_proximity">Proximity</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
@@ -50,7 +52,9 @@
     <string name="screen_gyroscope_uncalibrated_details">Gyroscope Uncalibrated</string>
     <string name="screen_linear_acceleration_details">Linear Acceleration</string>
     <string name="screen_rotation_vector_details">Rotation Vector</string>
-    <string name="screen_rotation_significant_motions">Significant Motions</string>
+    <string name="screen_significant_motions_details">Significant Motions</string>
+    <string name="screen_step_detection_details">Step_detection</string>
+    <string name="screen_step_counter_details">Step Counter</string>
     <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_relative_humidity_details">Relative humidity</string>
@@ -82,6 +86,7 @@
     <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
 
     <string name="unit_pressure">hPa</string>
+    <string name="unit_step">step</string>
     <string name="unit_light">lx</string>
     <string name="unit_relative_humidity">%</string>
     <string name="unit_ambient_temperature">°C</string>
@@ -92,6 +97,7 @@
     <string name="unit_gyroscope">rad/s</string>
 
     <string name="format_unit_pressure">%1$s hPa</string>
+    <string name="format_unit_step_counter">%1$s steps</string>
     <string name="format_unit_acceleration">%1$s \u33a8</string>
     <string name="format_unit_gyroscope">%1$s rad/s</string>
     <string name="format_unit_gravity">%1$s \u33a8</string>
@@ -135,5 +141,6 @@
     <string name="about_description">Simple application to view sensors info on android device</string>
 
     <string name="significant_motion_value">Last significant motion triggered at %1$s</string>
+    <string name="step_detection_value">Last step_detections was at %1$s</string>
 
 </resources>

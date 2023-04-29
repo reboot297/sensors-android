@@ -73,7 +73,23 @@
         <activity
             android:name=".raw.motion.SignificantMotionsDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_rotation_significant_motions">
+            android:label="@string/screen_significant_motions_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.StepDetectorDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_step_detection_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.motion.StepCounterDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_step_counter_details">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
