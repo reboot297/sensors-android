@@ -25,20 +25,20 @@ import android.os.Build
 import android.os.Bundle
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsAccelerometerBinding
+import com.reboot297.sensors.databinding.ActivityDetailsLinearAccelerationBinding
 
-class AccelerometerDetailsActivity : BaseActivity(), SensorEventListener {
+class LinearAccelerationDetailsActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsAccelerometerBinding
+    private lateinit var binding: ActivityDetailsLinearAccelerationBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailsAccelerometerBinding.inflate(layoutInflater)
+        binding = ActivityDetailsLinearAccelerationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -57,7 +57,7 @@ class AccelerometerDetailsActivity : BaseActivity(), SensorEventListener {
         super.onStart()
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         sensor?.let { displaySensorInfo(it) }
 
     }
@@ -69,7 +69,7 @@ class AccelerometerDetailsActivity : BaseActivity(), SensorEventListener {
 
     private fun startListening() {
         sensorManager.registerListener(
-            this@AccelerometerDetailsActivity,
+            this@LinearAccelerationDetailsActivity,
             sensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )

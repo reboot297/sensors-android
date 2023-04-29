@@ -87,6 +87,13 @@
             android:text="@string/raw_data_item_gyroscope_uncalibrated"
             android:textSize="@dimen/raw_data_item_text_size" />
 
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/linear_acceleration_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_linear_acceleration"
+            android:textSize="@dimen/raw_data_item_text_size" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/position_label"

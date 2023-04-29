@@ -92,15 +92,15 @@ class AccelerometerUncalibratedDetailsActivity : BaseActivity(), SensorEventList
         sensorTypeIdValue.text = sensor.type.toString()
         sensorVendorValue.text = sensor.vendor
         sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_accelerometer, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_accelerometer, sensor.resolution)
+        sensorMaxRangeValue.text = getString(R.string.format_unit_acceleration, sensor.maximumRange)
+        sensorResolutionValue.text = getString(R.string.format_unit_acceleration, sensor.resolution)
         sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
         sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
         sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
         sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
         sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
         sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_accelerometer)
+        sensorUnitValue.text = getString(R.string.unit_acceleration)
         val reportingModes = resources.getStringArray(R.array.reporting_modes)
         sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
 
@@ -112,12 +112,12 @@ class AccelerometerUncalibratedDetailsActivity : BaseActivity(), SensorEventList
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {
-            binding.sensorValueRawXView.text = getString(R.string.format_unit_accelerometer, it[0].toString())
-            binding.sensorValueRawYView.text = getString(R.string.format_unit_accelerometer, it[1].toString())
-            binding.sensorValueRawZView.text = getString(R.string.format_unit_accelerometer, it[2].toString())
-            binding.sensorValueXView.text = getString(R.string.format_unit_accelerometer, it[3].toString())
-            binding.sensorValueYView.text = getString(R.string.format_unit_accelerometer, it[4].toString())
-            binding.sensorValueZView.text = getString(R.string.format_unit_accelerometer, it[5].toString())
+            binding.sensorValueRawXView.text = getString(R.string.format_unit_acceleration, it[0].toString())
+            binding.sensorValueRawYView.text = getString(R.string.format_unit_acceleration, it[1].toString())
+            binding.sensorValueRawZView.text = getString(R.string.format_unit_acceleration, it[2].toString())
+            binding.sensorValueXView.text = getString(R.string.format_unit_acceleration, it[3].toString())
+            binding.sensorValueYView.text = getString(R.string.format_unit_acceleration, it[4].toString())
+            binding.sensorValueZView.text = getString(R.string.format_unit_acceleration, it[5].toString())
         }
     }
 
