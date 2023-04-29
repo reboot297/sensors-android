@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".raw.motion.AccelerometerUncalibratedDetailsActivity">
+    tools:context=".raw.motion.GyroscopeDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -52,39 +52,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_value_raw_x_view"
-                style="@style/App.Raw.Details.Value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/measureSwitch"
-                tools:text="" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_value_raw_y_view"
-                style="@style/App.Raw.Details.Value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_value_raw_x_view"
-                tools:text="" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_value_raw_z_view"
-                style="@style/App.Raw.Details.Value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_value_raw_y_view"
-                tools:text="" />
-
-            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sensor_value_x_view"
                 style="@style/App.Raw.Details.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_value_raw_z_view"
+                app:layout_constraintTop_toBottomOf="@+id/measureSwitch"
                 tools:text="" />
 
             <com.google.android.material.textview.MaterialTextView

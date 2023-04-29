@@ -27,6 +27,7 @@ import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
 import com.reboot297.sensors.raw.motion.AccelerometerDetailsActivity
 import com.reboot297.sensors.raw.motion.AccelerometerUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.motion.GravityDetailsActivity
+import com.reboot297.sensors.raw.motion.GyroscopeDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -84,6 +85,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.gravityItemView.setOnClickListener {
             startActivity(Intent(this, GravityDetailsActivity::class.java))
+        }
+
+        binding.gyroscopeItemView.setOnClickListener {
+            startActivity(Intent(this, GyroscopeDetailsActivity::class.java))
         }
     }
 }

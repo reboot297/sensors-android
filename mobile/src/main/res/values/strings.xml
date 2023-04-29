@@ -29,6 +29,7 @@
     <string name="raw_data_item_accelerometer">Accelerometer</string>
     <string name="raw_data_item_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
     <string name="raw_data_item_gravity">Gravity</string>
+    <string name="raw_data_item_gyroscope">Gyroscope</string>
     <string name="raw_data_item_proximity">Proximity</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
@@ -41,6 +42,7 @@
     <string name="screen_accelerometer_details">Accelerometer</string>
     <string name="screen_accelerometer_uncalibrated_details">Accelerometer Uncalibrated</string>
     <string name="screen_gravity_details">Gravity</string>
+    <string name="screen_gyroscope_details">Gyroscope</string>
     <string name="screen_light_details">Light</string>
     <string name="screen_pressure_details">Pressure</string>
     <string name="screen_relative_humidity_details">Relative humidity</string>
@@ -78,9 +80,11 @@
     <string name="unit_proximity">cm</string>
     <string name="unit_accelerometer">\u33a8</string>
     <string name="unit_gravity">\u33a8</string>
+    <string name="unit_gyroscope">rad/s</string>
 
     <string name="format_unit_pressure">%1$s hPa</string>
     <string name="format_unit_accelerometer">%1$s \u33a8</string>
+    <string name="format_unit_gyroscope">%1$s rad/s</string>
     <string name="format_unit_gravity">%1$s \u33a8</string>
     <string name="format_unit_ambient_temperature">%1$s °C</string>
     <string name="format_unit_light">%1$s lx</string>
