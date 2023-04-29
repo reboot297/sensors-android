@@ -63,6 +63,14 @@
                 android:value=".RawDataActivity" />
         </activity>
         <activity
+            android:name=".raw.motion.RotationVectorDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_rotation_vector_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
             android:name=".raw.position.ProximityDetailsActivity"
             android:exported="false"
             android:label="@string/screen_proximity_details">
