@@ -14,9 +14,33 @@
             android:exported="false"
             android:label="@string/screen_about" />
         <activity
-            android:name=".PressureDetailsActivity"
+            android:name=".raw.environment.AmbientTemperatureDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_ambient_temperature_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.environment.LightDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_light_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.environment.PressureDetailsActivity"
             android:exported="false"
             android:label="@string/screen_pressure_details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RawDataActivity" />
+        </activity>
+        <activity
+            android:name=".raw.environment.RelativeHumidityDetailsActivity"
+            android:exported="false"
+            android:label="@string/screen_relative_humidity_details">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />

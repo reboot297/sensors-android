@@ -1,20 +1,20 @@
 /*
  * Copyright (c) 2023. Viktor Pop
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *           http://www.apache.org/licenses/LICENSE-2.0
+ *        http://www.apache.org/licenses/LICENSE-2.0
  *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-package com.reboot297.sensors
+package com.reboot297.sensors.raw.environment
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -24,27 +24,28 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import com.reboot297.sensors.databinding.ActivityPressureDetailsBinding
+import com.reboot297.sensors.BaseActivity
+import com.reboot297.sensors.R
+import com.reboot297.sensors.databinding.ActivityDetailsLightBinding
 
-class PressureDetailsActivity : BaseActivity(), SensorEventListener {
+class LightDetailsActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityPressureDetailsBinding
+    private lateinit var binding: ActivityDetailsLightBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityPressureDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsLightBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.measureSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+        binding.measureSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 startListening()
             } else {
@@ -57,7 +58,7 @@ class PressureDetailsActivity : BaseActivity(), SensorEventListener {
         super.onStart()
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
         sensor?.let { displaySensorInfo(it) }
 
     }
@@ -69,7 +70,7 @@ class PressureDetailsActivity : BaseActivity(), SensorEventListener {
 
     private fun startListening() {
         sensorManager.registerListener(
-            this@PressureDetailsActivity,
+            this@LightDetailsActivity,
             sensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
@@ -91,15 +92,15 @@ class PressureDetailsActivity : BaseActivity(), SensorEventListener {
         sensorTypeIdValue.text = sensor.type.toString()
         sensorVendorValue.text = sensor.vendor
         sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_pressure, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_pressure, sensor.resolution)
+        sensorMaxRangeValue.text = getString(R.string.format_unit_light, sensor.maximumRange)
+        sensorResolutionValue.text = getString(R.string.format_unit_light, sensor.resolution)
         sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
         sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
         sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
         sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
         sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
         sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_pressure)
+        sensorUnitValue.text = getString(R.string.unit_light)
         val reportingModes = resources.getStringArray(R.array.reporting_modes)
         sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
 
@@ -111,7 +112,7 @@ class PressureDetailsActivity : BaseActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.firstOrNull()?.let {
-            binding.sensorValueView.text = getString(R.string.format_unit_pressure, it.toString())
+            binding.sensorValueView.text = getString(R.string.format_unit_light, it.toString())
         }
     }
 

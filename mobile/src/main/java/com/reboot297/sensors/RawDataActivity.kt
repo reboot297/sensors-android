@@ -19,6 +19,10 @@ package com.reboot297.sensors
 import android.content.Intent
 import android.os.Bundle
 import com.reboot297.sensors.databinding.ActivityRawDataBinding
+import com.reboot297.sensors.raw.environment.AmbientTemperatureDetailsActivity
+import com.reboot297.sensors.raw.environment.LightDetailsActivity
+import com.reboot297.sensors.raw.environment.PressureDetailsActivity
+import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
 
@@ -33,6 +37,14 @@ class RawDataActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        binding.ambientTemperatureItemView.setOnClickListener {
+            startActivity(Intent(this, AmbientTemperatureDetailsActivity::class.java))
+        }
+
+        binding.lightItemView.setOnClickListener {
+            startActivity(Intent(this, LightDetailsActivity::class.java))
+        }
+
         binding.pressureItemView.setOnClickListener {
             startActivity(
                 Intent(
@@ -40,6 +52,10 @@ class RawDataActivity : BaseActivity() {
                     PressureDetailsActivity::class.java
                 )
             )
+        }
+
+        binding.relativeHumidityItemView.setOnClickListener {
+            startActivity(Intent(this, RelativeHumidityDetailsActivity::class.java))
         }
     }
 }
