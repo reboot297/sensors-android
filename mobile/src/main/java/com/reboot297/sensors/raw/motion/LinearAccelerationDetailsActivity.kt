@@ -15,59 +15,16 @@
  */
 
 package com.reboot297.sensors.raw.motion
-import android.annotation.SuppressLint
-import android.content.Context
+
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.os.Build
-import android.os.Bundle
-import com.reboot297.sensors.BaseActivity
+import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsLinearAccelerationBinding
 
-class LinearAccelerationDetailsActivity : BaseActivity(), SensorEventListener {
-
-    private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsLinearAccelerationBinding
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsLinearAccelerationBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                startListening()
-            } else {
-                stopListening()
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
-        sensor?.let { displaySensorInfo(it) }
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+class LinearAccelerationDetailsActivity : BaseSensorActivity(), SensorEventListener {
+    override fun startListening() {
         sensorManager.registerListener(
             this@LinearAccelerationDetailsActivity,
             sensor,
@@ -75,45 +32,13 @@ class LinearAccelerationDetailsActivity : BaseActivity(), SensorEventListener {
         )
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensorManager.unregisterListener(this)
-    }
-
-    @SuppressLint("StringFormatMatches")
-    private fun displaySensorInfo(sensor: Sensor) = with(binding) {
-        sensorNameValue.text = sensor.name
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sensorIdValue.text = sensor.id.toString()
-            sensorAdditionalInfoValue.text = sensor.isAdditionalInfoSupported.toString()
-            sensorIsDynamicValue.text = sensor.isDynamicSensor.toString()
-        }
-        sensorTypeValue.text = sensor.stringType
-        sensorTypeIdValue.text = sensor.type.toString()
-        sensorVendorValue.text = sensor.vendor
-        sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_acceleration, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_acceleration, sensor.resolution)
-        sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
-        sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
-        sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
-        sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
-        sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
-        sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_acceleration)
-        val reportingModes = resources.getStringArray(R.array.reporting_modes)
-        sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val levels = resources.getStringArray(R.array.report_rate_levels)
-            sensorDirectReportRateLevelValue.text = levels[sensor.highestDirectReportRateLevel]
-        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {
-            binding.sensorValueXView.text = getString(R.string.format_unit_acceleration, it[0].toString())
-            binding.sensorValueYView.text = getString(R.string.format_unit_acceleration, it[1].toString())
-            binding.sensorValueZView.text = getString(R.string.format_unit_acceleration, it[2].toString())
+            binding.sensorValueView.text = format3Items(it)
         }
     }
 
@@ -124,4 +49,8 @@ class LinearAccelerationDetailsActivity : BaseActivity(), SensorEventListener {
             resources.getStringArray(R.array.accuracy_values)[accuracy]
         }
     }
+
+    override fun getUnit() = R.string.unit_acceleration
+
+    override fun getSensorType() = Sensor.TYPE_LINEAR_ACCELERATION
 }

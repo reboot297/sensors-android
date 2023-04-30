@@ -16,98 +16,24 @@
 
 package com.reboot297.sensors.raw.motion
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.hardware.Sensor
-import android.hardware.SensorManager
 import android.hardware.TriggerEvent
 import android.hardware.TriggerEventListener
-import android.os.Build
-import android.os.Bundle
-import com.reboot297.sensors.BaseActivity
+import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsSignificantMotionsBinding
 import java.util.Date
 
-class SignificantMotionsDetailsActivity : BaseActivity() {
+class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
-    private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsSignificantMotionsBinding
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsSignificantMotionsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                startListening()
-            } else {
-                stopListening()
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
-        sensor?.let { displaySensorInfo(it) }
-
-    }
-
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+    override fun startListening() {
         sensor?.let {
             sensorManager.requestTriggerSensor(triggerEventListener, it)
         }
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensor?.let {
             sensorManager.cancelTriggerSensor(triggerEventListener, sensor)
-        }
-    }
-
-    @SuppressLint("StringFormatMatches")
-    private fun displaySensorInfo(sensor: Sensor) = with(binding) {
-        sensorNameValue.text = sensor.name
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sensorIdValue.text = sensor.id.toString()
-            sensorAdditionalInfoValue.text = sensor.isAdditionalInfoSupported.toString()
-            sensorIsDynamicValue.text = sensor.isDynamicSensor.toString()
-        }
-        sensorTypeValue.text = sensor.stringType
-        sensorTypeIdValue.text = sensor.type.toString()
-        sensorVendorValue.text = sensor.vendor
-        sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_pressure, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_pressure, sensor.resolution)
-        sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
-        sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
-        sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
-        sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
-        sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
-        sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_pressure)
-        val reportingModes = resources.getStringArray(R.array.reporting_modes)
-        sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val levels = resources.getStringArray(R.array.report_rate_levels)
-            sensorDirectReportRateLevelValue.text = levels[sensor.highestDirectReportRateLevel]
         }
     }
 
@@ -116,4 +42,8 @@ class SignificantMotionsDetailsActivity : BaseActivity() {
             binding.sensorValueView.text = getString(R.string.significant_motion_value, Date())
         }
     }
+
+    override fun getUnit() = R.string.unitless
+
+    override fun getSensorType() = Sensor.TYPE_SIGNIFICANT_MOTION
 }

@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2023. Viktor Pop
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,15 +15,6 @@
   -->
 
 <resources>
-
-    <dimen name="screen_padding">16dp</dimen>
-
-    <dimen name="app_raw_details_value_text_size">18sp</dimen>
-    <dimen name="app_raw_details_label_text_size">16sp</dimen>
-
-    <dimen name="app_about_value_text_size">18sp</dimen>
-    <dimen name="app_about_label_text_size">16sp</dimen>
-
-    <dimen name="app_raw_data_section_text_size">20sp</dimen>
-    <dimen name="app_raw_data_item_text_size">18sp</dimen>
+    <color name="raw_data_section_background">#FF222222</color>
+    <color name="raw_data_section_text_color">#FFFFFFFF</color>
 </resources>
