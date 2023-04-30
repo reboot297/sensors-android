@@ -36,6 +36,7 @@ import com.reboot297.sensors.raw.motion.StepCounterDetailsActivity
 import com.reboot297.sensors.raw.motion.StepDetectorDetailsActivity
 import com.reboot297.sensors.raw.position.GameRotationVectorDetailsActivity
 import com.reboot297.sensors.raw.position.GeomagneticRotationVectorDetailsActivity
+import com.reboot297.sensors.raw.position.MagneticFieldDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -129,6 +130,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.geomagneticRotationVectorItemView.setOnClickListener {
             startActivity(Intent(this, GeomagneticRotationVectorDetailsActivity::class.java))
+        }
+
+        binding.magneticFieldItemView.setOnClickListener {
+            startActivity(Intent(this, MagneticFieldDetailsActivity::class.java))
         }
     }
 }
