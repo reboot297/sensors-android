@@ -40,6 +40,7 @@
     <string name="raw_data_item_game_rotation_vector">Game Rotation Vector</string>
     <string name="raw_data_item_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
     <string name="raw_data_item_magnetic_field">Magnetic Field</string>
+    <string name="raw_data_item_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
     <string name="raw_data_item_pressure">Pressure</string>
@@ -51,6 +52,7 @@
     <string name="screen_game_rotation_vector_details">Game Rotation Vector</string>
     <string name="screen_geomagnetic_rotation_vector_details">Geomagnetic Rotation Vector</string>
     <string name="screen_magnetic_field_details">Magnetic Field</string>
+    <string name="screen_magnetic_field_uncalibrated_details">Magnetic Field Uncalibrated</string>
     <string name="screen_accelerometer_details">Accelerometer</string>
     <string name="screen_accelerometer_uncalibrated_details">Accelerometer Uncalibrated</string>
     <string name="screen_gravity_details">Gravity</string>

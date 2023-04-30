@@ -37,6 +37,7 @@ import com.reboot297.sensors.raw.motion.StepDetectorDetailsActivity
 import com.reboot297.sensors.raw.position.GameRotationVectorDetailsActivity
 import com.reboot297.sensors.raw.position.GeomagneticRotationVectorDetailsActivity
 import com.reboot297.sensors.raw.position.MagneticFieldDetailsActivity
+import com.reboot297.sensors.raw.position.MagneticFieldUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -134,6 +135,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.magneticFieldItemView.setOnClickListener {
             startActivity(Intent(this, MagneticFieldDetailsActivity::class.java))
+        }
+
+        binding.magneticFieldUncalibratedItemView.setOnClickListener {
+            startActivity(Intent(this, MagneticFieldUncalibratedDetailsActivity::class.java))
         }
     }
 }
