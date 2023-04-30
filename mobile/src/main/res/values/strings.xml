@@ -41,6 +41,7 @@
     <string name="raw_data_item_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
     <string name="raw_data_item_magnetic_field">Magnetic Field</string>
     <string name="raw_data_item_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
+    <string name="raw_data_item_orientation">Orientation</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
     <string name="raw_data_item_light">Light</string>
     <string name="raw_data_item_pressure">Pressure</string>
@@ -53,6 +54,7 @@
     <string name="screen_geomagnetic_rotation_vector_details">Geomagnetic Rotation Vector</string>
     <string name="screen_magnetic_field_details">Magnetic Field</string>
     <string name="screen_magnetic_field_uncalibrated_details">Magnetic Field Uncalibrated</string>
+    <string name="screen_orientation_details">Orientation</string>
     <string name="screen_accelerometer_details">Accelerometer</string>
     <string name="screen_accelerometer_uncalibrated_details">Accelerometer Uncalibrated</string>
     <string name="screen_gravity_details">Gravity</string>
@@ -104,11 +106,13 @@
     <string name="unit_gravity">\u33a8</string>
     <string name="unit_gyroscope">rad/s</string>
     <string name="unit_magnetic_field">μT</string>
+    <string name="unit_orientation">Degrees</string>
 
     <string name="format_unit_pressure">%1$s hPa</string>
     <string name="format_unit_step_counter">%1$s steps</string>
     <string name="format_unit_acceleration">%1$s \u33a8</string>
     <string name="format_unit_magnetic_field">%1$s μT</string>
+    <string name="format_unit_orientation">%1$s degrees</string>
     <string name="format_unit_gyroscope">%1$s rad/s</string>
     <string name="format_unit_gravity">%1$s \u33a8</string>
     <string name="format_unit_ambient_temperature">%1$s °C</string>
