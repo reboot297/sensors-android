@@ -43,12 +43,14 @@
     <string name="raw_data_item_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
     <string name="raw_data_item_orientation">Orientation</string>
     <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
+    <string name="raw_data_item_temperature">Temperature</string>
     <string name="raw_data_item_light">Light</string>
     <string name="raw_data_item_pressure">Pressure</string>
     <string name="raw_data_item_relative_humidity">Relative Humidity</string>
 
     <string name="screen_raw_data_title">Raw Data</string>
     <string name="screen_ambient_temperature_details">Ambient Temperature</string>
+    <string name="screen_temperature_details">Temperature</string>
     <string name="screen_proximity_details">Proximity</string>
     <string name="screen_game_rotation_vector_details">Game Rotation Vector</string>
     <string name="screen_geomagnetic_rotation_vector_details">Geomagnetic Rotation Vector</string>

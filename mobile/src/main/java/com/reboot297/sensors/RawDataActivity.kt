@@ -24,6 +24,7 @@ import com.reboot297.sensors.raw.environment.AmbientTemperatureDetailsActivity
 import com.reboot297.sensors.raw.environment.LightDetailsActivity
 import com.reboot297.sensors.raw.environment.PressureDetailsActivity
 import com.reboot297.sensors.raw.environment.RelativeHumidityDetailsActivity
+import com.reboot297.sensors.raw.environment.TemperatureDetailsActivity
 import com.reboot297.sensors.raw.motion.AccelerometerDetailsActivity
 import com.reboot297.sensors.raw.motion.AccelerometerUncalibratedDetailsActivity
 import com.reboot297.sensors.raw.motion.GravityDetailsActivity
@@ -56,6 +57,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.ambientTemperatureItemView.setOnClickListener {
             startActivity(Intent(this, AmbientTemperatureDetailsActivity::class.java))
+        }
+
+        binding.temperatureItemView.setOnClickListener {
+            startActivity(Intent(this, TemperatureDetailsActivity::class.java))
         }
 
         binding.lightItemView.setOnClickListener {
