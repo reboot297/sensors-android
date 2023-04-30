@@ -34,6 +34,7 @@ import com.reboot297.sensors.raw.motion.RotationVectorDetailsActivity
 import com.reboot297.sensors.raw.motion.SignificantMotionsDetailsActivity
 import com.reboot297.sensors.raw.motion.StepCounterDetailsActivity
 import com.reboot297.sensors.raw.motion.StepDetectorDetailsActivity
+import com.reboot297.sensors.raw.position.GameRotationVectorDetailsActivity
 import com.reboot297.sensors.raw.position.ProximityDetailsActivity
 
 class RawDataActivity : BaseActivity() {
@@ -119,6 +120,10 @@ class RawDataActivity : BaseActivity() {
 
         binding.stepDetectorItemView.setOnClickListener {
             startActivity(Intent(this, StepDetectorDetailsActivity::class.java))
+        }
+
+        binding.gameRotationVectorItemView.setOnClickListener {
+            startActivity(Intent(this, GameRotationVectorDetailsActivity::class.java))
         }
     }
 }

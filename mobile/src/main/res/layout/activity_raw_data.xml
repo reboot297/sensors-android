@@ -134,6 +134,14 @@
             android:text="@string/raw_data_label_position" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/game_rotation_vector_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/raw_data_item_game_rotation_vector"
+            android:textSize="@dimen/raw_data_item_text_size" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/proximity_item_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
