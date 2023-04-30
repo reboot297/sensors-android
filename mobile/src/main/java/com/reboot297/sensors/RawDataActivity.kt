@@ -96,7 +96,7 @@ class RawDataActivity : BaseActivity() {
         } else {
             binding.accelerometerUncalibratedItemView.isEnabled = false
             binding.accelerometerUncalibratedItemView.text =
-                getString(R.string.raw_data_item_accelerometer_uncalibrated) + "\n" + getString(R.string.warning_api_26)
+                getString(R.string.title_accelerometer_uncalibrated) + "\n" + getString(R.string.warning_api_26)
         }
 
         binding.gravityItemView.setOnClickListener {

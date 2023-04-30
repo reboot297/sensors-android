@@ -15,59 +15,17 @@
  */
 
 package com.reboot297.sensors.raw.position
-import android.annotation.SuppressLint
-import android.content.Context
+
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.os.Build
-import android.os.Bundle
-import androidx.annotation.RequiresApi
-import com.reboot297.sensors.BaseActivity
+import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsAccelerometerUncalibratedBinding
 
-class MagneticFieldUncalibratedDetailsActivity : BaseActivity(), SensorEventListener {
+class MagneticFieldUncalibratedDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
-    private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsAccelerometerUncalibratedBinding
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsAccelerometerUncalibratedBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                startListening()
-            } else {
-                stopListening()
-            }
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        //TODO(Viktor) handle if there are several sensors for one type
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED)
-        sensor?.let { displaySensorInfo(it) }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+    override fun startListening() {
         sensorManager.registerListener(
             this@MagneticFieldUncalibratedDetailsActivity,
             sensor,
@@ -75,48 +33,13 @@ class MagneticFieldUncalibratedDetailsActivity : BaseActivity(), SensorEventList
         )
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensorManager.unregisterListener(this)
-    }
-
-    @SuppressLint("StringFormatMatches")
-    private fun displaySensorInfo(sensor: Sensor) = with(binding) {
-        sensorNameValue.text = sensor.name
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sensorIdValue.text = sensor.id.toString()
-            sensorAdditionalInfoValue.text = sensor.isAdditionalInfoSupported.toString()
-            sensorIsDynamicValue.text = sensor.isDynamicSensor.toString()
-        }
-        sensorTypeValue.text = sensor.stringType
-        sensorTypeIdValue.text = sensor.type.toString()
-        sensorVendorValue.text = sensor.vendor
-        sensorVersionValue.text = sensor.version.toString()
-        sensorMaxRangeValue.text = getString(R.string.format_unit_magnetic_field, sensor.maximumRange)
-        sensorResolutionValue.text = getString(R.string.format_unit_magnetic_field, sensor.resolution)
-        sensorPowerValue.text = getString(R.string.format_unit_power, sensor.power)
-        sensorMinDelayValue.text = getString(R.string.format_unit_microseconds, sensor.minDelay)
-        sensorMaxDelayValue.text = getString(R.string.format_unit_microseconds, sensor.maxDelay)
-        sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
-        sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
-        sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-        sensorUnitValue.text = getString(R.string.unit_magnetic_field)
-        val reportingModes = resources.getStringArray(R.array.reporting_modes)
-        sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val levels = resources.getStringArray(R.array.report_rate_levels)
-            sensorDirectReportRateLevelValue.text = levels[sensor.highestDirectReportRateLevel]
-        }
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {
-            binding.sensorValueRawXView.text = getString(R.string.format_unit_magnetic_field, it[0].toString())
-            binding.sensorValueRawYView.text = getString(R.string.format_unit_magnetic_field, it[1].toString())
-            binding.sensorValueRawZView.text = getString(R.string.format_unit_magnetic_field, it[2].toString())
-            binding.sensorValueXView.text = getString(R.string.format_unit_magnetic_field, it[3].toString())
-            binding.sensorValueYView.text = getString(R.string.format_unit_magnetic_field, it[4].toString())
-            binding.sensorValueZView.text = getString(R.string.format_unit_magnetic_field, it[5].toString())
+            binding.sensorValueView.text = format6Items(it)
         }
     }
 
@@ -127,4 +50,9 @@ class MagneticFieldUncalibratedDetailsActivity : BaseActivity(), SensorEventList
             resources.getStringArray(R.array.accuracy_values)[accuracy]
         }
     }
+
+    override fun getUnit() = R.string.unit_magnetic_field
+
+    override fun getSensorType() = Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED
+
 }

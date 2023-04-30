@@ -17,7 +17,7 @@
         <activity
             android:name=".raw.motion.AccelerometerDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_accelerometer_details">
+            android:label="@string/title_accelerometer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -25,7 +25,7 @@
         <activity
             android:name=".raw.motion.AccelerometerUncalibratedDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_accelerometer_uncalibrated_details">
+            android:label="@string/title_accelerometer_uncalibrated">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -33,7 +33,7 @@
         <activity
             android:name=".raw.motion.GravityDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_gravity_details">
+            android:label="@string/title_gravity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -41,7 +41,7 @@
         <activity
             android:name=".raw.motion.GyroscopeDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_gyroscope_details">
+            android:label="@string/title_gyroscope">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -49,7 +49,7 @@
         <activity
             android:name=".raw.motion.GyroscopeUncalibratedDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_gyroscope_uncalibrated_details">
+            android:label="@string/title_gyroscope_uncalibrated">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -57,7 +57,7 @@
         <activity
             android:name=".raw.motion.LinearAccelerationDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_linear_acceleration_details">
+            android:label="@string/title_linear_acceleration">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -65,7 +65,7 @@
         <activity
             android:name=".raw.motion.RotationVectorDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_rotation_vector_details">
+            android:label="@string/title_rotation_vector">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -73,7 +73,7 @@
         <activity
             android:name=".raw.motion.SignificantMotionsDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_significant_motions_details">
+            android:label="@string/title_significant_motions">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -81,7 +81,7 @@
         <activity
             android:name=".raw.motion.StepDetectorDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_step_detection_details">
+            android:label="@string/title_step_detector">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -89,7 +89,7 @@
         <activity
             android:name=".raw.motion.StepCounterDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_step_counter_details">
+            android:label="@string/title_step_counter">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -97,7 +97,7 @@
         <activity
             android:name=".raw.position.GameRotationVectorDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_game_rotation_vector_details">
+            android:label="@string/title_game_rotation_vector">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -105,7 +105,7 @@
         <activity
             android:name=".raw.position.GeomagneticRotationVectorDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_geomagnetic_rotation_vector_details">
+            android:label="@string/title_geomagnetic_rotation_vector">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -113,7 +113,7 @@
         <activity
             android:name=".raw.position.MagneticFieldDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_magnetic_field_details">
+            android:label="@string/title_magnetic_field">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -121,7 +121,7 @@
         <activity
             android:name=".raw.position.MagneticFieldUncalibratedDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_magnetic_field_uncalibrated_details">
+            android:label="@string/title_magnetic_field_uncalibrated">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -129,7 +129,7 @@
         <activity
             android:name=".raw.position.OrientationDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_magnetic_field_uncalibrated_details">
+            android:label="@string/title_orientation">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -137,7 +137,7 @@
         <activity
             android:name=".raw.position.ProximityDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_proximity_details">
+            android:label="@string/title_proximity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -145,7 +145,7 @@
         <activity
             android:name=".raw.environment.AmbientTemperatureDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_ambient_temperature_details">
+            android:label="@string/title_ambient_temperature">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -153,7 +153,7 @@
         <activity
             android:name=".raw.environment.TemperatureDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_temperature_details">
+            android:label="@string/title_temperature">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -161,7 +161,7 @@
         <activity
             android:name=".raw.environment.LightDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_light_details">
+            android:label="@string/title_light">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -169,7 +169,7 @@
         <activity
             android:name=".raw.environment.PressureDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_pressure_details">
+            android:label="@string/title_pressure">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />
@@ -177,7 +177,7 @@
         <activity
             android:name=".raw.environment.RelativeHumidityDetailsActivity"
             android:exported="false"
-            android:label="@string/screen_relative_humidity_details">
+            android:label="@string/title_relative_humidity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RawDataActivity" />

@@ -26,52 +26,32 @@
     <string name="raw_data_label_position">Position sensors:</string>
     <string name="raw_data_label_motion">Motion sensors:</string>
 
-    <string name="raw_data_item_accelerometer">Accelerometer</string>
-    <string name="raw_data_item_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
-    <string name="raw_data_item_gravity">Gravity</string>
-    <string name="raw_data_item_gyroscope">Gyroscope</string>
-    <string name="raw_data_item_gyroscope_uncalibrated">Gyroscope Uncalibrated</string>
-    <string name="raw_data_item_linear_acceleration">Linear Acceleration</string>
-    <string name="raw_data_item_rotation_vector">Rotation Vector</string>
-    <string name="raw_data_item_significant_motions">Significant Motions</string>
-    <string name="raw_data_item_step_counter">Step Counter</string>
-    <string name="raw_data_item_step_detector">Step Detector</string>
-    <string name="raw_data_item_proximity">Proximity</string>
-    <string name="raw_data_item_game_rotation_vector">Game Rotation Vector</string>
-    <string name="raw_data_item_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
-    <string name="raw_data_item_magnetic_field">Magnetic Field</string>
-    <string name="raw_data_item_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
-    <string name="raw_data_item_orientation">Orientation</string>
-    <string name="raw_data_item_ambient_temperature">Ambient Temperature</string>
-    <string name="raw_data_item_temperature">Temperature</string>
-    <string name="raw_data_item_light">Light</string>
-    <string name="raw_data_item_pressure">Pressure</string>
-    <string name="raw_data_item_relative_humidity">Relative Humidity</string>
+    <string name="title_accelerometer">Accelerometer</string>
+    <string name="title_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
+    <string name="title_gravity">Gravity</string>
+    <string name="title_gyroscope">Gyroscope</string>
+    <string name="title_gyroscope_uncalibrated">Gyroscope Uncalibrated</string>
+    <string name="title_linear_acceleration">Linear Acceleration</string>
+    <string name="title_rotation_vector">Rotation Vector</string>
+    <string name="title_significant_motions">Significant Motions</string>
+    <string name="title_step_counter">Step Counter</string>
+    <string name="title_step_detector">Step Detector</string>
+    <string name="title_proximity">Proximity</string>
+    <string name="title_game_rotation_vector">Game Rotation Vector</string>
+    <string name="title_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
+    <string name="title_magnetic_field">Magnetic Field</string>
+    <string name="title_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
+    <string name="title_orientation">Orientation</string>
+    <string name="title_ambient_temperature">Ambient Temperature</string>
+    <string name="title_temperature">Temperature</string>
+    <string name="title_light">Light</string>
+    <string name="title_pressure">Pressure</string>
+    <string name="title_relative_humidity">Relative Humidity</string>
 
     <string name="screen_raw_data_title">Raw Data</string>
-    <string name="screen_ambient_temperature_details">Ambient Temperature</string>
-    <string name="screen_temperature_details">Temperature</string>
-    <string name="screen_proximity_details">Proximity</string>
-    <string name="screen_game_rotation_vector_details">Game Rotation Vector</string>
-    <string name="screen_geomagnetic_rotation_vector_details">Geomagnetic Rotation Vector</string>
-    <string name="screen_magnetic_field_details">Magnetic Field</string>
-    <string name="screen_magnetic_field_uncalibrated_details">Magnetic Field Uncalibrated</string>
-    <string name="screen_orientation_details">Orientation</string>
-    <string name="screen_accelerometer_details">Accelerometer</string>
-    <string name="screen_accelerometer_uncalibrated_details">Accelerometer Uncalibrated</string>
-    <string name="screen_gravity_details">Gravity</string>
-    <string name="screen_gyroscope_details">Gyroscope</string>
-    <string name="screen_gyroscope_uncalibrated_details">Gyroscope Uncalibrated</string>
-    <string name="screen_linear_acceleration_details">Linear Acceleration</string>
-    <string name="screen_rotation_vector_details">Rotation Vector</string>
-    <string name="screen_significant_motions_details">Significant Motions</string>
-    <string name="screen_step_detection_details">Step_detection</string>
-    <string name="screen_step_counter_details">Step Counter</string>
-    <string name="screen_light_details">Light</string>
-    <string name="screen_pressure_details">Pressure</string>
-    <string name="screen_relative_humidity_details">Relative humidity</string>
     <string name="screen_about">About…</string>
 
+    <string name="warning_sensor_not_available">Sensor is not available</string>
     <string name="warning_api_24"><![CDATA[Available on devices with API >= 24]]></string>
     <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
 
@@ -97,50 +77,38 @@
     <string name="details_sensor_direct_report_rate_level">Highest direct report rate level:</string>
     <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
 
-    <string name="unit_pressure">hPa</string>
-    <string name="unit_step">step</string>
-    <string name="unit_light">lx</string>
-    <string name="unit_relative_humidity">%</string>
-    <string name="unit_ambient_temperature">°C</string>
-    <string name="unit_proximity">cm</string>
-    <string name="unit_acceleration">\u33a8</string>
-    <string name="unitless">Unitless</string>
-    <string name="unit_gravity">\u33a8</string>
-    <string name="unit_gyroscope">rad/s</string>
-    <string name="unit_magnetic_field">μT</string>
-    <string name="unit_orientation">Degrees</string>
-
-    <string name="format_unit_pressure">%1$s hPa</string>
-    <string name="format_unit_step_counter">%1$s steps</string>
-    <string name="format_unit_acceleration">%1$s \u33a8</string>
-    <string name="format_unit_magnetic_field">%1$s μT</string>
-    <string name="format_unit_orientation">%1$s degrees</string>
-    <string name="format_unit_gyroscope">%1$s rad/s</string>
-    <string name="format_unit_gravity">%1$s \u33a8</string>
-    <string name="format_unit_ambient_temperature">%1$s °C</string>
-    <string name="format_unit_light">%1$s lx</string>
-    <string name="format_unit_relative_humidity">%1$s %%</string>
-    <string name="format_unit_power">%1$s mA</string>
-    <string name="format_unit_proximity">%1$s cm</string>
-    <string name="format_unit_microseconds">%1$s microseconds</string>
+    <string name="unit_pressure" translatable="false">hPa</string>
+    <string name="unit_step" translatable="false">step</string>
+    <string name="unit_light" translatable="false">lx</string>
+    <string name="unit_relative_humidity" translatable="false">%</string>
+    <string name="unit_ambient_temperature" translatable="false">°C</string>
+    <string name="unit_proximity" translatable="false">cm</string>
+    <string name="unit_acceleration" translatable="false">\u33a8</string>
+    <string name="unitless" translatable="false" />
+    <string name="unit_gravity" translatable="false">\u33a8</string>
+    <string name="unit_gyroscope" translatable="false">rad/s</string>
+    <string name="unit_magnetic_field" translatable="false">μT</string>
+    <string name="unit_orientation" translatable="false">Degrees</string>
+    <string name="unit_power" translatable="false">mA</string>
+    <string name="unit_microseconds" translatable="false">microseconds</string>
 
 
-    <string-array name="reporting_modes">
+    <string-array name="reporting_modes" translatable="false">
         <item>REPORTING_MODE_CONTINUOUS</item>
         <item>REPORTING_MODE_ON_CHANGE</item>
         <item>REPORTING_MODE_ONE_SHOT</item>
         <item>REPORTING_MODE_SPECIAL_TRIGGER</item>
     </string-array>
 
-    <string-array name="report_rate_levels">
+    <string-array name="report_rate_levels" translatable="false">
         <item>RATE_STOP</item>
         <item>RATE_NORMAL(50Hz)</item>
         <item>RATE_FAST(~200Hz)</item>
         <item>RATE_VERY_FAST(~800Hz)</item>
     </string-array>
 
-    <string name="accuracy_no_contact">SENSOR_STATUS_NO_CONTACT</string>
-    <string-array name="accuracy_values">
+    <string name="accuracy_no_contact" translatable="false">SENSOR_STATUS_NO_CONTACT</string>
+    <string-array name="accuracy_values" translatable="false">
         <item>SENSOR_STATUS_UNRELIABLE</item>
         <item>SENSOR_STATUS_ACCURACY_LOW</item>
         <item>SENSOR_STATUS_ACCURACY_MEDIUM</item>
@@ -158,5 +126,10 @@
 
     <string name="significant_motion_value">Last significant motion triggered at %1$s</string>
     <string name="step_detection_value">Last step_detections was at %1$s</string>
+
+
+    <string name="raw_details_label_values">Sensor values:</string>
+    <string name="raw_details_label_accuracy">Sensor Accuracy:</string>
+    <string name="raw_details_label_info">Sensor Info</string>
 
 </resources>
