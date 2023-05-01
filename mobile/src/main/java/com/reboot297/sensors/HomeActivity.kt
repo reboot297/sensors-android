@@ -3,6 +3,7 @@ package com.reboot297.sensors
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.view.WindowCompat
+import com.reboot297.sensors.altitude.AltitudeActivity
 import com.reboot297.sensors.databinding.ActivityHomeBinding
 
 class HomeActivity : BaseActivity() {
@@ -19,12 +20,11 @@ class HomeActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.rawDataButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    RawDataActivity::class.java
-                )
-            )
+            startActivity(Intent(this, RawDataActivity::class.java))
+        }
+
+        binding.altitudeButton.setOnClickListener {
+            startActivity(Intent(this, AltitudeActivity::class.java))
         }
     }
 }

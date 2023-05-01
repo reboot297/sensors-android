@@ -14,11 +14,13 @@
   ~ limitations under the License.
   -->
 
-<merge xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sensor_info_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:showIn="@layout/activity_details">
-
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_name_label"
@@ -26,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/details_sensor_name"
-        app:layout_constraintTop_toBottomOf="@+id/sensorInfoLabelView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/sensor_name_value"
@@ -323,4 +325,4 @@
         android:layout_height="wrap_content"
         android:text="@string/warning_api_24"
         app:layout_constraintTop_toBottomOf="@+id/sensor_is_dynamic_label" />
-</merge>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,21 +16,76 @@
 
 package com.reboot297.sensors.raw.motion
 
+import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.os.Bundle
+import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
+import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
 class StepCounterDetailsActivity : BaseSensorActivity(), SensorEventListener {
+    private lateinit var sensorManager: SensorManager
+    private var _sensor: Sensor? = null
+    private val sensor: Sensor? get() = _sensor
+    private lateinit var binding: ActivityDetailsBinding
 
-    override fun onStart() {
-        //TODO(Viktor) check permission for android > 29
-        super.onStart()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        with(binding) {
+            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    sensorValueView.isVisible = true
+                    sensorValueLabelView.isVisible = true
+                    sensorAccuracyView.isVisible = true
+                    sensorAccuracyLabelView.isVisible = true
+
+                    startListening()
+                } else {
+                    stopListening()
+                }
+            }
+
+            sensorInfoLabelView.setOnClickListener {
+                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+            }
+
+            sensorDescriptionLabelView.setOnClickListener {
+                sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
+            }
+
+            sensorDescriptionView.setText(R.string.description_step_counter)
+        }
     }
 
-    override fun startListening() {
+    override fun onStart() {
+        super.onStart()
+        //TODO(Viktor) check permission for android > 29
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+        if (sensor != null) {
+            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+        } else {
+            showSensorNotAvailableDialog()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        stopListening()
+    }
+
+    private fun startListening() {
         sensorManager.registerListener(
             this@StepCounterDetailsActivity,
             sensor,
@@ -38,7 +93,7 @@ class StepCounterDetailsActivity : BaseSensorActivity(), SensorEventListener {
         )
     }
 
-    override fun stopListening() {
+    private fun stopListening() {
         sensorManager.unregisterListener(this)
     }
 
@@ -57,6 +112,4 @@ class StepCounterDetailsActivity : BaseSensorActivity(), SensorEventListener {
     }
 
     override fun getUnit() = R.string.unit_step
-
-    override fun getSensorType() = Sensor.TYPE_STEP_COUNTER
 }

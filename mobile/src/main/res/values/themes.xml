@@ -47,6 +47,14 @@
         <item name="android:paddingEnd">@dimen/screen_padding</item>
     </style>
 
+    <style name="App.Raw.Sample.Value" parent="">
+        <item name="android:textSize">@dimen/app_raw_details_value_text_size</item>
+        <item name="android:textColor">#ff8888ff</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+    </style>
+
     <style name="App.About.Label" parent="">
         <item name="android:textSize">@dimen/app_about_label_text_size</item>
         <item name="android:textStyle">bold</item>
@@ -74,5 +82,15 @@
         <item name="android:paddingEnd">@dimen/screen_padding</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="App.Altitude.Label" parent="">
+        <item name="android:textSize">@dimen/app_altitude_label_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="App.Altitude.Value" parent="">
+        <item name="android:textSize">@dimen/app_altitude_value_text_size</item>
+        <item name="android:textStyle">normal</item>
     </style>
 </resources>
