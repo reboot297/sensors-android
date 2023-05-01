@@ -41,64 +41,59 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/screen_padding">
 
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/measureSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/details_start_listening"
-                android:padding="@dimen/screen_padding"
                 android:textSize="@dimen/app_switch_text_size"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/sensorValueLabelView"
-                style="@style/App.Raw.Details.Section.Text"
+                style="@style/App.Altitude.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_values"
-                android:visibility="gone"
+                android:text="@string/altitude_pressure_sensor_label"
                 app:layout_constraintTop_toBottomOf="@+id/measureSwitch" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sensor_value_view"
-                style="@style/App.Raw.Details.Value"
+                style="@style/App.Altitude.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@+id/sensorValueLabelView"
                 tools:text="" />
 
             <TextView
-                android:id="@+id/sensorAccuracyLabelView"
-                style="@style/App.Raw.Details.Section.Text"
+                android:id="@+id/altitude_label_view"
+                style="@style/App.Altitude.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_accuracy"
-                android:visibility="gone"
+                android:text="@string/altitude_value_label"
                 app:layout_constraintTop_toBottomOf="@+id/sensor_value_view" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_accuracy_view"
-                style="@style/App.Raw.Details.Value"
+                android:id="@+id/altitude_value_view"
+                style="@style/App.Altitude.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@+id/sensorAccuracyLabelView"
+                app:layout_constraintTop_toBottomOf="@+id/altitude_label_view"
                 tools:text="" />
 
-            <TextView
-                android:id="@+id/sensorInfoLabelView"
-                style="@style/App.Raw.Details.Section.Text"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/altitude_description_view"
+                style="@style/App.Altitude.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_info"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_accuracy_view" />
-
-            <include layout="@layout/layout_sensor_info" />
+                android:paddingVertical="8dp"
+                android:text="@string/altitude_description_value"
+                app:layout_constraintTop_toBottomOf="@+id/altitude_value_view" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

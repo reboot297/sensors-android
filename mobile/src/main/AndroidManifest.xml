@@ -191,6 +191,14 @@
                 android:value=".HomeActivity" />
         </activity>
         <activity
+            android:name=".altitude.AltitudeActivity"
+            android:exported="false"
+            android:label="@string/screen_altitude_title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>

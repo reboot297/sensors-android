@@ -47,6 +47,11 @@
             android:layout_height="wrap_content"
             android:text="@string/home_button_raw_data"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/altitude_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_button_altitude"/>
 
     </LinearLayout>
 

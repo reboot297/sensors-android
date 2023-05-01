@@ -18,11 +18,16 @@
 
     <dimen name="screen_padding">16dp</dimen>
 
+    <dimen name="app_switch_text_size">18sp</dimen>
+
     <dimen name="app_raw_details_value_text_size">18sp</dimen>
     <dimen name="app_raw_details_label_text_size">16sp</dimen>
 
     <dimen name="app_about_value_text_size">18sp</dimen>
     <dimen name="app_about_label_text_size">16sp</dimen>
+
+    <dimen name="app_altitude_value_text_size">18sp</dimen>
+    <dimen name="app_altitude_label_text_size">16sp</dimen>
 
     <dimen name="app_raw_data_section_text_size">20sp</dimen>
     <dimen name="app_raw_data_item_text_size">18sp</dimen>

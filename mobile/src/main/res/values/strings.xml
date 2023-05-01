@@ -21,6 +21,7 @@
     <string name="action_privacy">Privacy Policy</string>
 
     <string name="home_button_raw_data">Raw Data</string>
+    <string name="home_button_altitude">Altitude</string>
 
     <string name="raw_data_label_environment">Environment sensors:</string>
     <string name="raw_data_label_position">Position sensors:</string>
@@ -49,6 +50,7 @@
     <string name="title_relative_humidity">Relative Humidity</string>
 
     <string name="screen_raw_data_title">Raw Data</string>
+    <string name="screen_altitude_title">Altitude</string>
     <string name="screen_about">About…</string>
 
     <string name="warning_sensor_not_available">Sensor is not available</string>
@@ -78,6 +80,7 @@
     <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
 
     <string name="unit_pressure" translatable="false">hPa</string>
+    <string name="unit_altitude" translatable="false">m</string>
     <string name="unit_step" translatable="false">step</string>
     <string name="unit_light" translatable="false">lx</string>
     <string name="unit_relative_humidity" translatable="false">%</string>
@@ -131,5 +134,9 @@
     <string name="raw_details_label_values">Sensor values:</string>
     <string name="raw_details_label_accuracy">Sensor Accuracy:</string>
     <string name="raw_details_label_info">Sensor Info</string>
+
+    <string name="altitude_pressure_sensor_label">Pressure sensor value:</string>
+    <string name="altitude_value_label">Altitude value:</string>
+    <string name="altitude_description_value">In this example, altitude is calculated in meters from atmospheric pressure and sea level pressure.\n\nWe read atmospheric pressure from Sensor.TYPE_PRESSURE.\nAnd we are using PRESSURE_STANDARD_ATMOSPHERE (1013.25hPa) as an approximation of sea level pressure, so altitude may not be accurate.</string>
 
 </resources>
