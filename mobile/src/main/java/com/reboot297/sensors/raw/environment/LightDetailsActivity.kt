@@ -46,19 +46,19 @@ class LightDetailsActivity : BaseSensorActivity(), SensorEventListener {
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    sensorValueView.isVisible = true
-                    sensorValueLabelView.isVisible = true
-                    sensorAccuracyView.isVisible = true
-                    sensorAccuracyLabelView.isVisible = true
-
+                    sensorDataLayout.root.isVisible = true
                     startListening()
                 } else {
                     stopListening()
                 }
             }
 
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
+            }
+
             sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
             }
 
             binding.sensorDescriptionLabelView.setOnClickListener {
@@ -99,12 +99,12 @@ class LightDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.firstOrNull()?.let {
-            binding.sensorValueView.text = formatTextValue(it)
+            binding.sensorDataLayout.sensorValueView.text = formatTextValue(it)
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        binding.sensorAccuracyView.text = if (accuracy == -1) {
+        binding.sensorDataLayout.sensorAccuracyView.text = if (accuracy == -1) {
             getString(R.string.accuracy_no_contact)
         } else {
             resources.getStringArray(R.array.accuracy_values)[accuracy]

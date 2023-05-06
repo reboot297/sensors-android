@@ -133,8 +133,9 @@
     <string name="step_detection_value">Last step_detections was at %1$s</string>
 
 
-    <string name="raw_details_label_values">Sensor values:</string>
-    <string name="raw_details_label_accuracy">Sensor Accuracy:</string>
+    <string name="raw_details_label_data">Sensor data:</string>
+    <string name="raw_details_data_label_values">Values:</string>
+    <string name="raw_details_data_label_accuracy">Accuracy:</string>
     <string name="raw_details_label_description">Description:</string>
     <string name="raw_details_label_samples">Samples:</string>
     <string name="raw_details_label_info">Sensor Info</string>
@@ -173,5 +174,8 @@
     <string name="description_magnetic_field_uncalibrated"></string>
     <string name="description_orientation">This sensor was deprecated in Android 2.2 (API level 8), and this sensor type was deprecated in Android 4.4W (API level 20).</string>
     <string name="description_proximity">The proximity sensor lets you determine how far away an object is from a device. The proximity sensor is usually used to determine how far away a person\'s head is from the face of a handset device (for example, when a user is making or receiving a phone call). Most proximity sensors return the absolute distance, in cm, but some return only near and far values.\nNote: On some device models, the proximity sensor is located underneath the screen, which can cause a blinking dot to appear on the screen if enabled while the screen is on.\nNote: Some proximity sensors return binary values that represent "near" or "far." In this case, the sensor usually reports its maximum range value in the far state and a lesser value in the near state. Typically, the far value is a value > 5 cm, but this can vary from sensor to sensor.</string>
+
+    <string name="settings">Settings</string>
+    <string name="permission_denied">The permission required to enable this sensor.</string>
 
 </resources>

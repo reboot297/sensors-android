@@ -46,19 +46,19 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    sensorValueView.isVisible = true
-                    sensorValueLabelView.isVisible = true
-                    sensorAccuracyView.isVisible = true
-                    sensorAccuracyLabelView.isVisible = true
-
+                    sensorDataLayout.root.isVisible = true
                     startListening()
                 } else {
                     stopListening()
                 }
             }
 
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
+            }
+
             sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
             }
 
             sensorDescriptionLabelView.setOnClickListener {
@@ -99,7 +99,7 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
     private val triggerEventListener = object : TriggerEventListener() {
         override fun onTrigger(event: TriggerEvent?) {
-            binding.sensorValueView.text = getString(R.string.significant_motion_value, Date())
+            binding.sensorDataLayout.sensorValueView.text = getString(R.string.significant_motion_value, Date())
         }
     }
 
