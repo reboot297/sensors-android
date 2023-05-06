@@ -111,5 +111,5 @@ class StepCounterDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_step
+    override fun getUnitResId() = R.string.unit_step
 }

@@ -111,5 +111,5 @@ class ProximityDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_proximity
+    override fun getUnitResId() = R.string.unit_proximity
 }

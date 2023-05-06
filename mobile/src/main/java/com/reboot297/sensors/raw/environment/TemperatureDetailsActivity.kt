@@ -111,5 +111,5 @@ class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_ambient_temperature
+    override fun getUnitResId() = R.string.unit_ambient_temperature
 }

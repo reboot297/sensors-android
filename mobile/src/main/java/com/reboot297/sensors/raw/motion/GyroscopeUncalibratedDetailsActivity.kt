@@ -110,5 +110,5 @@ class GyroscopeUncalibratedDetailsActivity : BaseSensorActivity(), SensorEventLi
         }
     }
 
-    override fun getUnit() = R.string.unit_gyroscope
+    override fun getUnitResId() = R.string.unit_gyroscope
 }

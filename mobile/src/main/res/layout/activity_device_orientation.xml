@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".raw.motion.AccelerometerDetailsActivity">
+    tools:context=".orientation.DeviceOrientationActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -53,47 +53,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sensorValueLabelView"
+                android:id="@+id/calculated_data_label_view"
                 style="@style/App.Sample.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/altitude_pressure_sensor_label"
+                android:text="@string/orientation_calculated_label"
                 app:layout_constraintTop_toBottomOf="@+id/measureSwitch" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_value_view"
+                android:id="@+id/calculated_value_view"
                 style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/sensorValueLabelView"
-                tools:text="" />
-
-            <TextView
-                android:id="@+id/altitude_label_view"
-                style="@style/App.Sample.Label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/altitude_value_label"
-                app:layout_constraintTop_toBottomOf="@+id/sensor_value_view" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/altitude_value_view"
-                style="@style/App.Sample.Value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/altitude_label_view"
+                app:layout_constraintTop_toBottomOf="@+id/calculated_data_label_view"
                 tools:text="" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/altitude_description_view"
+                android:id="@+id/orientation_description_view"
                 style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/altitude_description_value"
-                app:layout_constraintTop_toBottomOf="@+id/altitude_value_view" />
+                android:text="@string/orientation_description_value"
+                app:layout_constraintTop_toBottomOf="@+id/calculated_value_view" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

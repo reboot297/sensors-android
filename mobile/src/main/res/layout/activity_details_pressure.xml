@@ -117,7 +117,7 @@
                 style="@style/App.Raw.Details.Section.Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_description"/>
+                android:text="@string/raw_details_label_samples"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sample_altitude_view"
@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/sample_pressure_altitude" />
+                android:text="@string/sample_altitude" />
 
 
         </LinearLayout>

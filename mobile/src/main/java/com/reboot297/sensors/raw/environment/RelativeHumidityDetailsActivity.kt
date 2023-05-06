@@ -111,5 +111,5 @@ class RelativeHumidityDetailsActivity : BaseSensorActivity(), SensorEventListene
         }
     }
 
-    override fun getUnit() = R.string.unit_relative_humidity
+    override fun getUnitResId() = R.string.unit_relative_humidity
 }

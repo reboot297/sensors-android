@@ -114,5 +114,5 @@ class AccelerometerUncalibratedDetailsActivity : BaseSensorActivity(), SensorEve
         }
     }
 
-    override fun getUnit() = R.string.unit_acceleration
+    override fun getUnitResId() = R.string.unit_acceleration
 }

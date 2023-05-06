@@ -17,6 +17,7 @@
 package com.reboot297.sensors.raw.motion
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -25,18 +26,19 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsBinding
+import com.reboot297.sensors.databinding.ActivityDetailsAccelerometerBinding
+import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
 class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsBinding
+    private lateinit var binding: ActivityDetailsAccelerometerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsAccelerometerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -64,7 +66,18 @@ class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
                 sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
             }
 
-            sensorDescriptionView.setText(R.string.description_accelerometer)
+            samplesLabelView.setOnClickListener {
+                sampleDeviceOrientationView.isVisible = !sampleDeviceOrientationView.isVisible
+            }
+
+            sampleDeviceOrientationView.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@AccelerometerDetailsActivity,
+                        DeviceOrientationActivity::class.java
+                    )
+                )
+            }
         }
     }
 
@@ -111,5 +124,5 @@ class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_acceleration
+    override fun getUnitResId() = R.string.unit_acceleration
 }

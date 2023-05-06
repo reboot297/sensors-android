@@ -17,6 +17,7 @@
 package com.reboot297.sensors.raw.position
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -25,25 +26,26 @@ import android.os.Bundle
 import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsBinding
+import com.reboot297.sensors.databinding.ActivityDetailsMagneticFieldBinding
+import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
 class MagneticFieldDetailsActivity : BaseSensorActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsBinding
+    private lateinit var binding: ActivityDetailsMagneticFieldBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        binding = ActivityDetailsMagneticFieldBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         with(binding) {
-            binding.measureSwitch.setOnCheckedChangeListener { _, isChecked ->
+            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
                     sensorValueView.isVisible = true
                     sensorValueLabelView.isVisible = true
@@ -64,7 +66,18 @@ class MagneticFieldDetailsActivity : BaseSensorActivity(), SensorEventListener {
                 sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
             }
 
-            sensorDescriptionView.setText(R.string.description_magnetic_field)
+            samplesLabelView.setOnClickListener {
+                sampleDeviceOrientationView.isVisible = !sampleDeviceOrientationView.isVisible
+            }
+
+            sampleDeviceOrientationView.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@MagneticFieldDetailsActivity,
+                        DeviceOrientationActivity::class.java
+                    )
+                )
+            }
         }
     }
 
@@ -110,5 +123,5 @@ class MagneticFieldDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_magnetic_field
+    override fun getUnitResId() = R.string.unit_magnetic_field
 }

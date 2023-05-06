@@ -113,5 +113,5 @@ class StepDetectorDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unitless
+    override fun getUnitResId() = R.string.unitless
 }

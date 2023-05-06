@@ -110,5 +110,5 @@ class GameRotationVectorDetailsActivity : BaseSensorActivity(), SensorEventListe
         }
     }
 
-    override fun getUnit() = R.string.unitless
+    override fun getUnitResId() = R.string.unitless
 }

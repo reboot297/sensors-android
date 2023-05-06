@@ -110,5 +110,5 @@ class GravityDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_gravity
+    override fun getUnitResId() = R.string.unit_gravity
 }

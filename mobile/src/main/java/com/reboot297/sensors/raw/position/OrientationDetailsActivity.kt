@@ -72,7 +72,7 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
     override fun onStart() {
         super.onStart()
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
@@ -89,7 +89,7 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@OrientationDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI
         )
     }
 
@@ -111,5 +111,5 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
         }
     }
 
-    override fun getUnit() = R.string.unit_orientation
+    override fun getUnitResId() = R.string.unit_orientation
 }
