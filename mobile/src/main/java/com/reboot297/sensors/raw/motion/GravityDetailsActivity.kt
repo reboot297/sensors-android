@@ -41,7 +41,7 @@ class GravityDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -70,7 +70,6 @@ class GravityDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

@@ -41,7 +41,7 @@ class GyroscopeDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -64,13 +64,12 @@ class GyroscopeDetailsActivity : BaseSensorActivity(), SensorEventListener {
                 sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
             }
 
-            sensorDescriptionView.setText(R.string.description_gravity)
+            sensorDescriptionView.setText(R.string.description_gyroscope)
         }
     }
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

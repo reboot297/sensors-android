@@ -41,7 +41,7 @@ class GyroscopeUncalibratedDetailsActivity : BaseSensorActivity(), SensorEventLi
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -70,7 +70,6 @@ class GyroscopeUncalibratedDetailsActivity : BaseSensorActivity(), SensorEventLi
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

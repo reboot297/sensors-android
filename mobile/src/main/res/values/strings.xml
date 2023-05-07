@@ -133,11 +133,11 @@
     <string name="step_detection_value">Last step_detections was at %1$s</string>
 
 
-    <string name="raw_details_label_data">Sensor data:</string>
+    <string name="raw_details_label_data">Sensor data</string>
     <string name="raw_details_data_label_values">Values:</string>
     <string name="raw_details_data_label_accuracy">Accuracy:</string>
-    <string name="raw_details_label_description">Description:</string>
-    <string name="raw_details_label_samples">Samples:</string>
+    <string name="raw_details_label_description">Description</string>
+    <string name="raw_details_label_samples">Samples</string>
     <string name="raw_details_label_info">Sensor Info</string>
 
 

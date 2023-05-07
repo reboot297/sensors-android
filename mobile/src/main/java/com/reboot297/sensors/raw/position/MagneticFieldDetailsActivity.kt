@@ -43,7 +43,7 @@ class MagneticFieldDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -83,7 +83,6 @@ class MagneticFieldDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

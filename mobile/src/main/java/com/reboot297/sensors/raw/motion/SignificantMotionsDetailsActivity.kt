@@ -42,7 +42,7 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -71,7 +71,6 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

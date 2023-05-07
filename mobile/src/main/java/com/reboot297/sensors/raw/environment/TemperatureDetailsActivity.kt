@@ -42,7 +42,7 @@ class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -71,7 +71,6 @@ class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_TEMPERATURE)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

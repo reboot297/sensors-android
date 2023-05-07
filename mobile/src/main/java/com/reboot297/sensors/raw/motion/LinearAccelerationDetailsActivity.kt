@@ -41,7 +41,7 @@ class LinearAccelerationDetailsActivity : BaseSensorActivity(), SensorEventListe
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -70,7 +70,6 @@ class LinearAccelerationDetailsActivity : BaseSensorActivity(), SensorEventListe
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

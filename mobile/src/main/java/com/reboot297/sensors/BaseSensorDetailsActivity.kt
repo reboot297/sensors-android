@@ -98,9 +98,9 @@ abstract class BaseSensorActivity : BaseActivity() {
     protected fun format6Items(array: FloatArray): String {
         val unit = getUnit()
         return StringBuilder()
-            .append("x: ").append(array[0]).append(" ").append(unit).append("\n")
-            .append("y: ").append(array[1]).append(" ").append(unit).append("\n")
-            .append("z: ").append(array[2]).append(" ").append(unit).append("\n")
+            .append("raw x: ").append(array[0]).append(" ").append(unit).append("\n")
+            .append("raw y: ").append(array[1]).append(" ").append(unit).append("\n")
+            .append("raw z: ").append(array[2]).append(" ").append(unit).append("\n")
             .append("x: ").append(array[3]).append(" ").append(unit).append("\n")
             .append("y: ").append(array[4]).append(" ").append(unit).append("\n")
             .append("z: ").append(array[5]).append(" ").append(unit)

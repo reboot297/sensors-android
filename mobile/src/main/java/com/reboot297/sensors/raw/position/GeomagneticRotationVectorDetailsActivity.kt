@@ -41,7 +41,7 @@ class GeomagneticRotationVectorDetailsActivity : BaseSensorActivity(), SensorEve
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -70,7 +70,6 @@ class GeomagneticRotationVectorDetailsActivity : BaseSensorActivity(), SensorEve
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)

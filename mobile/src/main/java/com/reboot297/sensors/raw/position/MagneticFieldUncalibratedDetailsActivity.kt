@@ -41,7 +41,7 @@ class MagneticFieldUncalibratedDetailsActivity : BaseSensorActivity(), SensorEve
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
@@ -70,7 +70,6 @@ class MagneticFieldUncalibratedDetailsActivity : BaseSensorActivity(), SensorEve
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
