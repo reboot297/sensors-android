@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".raw.environment.PressureDetailsActivity">
+    tools:context=".raw.motion.AccelerometerDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/description_pressure" />
+                android:text="@string/description_accelerometer" />
 
             <TextView
                 android:id="@+id/samples_label_view"
@@ -97,12 +97,12 @@
                 android:text="@string/raw_details_label_samples"/>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sample_altitude_view"
+                android:id="@+id/sample_device_orientation_view"
                 style="@style/App.Raw.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/sample_altitude" />
+                android:text="@string/sample_device_orientation" />
 
 
         </LinearLayout>

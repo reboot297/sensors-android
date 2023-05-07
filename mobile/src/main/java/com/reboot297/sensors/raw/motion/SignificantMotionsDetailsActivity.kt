@@ -42,23 +42,23 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    sensorValueView.isVisible = true
-                    sensorValueLabelView.isVisible = true
-                    sensorAccuracyView.isVisible = true
-                    sensorAccuracyLabelView.isVisible = true
-
+                    sensorDataLayout.root.isVisible = true
                     startListening()
                 } else {
                     stopListening()
                 }
             }
 
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
+            }
+
             sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
             }
 
             sensorDescriptionLabelView.setOnClickListener {
@@ -71,7 +71,6 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
@@ -99,9 +98,9 @@ class SignificantMotionsDetailsActivity : BaseSensorActivity() {
 
     private val triggerEventListener = object : TriggerEventListener() {
         override fun onTrigger(event: TriggerEvent?) {
-            binding.sensorValueView.text = getString(R.string.significant_motion_value, Date())
+            binding.sensorDataLayout.sensorValueView.text = getString(R.string.significant_motion_value, Date())
         }
     }
 
-    override fun getUnit() = R.string.unitless
+    override fun getUnitResId() = R.string.unitless
 }

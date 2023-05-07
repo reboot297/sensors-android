@@ -41,24 +41,23 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-
-                    sensorValueView.isVisible = true
-                    sensorValueLabelView.isVisible = true
-                    sensorAccuracyView.isVisible = true
-                    sensorAccuracyLabelView.isVisible = true
-
+                    sensorDataLayout.root.isVisible = true
                     startListening()
                 } else {
                     stopListening()
                 }
             }
 
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
+            }
+
             sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
             }
 
             sensorDescriptionLabelView.setOnClickListener {
@@ -71,8 +70,7 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
@@ -89,7 +87,7 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@OrientationDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI
         )
     }
 
@@ -99,17 +97,17 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {
-            binding.sensorValueView.text = format3Items(it)
+            binding.sensorDataLayout.sensorValueView.text = format3Items(it)
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        binding.sensorAccuracyView.text = if (accuracy == -1) {
+        binding.sensorDataLayout.sensorAccuracyView.text = if (accuracy == -1) {
             getString(R.string.accuracy_no_contact)
         } else {
             resources.getStringArray(R.array.accuracy_values)[accuracy]
         }
     }
 
-    override fun getUnit() = R.string.unit_orientation
+    override fun getUnitResId() = R.string.unit_orientation
 }

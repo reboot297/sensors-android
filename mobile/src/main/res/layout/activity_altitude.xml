@@ -54,7 +54,7 @@
 
             <TextView
                 android:id="@+id/sensorValueLabelView"
-                style="@style/App.Altitude.Label"
+                style="@style/App.Sample.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/altitude_pressure_sensor_label"
@@ -62,7 +62,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sensor_value_view"
-                style="@style/App.Altitude.Value"
+                style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/altitude_label_view"
-                style="@style/App.Altitude.Label"
+                style="@style/App.Sample.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/altitude_value_label"
@@ -79,7 +79,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/altitude_value_view"
-                style="@style/App.Altitude.Value"
+                style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
@@ -88,7 +88,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/altitude_description_view"
-                style="@style/App.Altitude.Value"
+                style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"

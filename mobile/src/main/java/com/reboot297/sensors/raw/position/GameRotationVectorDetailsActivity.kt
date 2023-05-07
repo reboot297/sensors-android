@@ -41,23 +41,23 @@ class GameRotationVectorDetailsActivity : BaseSensorActivity(), SensorEventListe
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         with(binding) {
             measureSwitch.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    sensorValueView.isVisible = true
-                    sensorValueLabelView.isVisible = true
-                    sensorAccuracyView.isVisible = true
-                    sensorAccuracyLabelView.isVisible = true
-
+                    sensorDataLayout.root.isVisible = true
                     startListening()
                 } else {
                     stopListening()
                 }
             }
 
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
+            }
+
             sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
             }
 
             sensorDescriptionLabelView.setOnClickListener {
@@ -70,7 +70,6 @@ class GameRotationVectorDetailsActivity : BaseSensorActivity(), SensorEventListe
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
@@ -98,17 +97,17 @@ class GameRotationVectorDetailsActivity : BaseSensorActivity(), SensorEventListe
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {
-            binding.sensorValueView.text = format3Items(it)
+            binding.sensorDataLayout.sensorValueView.text = format3Items(it)
         }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        binding.sensorAccuracyView.text = if (accuracy == -1) {
+        binding.sensorDataLayout.sensorAccuracyView.text = if (accuracy == -1) {
             getString(R.string.accuracy_no_contact)
         } else {
             resources.getStringArray(R.array.accuracy_values)[accuracy]
         }
     }
 
-    override fun getUnit() = R.string.unitless
+    override fun getUnitResId() = R.string.unitless
 }

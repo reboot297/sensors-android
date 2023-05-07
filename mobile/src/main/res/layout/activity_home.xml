@@ -53,6 +53,12 @@
             android:layout_height="wrap_content"
             android:text="@string/home_button_altitude"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/device_orientation_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_button_device_orientation"/>
+
     </LinearLayout>
 
 

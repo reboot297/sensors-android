@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.view.WindowCompat
 import com.reboot297.sensors.altitude.AltitudeActivity
 import com.reboot297.sensors.databinding.ActivityHomeBinding
+import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
 class HomeActivity : BaseActivity() {
 
@@ -25,6 +26,10 @@ class HomeActivity : BaseActivity() {
 
         binding.altitudeButton.setOnClickListener {
             startActivity(Intent(this, AltitudeActivity::class.java))
+        }
+
+        binding.deviceOrientationButton.setOnClickListener {
+            startActivity(Intent(this, DeviceOrientationActivity::class.java))
         }
     }
 }

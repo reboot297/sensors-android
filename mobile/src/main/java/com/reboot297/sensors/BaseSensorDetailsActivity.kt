@@ -47,13 +47,13 @@ abstract class BaseSensorActivity : BaseActivity() {
             sensorVersionValue.text = sensor.version.toString()
             sensorMaxRangeValue.text = formatTextValue(sensor.maximumRange, getUnit())
             sensorResolutionValue.text = formatTextValue(sensor.resolution, getUnit())
-            sensorPowerValue.text = formatTextValue(sensor.power, R.string.unit_power)
-            sensorMinDelayValue.text = formatTextValue(sensor.minDelay, R.string.unit_microseconds)
-            sensorMaxDelayValue.text = formatTextValue(sensor.maxDelay, R.string.unit_microseconds)
+            sensorPowerValue.text = formatTextValue(sensor.power, getString(R.string.unit_power))
+            sensorMinDelayValue.text = formatTextValue(sensor.minDelay, getString(R.string.unit_microseconds))
+            sensorMaxDelayValue.text = formatTextValue(sensor.maxDelay, getString(R.string.unit_microseconds))
             sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
             sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
             sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
-            sensorUnitValue.text = getString(getUnit())
+            sensorUnitValue.text = getUnit()
             val reportingModes = resources.getStringArray(R.array.reporting_modes)
             sensorReportingModeValue.text = reportingModes[sensor.reportingMode]
 
@@ -64,50 +64,55 @@ abstract class BaseSensorActivity : BaseActivity() {
         }
 
     @StringRes
-    protected abstract fun getUnit(): Int
+    protected abstract fun getUnitResId(): Int
 
-    private fun formatTextValue(value: Int, @StringRes unit: Int) = StringBuilder()
+    private fun getUnit() = getString(getUnitResId())
+
+    private fun formatTextValue(value: Int, unit: String) = StringBuilder()
         .append(value)
-        .append(getString(unit))
+        .append(" ")
+        .append(unit)
         .toString()
 
-    private fun formatTextValue(value: Float, @StringRes unit: Int) = StringBuilder()
+    private fun formatTextValue(value: Float, unit: String) = StringBuilder()
         .append(value)
-        .append(getString(unit))
+        .append(" ")
+        .append(unit)
         .toString()
 
     protected fun formatTextValue(value: Float) = StringBuilder()
         .append(value)
+        .append(" ")
         .append(getUnit())
         .toString()
 
     protected fun format3Items(array: FloatArray): String {
         val unit = getUnit()
         return StringBuilder()
-            .append("x:").append(array[0]).append(unit).append("\n")
-            .append("y:").append(array[1]).append(unit).append("\n")
-            .append("z:").append(array[2]).append(unit)
+            .append("x: ").append(array[0]).append(" ").append(unit).append("\n")
+            .append("y: ").append(array[1]).append(" ").append(unit).append("\n")
+            .append("z: ").append(array[2]).append(" ").append(unit)
             .toString()
     }
 
     protected fun format6Items(array: FloatArray): String {
         val unit = getUnit()
         return StringBuilder()
-            .append("x:").append(array[0]).append(unit).append("\n")
-            .append("y:").append(array[1]).append(unit).append("\n")
-            .append("z:").append(array[2]).append(unit).append("\n")
-            .append("x:").append(array[3]).append(unit).append("\n")
-            .append("y:").append(array[4]).append(unit).append("\n")
-            .append("z:").append(array[5]).append(unit)
+            .append("raw x: ").append(array[0]).append(" ").append(unit).append("\n")
+            .append("raw y: ").append(array[1]).append(" ").append(unit).append("\n")
+            .append("raw z: ").append(array[2]).append(" ").append(unit).append("\n")
+            .append("x: ").append(array[3]).append(" ").append(unit).append("\n")
+            .append("y: ").append(array[4]).append(" ").append(unit).append("\n")
+            .append("z: ").append(array[5]).append(" ").append(unit)
             .toString()
     }
 
     protected fun formatRotationVector(array: FloatArray): String {
         return StringBuilder()
-            .append("x:").append(array[0]).append("\n")
-            .append("y:").append(array[1]).append("\n")
-            .append("z:").append(array[2]).append("\n")
-            .append("scalar:").append(array[3])
+            .append("x: ").append(array[0]).append("\n")
+            .append("y: ").append(array[1]).append("\n")
+            .append("z: ").append(array[2]).append("\n")
+            .append("scalar: ").append(array[3])
             .toString()
     }
 

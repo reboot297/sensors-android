@@ -41,6 +41,7 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
         binding = ActivityAltitudeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -55,7 +56,7 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
         if (sensor == null) {
             AlertDialog.Builder(this)

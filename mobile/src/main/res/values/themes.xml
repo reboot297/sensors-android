@@ -84,13 +84,13 @@
         <item name="android:paddingBottom">8dp</item>
     </style>
 
-    <style name="App.Altitude.Label" parent="">
-        <item name="android:textSize">@dimen/app_altitude_label_text_size</item>
+    <style name="App.Sample.Label" parent="">
+        <item name="android:textSize">@dimen/app_sample_label_text_size</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="App.Altitude.Value" parent="">
-        <item name="android:textSize">@dimen/app_altitude_value_text_size</item>
+    <style name="App.Sample.Value" parent="">
+        <item name="android:textSize">@dimen/app_sample_value_text_size</item>
         <item name="android:textStyle">normal</item>
     </style>
 </resources>
