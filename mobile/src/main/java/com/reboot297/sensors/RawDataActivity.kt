@@ -19,6 +19,7 @@ package com.reboot297.sensors
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import com.reboot297.sensors.databinding.ActivityRawDataBinding
 import com.reboot297.sensors.raw.environment.AmbientTemperatureDetailsActivity
 import com.reboot297.sensors.raw.environment.LightDetailsActivity
@@ -46,6 +47,31 @@ class RawDataActivity : BaseActivity() {
 
     private lateinit var binding: ActivityRawDataBinding
 
+    private val map = mapOf<Int, Class<*>>(
+        R.id.accelerometer_item_view to AccelerometerDetailsActivity::class.java,
+        R.id.gravity_item_view to GravityDetailsActivity::class.java,
+        R.id.gyroscope_item_view to GyroscopeDetailsActivity::class.java,
+        R.id.gyroscope_uncalibrated_item_view to GyroscopeUncalibratedDetailsActivity::class.java,
+        R.id.linear_acceleration_item_view to LinearAccelerationDetailsActivity::class.java,
+        R.id.rotation_vector_item_view to RotationVectorDetailsActivity::class.java,
+        R.id.significant_motions_item_view to SignificantMotionsDetailsActivity::class.java,
+        R.id.step_detector_item_view to StepDetectorDetailsActivity::class.java,
+        R.id.step_counter_item_view to StepCounterDetailsActivity::class.java,
+
+        R.id.game_rotation_vector_item_view to GameRotationVectorDetailsActivity::class.java,
+        R.id.geomagnetic_rotation_vector_item_view to GeomagneticRotationVectorDetailsActivity::class.java,
+        R.id.magnetic_field_item_view to MagneticFieldDetailsActivity::class.java,
+        R.id.magnetic_field_uncalibrated_item_view to MagneticFieldUncalibratedDetailsActivity::class.java,
+        R.id.orientation_item_view to OrientationDetailsActivity::class.java,
+        R.id.proximity_item_view to ProximityDetailsActivity::class.java,
+
+        R.id.ambient_temperature_item_view to AmbientTemperatureDetailsActivity::class.java,
+        R.id.temperature_item_view to TemperatureDetailsActivity::class.java,
+        R.id.light_item_view to LightDetailsActivity::class.java,
+        R.id.pressure_item_view to PressureDetailsActivity::class.java,
+        R.id.relative_humidity_item_view to RelativeHumidityDetailsActivity::class.java,
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,39 +80,6 @@ class RawDataActivity : BaseActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.ambientTemperatureItemView.setOnClickListener {
-            startActivity(Intent(this, AmbientTemperatureDetailsActivity::class.java))
-        }
-
-        binding.temperatureItemView.setOnClickListener {
-            startActivity(Intent(this, TemperatureDetailsActivity::class.java))
-        }
-
-        binding.lightItemView.setOnClickListener {
-            startActivity(Intent(this, LightDetailsActivity::class.java))
-        }
-
-        binding.pressureItemView.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    PressureDetailsActivity::class.java
-                )
-            )
-        }
-
-        binding.relativeHumidityItemView.setOnClickListener {
-            startActivity(Intent(this, RelativeHumidityDetailsActivity::class.java))
-        }
-
-        binding.proximityItemView.setOnClickListener {
-            startActivity(Intent(this, ProximityDetailsActivity::class.java))
-        }
-
-        binding.accelerometerItemView.setOnClickListener {
-            startActivity(Intent(this, AccelerometerDetailsActivity::class.java))
-        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             binding.accelerometerUncalibratedItemView.isEnabled = true
@@ -99,56 +92,12 @@ class RawDataActivity : BaseActivity() {
                 getString(R.string.title_accelerometer_uncalibrated) + "\n" + getString(R.string.warning_api_26)
         }
 
-        binding.gravityItemView.setOnClickListener {
-            startActivity(Intent(this, GravityDetailsActivity::class.java))
-        }
+        map.keys.asSequence()
+            .map { findViewById<View>(it) }
+            .forEach { it.setOnClickListener { view -> openDetails(view) } }
+    }
 
-        binding.gyroscopeItemView.setOnClickListener {
-            startActivity(Intent(this, GyroscopeDetailsActivity::class.java))
-        }
-
-        binding.gyroscopeUncalibratedItemView.setOnClickListener {
-            startActivity(Intent(this, GyroscopeUncalibratedDetailsActivity::class.java))
-        }
-
-        binding.linearAccelerationItemView.setOnClickListener {
-            startActivity(Intent(this, LinearAccelerationDetailsActivity::class.java))
-        }
-
-        binding.rotationVectorItemView.setOnClickListener {
-            startActivity(Intent(this, RotationVectorDetailsActivity::class.java))
-        }
-
-        binding.significantMotionsItemView.setOnClickListener {
-            startActivity(Intent(this, SignificantMotionsDetailsActivity::class.java))
-        }
-
-        binding.stepCounterItemView.setOnClickListener {
-            startActivity(Intent(this, StepCounterDetailsActivity::class.java))
-        }
-
-        binding.stepDetectorItemView.setOnClickListener {
-            startActivity(Intent(this, StepDetectorDetailsActivity::class.java))
-        }
-
-        binding.gameRotationVectorItemView.setOnClickListener {
-            startActivity(Intent(this, GameRotationVectorDetailsActivity::class.java))
-        }
-
-        binding.geomagneticRotationVectorItemView.setOnClickListener {
-            startActivity(Intent(this, GeomagneticRotationVectorDetailsActivity::class.java))
-        }
-
-        binding.magneticFieldItemView.setOnClickListener {
-            startActivity(Intent(this, MagneticFieldDetailsActivity::class.java))
-        }
-
-        binding.magneticFieldUncalibratedItemView.setOnClickListener {
-            startActivity(Intent(this, MagneticFieldUncalibratedDetailsActivity::class.java))
-        }
-
-        binding.orientationItemView.setOnClickListener {
-            startActivity(Intent(this, OrientationDetailsActivity::class.java))
-        }
+    private fun openDetails(view: View) {
+        startActivity(Intent(this, map[view.id]))
     }
 }
