@@ -210,6 +210,14 @@
                 android:value=".HomeActivity" />
         </activity>
         <activity
+            android:name=".metal_detection.MetalDetectionActivity"
+            android:exported="false"
+            android:label="@string/screen_metal_detection_title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>

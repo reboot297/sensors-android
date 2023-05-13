@@ -27,6 +27,7 @@ import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsMagneticFieldBinding
+import com.reboot297.sensors.metal_detection.MetalDetectionActivity
 import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
 class MagneticFieldDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
@@ -68,6 +69,7 @@ class MagneticFieldDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
 
             samplesLabelView.setOnClickListener {
                 sampleDeviceOrientationView.isVisible = !sampleDeviceOrientationView.isVisible
+                sampleMetalDetectionView.isVisible = !sampleMetalDetectionView.isVisible
             }
 
             sampleDeviceOrientationView.setOnClickListener {
@@ -76,6 +78,15 @@ class MagneticFieldDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
                         this@MagneticFieldDetailsActivity,
                         DeviceOrientationActivity::class.java,
                     ),
+                )
+            }
+
+            sampleMetalDetectionView.setOnClickListener {
+                startActivity(
+                    Intent(
+                        this@MagneticFieldDetailsActivity,
+                        MetalDetectionActivity::class.java,
+                    )
                 )
             }
         }

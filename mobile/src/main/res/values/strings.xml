@@ -23,6 +23,7 @@
     <string name="home_button_raw_data">Raw Data</string>
     <string name="home_button_altitude">Altitude</string>
     <string name="home_button_device_orientation">Device Orientation</string>
+    <string name="home_button_metal_detection">Metal Detection</string>
 
     <string name="raw_data_label_environment">Environment sensors:</string>
     <string name="raw_data_label_position">Position sensors:</string>
@@ -53,6 +54,7 @@
     <string name="screen_raw_data_title">Raw Data</string>
     <string name="screen_altitude_title">Altitude</string>
     <string name="screen_orientation_title">Device orientation</string>
+    <string name="screen_metal_detection_title">Metal detection</string>
     <string name="screen_about">About…</string>
 
     <string name="warning_sensor_not_available">Sensor is not available</string>
@@ -143,6 +145,10 @@
 
     <string name="sample_altitude">Altitude</string>
     <string name="sample_device_orientation">Device Orientation</string>
+    <string name="sample_metal_detection">Metal Detection</string>
+
+    <string name="metal_detection_value_label">Metal detection value:</string>
+    <string name="metal_detection_description_value"></string>
 
 
     <string name="altitude_pressure_sensor_label">Pressure sensor value:</string>

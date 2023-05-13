@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.view.WindowCompat
 import com.reboot297.sensors.altitude.AltitudeActivity
 import com.reboot297.sensors.databinding.ActivityHomeBinding
+import com.reboot297.sensors.metal_detection.MetalDetectionActivity
 import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
 class HomeActivity : BaseActivity() {
@@ -30,6 +31,10 @@ class HomeActivity : BaseActivity() {
 
         binding.deviceOrientationButton.setOnClickListener {
             startActivity(Intent(this, DeviceOrientationActivity::class.java))
+        }
+
+        binding.metalDetectionButton.setOnClickListener {
+            startActivity(Intent(this, MetalDetectionActivity::class.java))
         }
     }
 }
