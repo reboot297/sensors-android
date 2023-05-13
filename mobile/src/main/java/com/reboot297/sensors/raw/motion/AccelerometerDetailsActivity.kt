@@ -24,12 +24,12 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsAccelerometerBinding
 import com.reboot297.sensors.orientation.DeviceOrientationActivity
 
-class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
@@ -75,8 +75,8 @@ class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
                 startActivity(
                     Intent(
                         this@AccelerometerDetailsActivity,
-                        DeviceOrientationActivity::class.java
-                    )
+                        DeviceOrientationActivity::class.java,
+                    ),
                 )
             }
         }
@@ -101,14 +101,13 @@ class AccelerometerDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@AccelerometerDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 
     private fun stopListening() {
         sensorManager.unregisterListener(this)
     }
-
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.let {

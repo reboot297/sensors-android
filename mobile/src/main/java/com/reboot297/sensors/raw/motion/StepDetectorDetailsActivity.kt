@@ -30,28 +30,30 @@ import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 import java.util.Date
 
-class StepDetectorDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
     private lateinit var binding: ActivityDetailsBinding
 
     private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
+        ActivityResultContracts.RequestPermission(),
     ) { isGranted: Boolean ->
         if (isGranted) {
             initSensor()
         } else {
             Snackbar.make(binding.root, R.string.permission_denied, Snackbar.LENGTH_LONG)
                 .setAction(R.string.settings) {
-                    startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                        data = Uri.fromParts("package", packageName, null)
-                    })
+                    startActivity(
+                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                            data = Uri.fromParts("package", packageName, null)
+                        },
+                    )
                 }
                 .show()
         }
@@ -129,7 +131,7 @@ class StepDetectorDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@StepDetectorDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 
@@ -139,7 +141,8 @@ class StepDetectorDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         event?.values?.firstOrNull()?.let {
-            binding.sensorDataLayout.sensorValueView.text = getString(R.string.step_detection_value, Date())
+            binding.sensorDataLayout.sensorValueView.text =
+                getString(R.string.step_detection_value, Date())
         }
     }
 

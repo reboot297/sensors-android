@@ -31,7 +31,6 @@ import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDeviceOrientationBinding
 
-
 class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
@@ -74,6 +73,7 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
         defaultDisplay = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             display!!
         } else {
+            @Suppress("DEPRECATION")
             (getSystemService(WINDOW_SERVICE) as WindowManager).defaultDisplay
         }
     }
@@ -95,14 +95,14 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
             this@DeviceOrientationActivity,
             accelerometerSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
-            SensorManager.SENSOR_DELAY_UI
+            SensorManager.SENSOR_DELAY_UI,
         )
 
         sensorManager.registerListener(
             this@DeviceOrientationActivity,
             magneticFieldSensor,
             SensorManager.SENSOR_DELAY_NORMAL,
-            SensorManager.SENSOR_DELAY_UI
+            SensorManager.SENSOR_DELAY_UI,
         )
     }
 
@@ -116,7 +116,6 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-
         when (event?.sensor?.type) {
             Sensor.TYPE_ACCELEROMETER -> {
                 System.arraycopy(
@@ -124,7 +123,7 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
                     0,
                     accelerometerReading,
                     0,
-                    accelerometerReading.size
+                    accelerometerReading.size,
                 )
             }
 
@@ -135,17 +134,17 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
             else -> return
         }
         updateOrientationAngles()
-
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 
     private fun updateOrientationAngles() {
         // Update rotation matrix, which is needed to update orientation angles.
         val success = SensorManager.getRotationMatrix(
-            rotationMatrix, null, accelerometerReading, magnetometerReading
+            rotationMatrix,
+            null,
+            accelerometerReading,
+            magnetometerReading,
         )
         if (success) {
             // Remap the matrix based on current device/activity rotation.
@@ -156,30 +155,28 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
                     rotationMatrix,
                     SensorManager.AXIS_Y,
                     SensorManager.AXIS_MINUS_X,
-                    rotationMatrixAdjusted
+                    rotationMatrixAdjusted,
                 )
 
                 Surface.ROTATION_180 -> SensorManager.remapCoordinateSystem(
                     rotationMatrix,
                     SensorManager.AXIS_MINUS_X,
                     SensorManager.AXIS_MINUS_Y,
-                    rotationMatrixAdjusted
+                    rotationMatrixAdjusted,
                 )
 
                 Surface.ROTATION_270 -> SensorManager.remapCoordinateSystem(
                     rotationMatrix,
                     SensorManager.AXIS_MINUS_Y,
                     SensorManager.AXIS_X,
-                    rotationMatrixAdjusted
+                    rotationMatrixAdjusted,
                 )
             }
 
             SensorManager.getOrientation(rotationMatrixAdjusted, orientationAngles)
             binding.calculatedValueView.text = formatOrientationItems(orientationAngles)
         }
-
     }
-
 
     private fun formatOrientationItems(array: FloatArray): String {
         return StringBuilder()
@@ -187,5 +184,4 @@ class DeviceOrientationActivity : BaseActivity(), SensorEventListener {
             .append("Pitch: ").append(Math.toDegrees(array[1].toDouble()).toFloat()).append("\n")
             .append("Roll: ").append(Math.toDegrees(array[2].toDouble())).toString()
     }
-
 }

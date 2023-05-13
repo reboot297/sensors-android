@@ -23,9 +23,9 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.reboot297.sensors.databinding.LayoutSensorInfoBinding
 
-abstract class BaseSensorActivity : BaseActivity() {
+abstract class BaseSensorDetailsActivity : BaseActivity() {
 
-    protected fun showSensorNotAvailableDialog() =
+    protected fun showSensorNotAvailableDialog(): AlertDialog =
         AlertDialog.Builder(this)
             .setMessage(R.string.warning_sensor_not_available)
             .setPositiveButton(android.R.string.ok) { _, _ -> finish() }
@@ -48,8 +48,10 @@ abstract class BaseSensorActivity : BaseActivity() {
             sensorMaxRangeValue.text = formatTextValue(sensor.maximumRange, getUnit())
             sensorResolutionValue.text = formatTextValue(sensor.resolution, getUnit())
             sensorPowerValue.text = formatTextValue(sensor.power, getString(R.string.unit_power))
-            sensorMinDelayValue.text = formatTextValue(sensor.minDelay, getString(R.string.unit_microseconds))
-            sensorMaxDelayValue.text = formatTextValue(sensor.maxDelay, getString(R.string.unit_microseconds))
+            sensorMinDelayValue.text =
+                formatTextValue(sensor.minDelay, getString(R.string.unit_microseconds))
+            sensorMaxDelayValue.text =
+                formatTextValue(sensor.maxDelay, getString(R.string.unit_microseconds))
             sensorFifoMaxValue.text = sensor.fifoMaxEventCount.toString()
             sensorFifoReservedValue.text = sensor.fifoReservedEventCount.toString()
             sensorIsWakeupValue.text = sensor.isWakeUpSensor.toString()
@@ -115,5 +117,4 @@ abstract class BaseSensorActivity : BaseActivity() {
             .append("scalar: ").append(array[3])
             .toString()
     }
-
 }

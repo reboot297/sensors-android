@@ -23,11 +23,11 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
-class AmbientTemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class AmbientTemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
@@ -86,12 +86,11 @@ class AmbientTemperatureDetailsActivity : BaseSensorActivity(), SensorEventListe
         stopListening()
     }
 
-
     private fun startListening() {
         sensorManager.registerListener(
             this@AmbientTemperatureDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 
@@ -114,5 +113,4 @@ class AmbientTemperatureDetailsActivity : BaseSensorActivity(), SensorEventListe
     }
 
     override fun getUnitResId() = R.string.unit_ambient_temperature
-
 }
