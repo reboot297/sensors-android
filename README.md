@@ -1,7 +1,7 @@
 # Examples of using Android sensors.
 
-[<img src="https://github.com/reboot297/sensors-android/blob/main/doc/google-play-badge.png" height=75 align=center>](https://play.google.com/store/apps/details?id=com.reboot297.sensors)
-[<img src="https://github.com/reboot297/sensors-android/blob/main/doc/amazon-appstore-badge-english-black.png" height=50 align=center>](http://www.amazon.com/gp/mas/dl/android?p=com.reboot297.sensors)
+[<img src="doc/google-play-badge.png" height=75 align=center>](https://play.google.com/store/apps/details?id=com.reboot297.sensors)
+[<img src="doc/amazon-appstore-badge-english-black.png" height=50 align=center>](http://www.amazon.com/gp/mas/dl/android?p=com.reboot297.sensors)
 
 This project is an example of reading data from Android sensors.
 
