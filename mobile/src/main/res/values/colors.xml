@@ -15,9 +15,6 @@
   -->
 
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
     <color name="ic_launcher_background">#3DDCD7</color>
 
     <color name="raw_data_section_background">#ff6750a4</color>

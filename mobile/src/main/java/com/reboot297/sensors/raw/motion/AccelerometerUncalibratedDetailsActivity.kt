@@ -25,12 +25,12 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
 @RequiresApi(Build.VERSION_CODES.O)
-class AccelerometerUncalibratedDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class AccelerometerUncalibratedDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
@@ -91,7 +91,7 @@ class AccelerometerUncalibratedDetailsActivity : BaseSensorActivity(), SensorEve
         sensorManager.registerListener(
             this@AccelerometerUncalibratedDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 

@@ -23,11 +23,11 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
-class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class OrientationDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
@@ -70,6 +70,7 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
+        @Suppress("DEPRECATION")
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
@@ -87,7 +88,8 @@ class OrientationDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@OrientationDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL, SensorManager.SENSOR_DELAY_UI
+            SensorManager.SENSOR_DELAY_NORMAL,
+            SensorManager.SENSOR_DELAY_UI,
         )
     }
 

@@ -16,6 +16,7 @@
 
 package com.reboot297.sensors
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -72,6 +73,7 @@ class RawDataActivity : BaseActivity() {
         R.id.relative_humidity_item_view to RelativeHumidityDetailsActivity::class.java,
     )
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

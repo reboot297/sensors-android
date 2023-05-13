@@ -23,11 +23,11 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
-class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class TemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
@@ -71,6 +71,7 @@ class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
 
     override fun onStart() {
         super.onStart()
+        @Suppress("DEPRECATION")
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_TEMPERATURE)
         if (sensor != null) {
             displaySensorInfo(sensor!!, binding.sensorInfoLayout)
@@ -88,7 +89,7 @@ class TemperatureDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@TemperatureDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 

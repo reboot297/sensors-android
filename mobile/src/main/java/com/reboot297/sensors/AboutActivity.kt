@@ -60,8 +60,8 @@ class AboutActivity : AppCompatActivity() {
     }
 
     private fun openPrivacy() {
-        startActivity(Intent(Intent.ACTION_VIEW).apply {
-            data = Uri.parse(PRIVACY_URL)
-        })
+        startActivity(
+            Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(PRIVACY_URL) },
+        )
     }
 }

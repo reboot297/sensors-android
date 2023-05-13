@@ -23,11 +23,11 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.core.view.isVisible
-import com.reboot297.sensors.BaseSensorActivity
+import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.databinding.ActivityDetailsBinding
 
-class GyroscopeDetailsActivity : BaseSensorActivity(), SensorEventListener {
+class GyroscopeDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
@@ -87,7 +87,7 @@ class GyroscopeDetailsActivity : BaseSensorActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@GyroscopeDetailsActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 

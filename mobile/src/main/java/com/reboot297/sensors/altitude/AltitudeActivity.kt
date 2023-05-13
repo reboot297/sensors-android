@@ -76,7 +76,7 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
         sensorManager.registerListener(
             this@AltitudeActivity,
             sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_NORMAL,
         )
     }
 
@@ -98,11 +98,8 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
         .append(getString(unit))
         .toString()
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-
-    }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
 
     private fun getAltitude(pressure: Float) =
         SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)
-
 }
