@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".raw.position.MagneticFieldDetailsActivity">
+    tools:context=".metal_detection.MetalDetectionActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -39,80 +39,46 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="@dimen/screen_padding">
 
             <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/measureSwitch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/screen_padding"
                 android:text="@string/details_start_listening"
-                android:textSize="@dimen/app_switch_text_size" />
+                android:textSize="@dimen/app_switch_text_size"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/sensorDataLabelView"
-                style="@style/App.Raw.Details.Section.Text"
+                android:id="@+id/valueLabelView"
+                style="@style/App.Sample.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_data" />
-
-            <include
-                android:id="@+id/sensor_data_layout"
-                layout="@layout/layout_sensor_data" />
-
-            <TextView
-                android:id="@+id/sensorInfoLabelView"
-                style="@style/App.Raw.Details.Section.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_info" />
-
-            <include
-                android:id="@+id/sensor_info_layout"
-                layout="@layout/layout_sensor_info" />
-
-            <TextView
-                android:id="@+id/sensor_description_label_view"
-                style="@style/App.Raw.Details.Section.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_description" />
+                android:text="@string/metal_detection_value_label"
+                app:layout_constraintTop_toBottomOf="@+id/measureSwitch" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sensor_description_view"
-                style="@style/App.Raw.Details.Value"
+                android:id="@+id/value_view"
+                style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/description_magnetic_field" />
-
-            <TextView
-                android:id="@+id/samples_label_view"
-                style="@style/App.Raw.Details.Section.Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/raw_details_label_samples" />
+                app:layout_constraintTop_toBottomOf="@+id/valueLabelView"
+                tools:text="" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sample_device_orientation_view"
-                style="@style/App.Raw.Sample.Value"
+                android:id="@+id/description_view"
+                style="@style/App.Sample.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="@string/sample_device_orientation" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sample_metal_detection_view"
-                style="@style/App.Raw.Sample.Value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/sample_metal_detection" />
+                android:text="@string/metal_detection_description_value"
+                app:layout_constraintTop_toBottomOf="@+id/value_view" />
 
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

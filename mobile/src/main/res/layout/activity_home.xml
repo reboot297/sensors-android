@@ -59,6 +59,12 @@
             android:layout_height="wrap_content"
             android:text="@string/home_button_device_orientation"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/metal_detection_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/home_button_metal_detection"/>
+
     </LinearLayout>
 
 
