@@ -17,70 +17,40 @@
 package com.reboot297.sensors.raw.motion
 
 import android.content.Context
-import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsAccelerometerBinding
 import com.reboot297.sensors.orientation.DeviceOrientationActivity
+import com.reboot297.sensors.sections.sensor_values.ThreeSensorValues
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.samples.Samples
+import com.reboot297.sensors.sections.SectionUIImpl
+import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
 
 class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsAccelerometerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsAccelerometerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        with(binding) {
-            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    sensorDataLayout.root.isVisible = true
-                    startListening()
-                } else {
-                    stopListening()
-                }
-            }
-
-            sensorDataLabelView.setOnClickListener {
-                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
-            }
-
-            sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
-            }
-
-            sensorDescriptionLabelView.setOnClickListener {
-                sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
-            }
-
-            samplesLabelView.setOnClickListener {
-                sampleDeviceOrientationView.isVisible = !sampleDeviceOrientationView.isVisible
-            }
-
-            sampleDeviceOrientationView.setOnClickListener {
-                startActivity(
-                    Intent(
-                        this@AccelerometerDetailsActivity,
-                        DeviceOrientationActivity::class.java,
-                    ),
-                )
-            }
-        }
     }
+
+    override fun createSectionsUI() = SectionUIImpl(
+        sensorValue = ThreeSensorValues(unit = getString(R.string.unit_acceleration)),
+        accuracyValue = AccuracySensorValue(this),
+        description = Description(R.string.description_accelerometer),
+        sample = Samples(
+            listOf(
+                Pair(R.string.sample_device_orientation, DeviceOrientationActivity::class.java)
+            )
+        )
+    )
 
     override fun onStart() {
         super.onStart()
@@ -92,12 +62,7 @@ class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+    override fun startListening() {
         sensorManager.registerListener(
             this@AccelerometerDetailsActivity,
             sensor,
@@ -105,22 +70,16 @@ class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
         )
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensorManager.unregisterListener(this)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        event?.values?.let {
-            binding.sensorDataLayout.sensorValueView.text = format3Items(it)
-        }
+        event?.values?.let { displaySensorValues(it) }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        binding.sensorDataLayout.sensorAccuracyView.text = if (accuracy == -1) {
-            getString(R.string.accuracy_no_contact)
-        } else {
-            resources.getStringArray(R.array.accuracy_values)[accuracy]
-        }
+        ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
 
     override fun getUnitResId() = R.string.unit_acceleration

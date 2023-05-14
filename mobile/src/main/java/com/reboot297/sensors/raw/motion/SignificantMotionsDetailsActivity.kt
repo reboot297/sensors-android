@@ -22,52 +22,28 @@ import android.hardware.SensorManager
 import android.hardware.TriggerEvent
 import android.hardware.TriggerEventListener
 import android.os.Bundle
-import androidx.core.view.isVisible
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsBinding
-import java.util.Date
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.SectionUIImpl
+import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.sensor_values.TriggerSensorValue
 
 class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        with(binding) {
-            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    sensorDataLayout.root.isVisible = true
-                    startListening()
-                } else {
-                    stopListening()
-                }
-            }
-
-            sensorDataLabelView.setOnClickListener {
-                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
-            }
-
-            sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
-            }
-
-            sensorDescriptionLabelView.setOnClickListener {
-                sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
-            }
-
-            sensorDescriptionView.setText(R.string.description_significant_motion)
-        }
     }
+
+    override fun createSectionsUI() = SectionUIImpl(
+        sensorValue = TriggerSensorValue(R.string.significant_motion_value),
+        accuracyValue = AccuracySensorValue(this),
+        description = Description(R.string.description_significant_motion)
+    )
 
     override fun onStart() {
         super.onStart()
@@ -79,18 +55,13 @@ class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+    override fun startListening() {
         sensor?.let {
             sensorManager.requestTriggerSensor(triggerEventListener, it)
         }
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensor?.let {
             sensorManager.cancelTriggerSensor(triggerEventListener, sensor)
         }
@@ -98,7 +69,7 @@ class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
 
     private val triggerEventListener = object : TriggerEventListener() {
         override fun onTrigger(event: TriggerEvent?) {
-            binding.sensorDataLayout.sensorValueView.text = getString(R.string.significant_motion_value, Date())
+            event?.values?.let { displaySensorValues(it) }
         }
     }
 

@@ -32,14 +32,15 @@ import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityDetailsBinding
-import java.util.Date
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.SectionUIImpl
+import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.sensor_values.TriggerSensorValue
 
 class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityDetailsBinding
 
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -70,39 +71,14 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        with(binding) {
-            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    startListening()
-                } else {
-                    stopListening()
-                }
-            }
-
-            sensorDataLabelView.setOnClickListener {
-                sensorDataLayout.root.isVisible = sensor != null && !sensorDataLayout.root.isVisible
-            }
-
-            sensorInfoLabelView.setOnClickListener {
-                sensorInfoLayout.root.isVisible = sensor != null && !sensorInfoLayout.root.isVisible
-            }
-
-            sensorDescriptionLabelView.setOnClickListener {
-                sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
-            }
-
-            sensorDescriptionView.setText(R.string.description_step_detector)
-        }
     }
+
+    override fun createSectionsUI() = SectionUIImpl(
+        sensorValue = TriggerSensorValue(R.string.step_detection_value),
+        accuracyValue = AccuracySensorValue(this),
+        description = Description(R.string.description_step_detector)
+    )
 
     override fun onStart() {
         super.onStart()
@@ -122,12 +98,7 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        stopListening()
-    }
-
-    private fun startListening() {
+    override fun startListening() {
         sensorManager.registerListener(
             this@StepDetectorDetailsActivity,
             sensor,
@@ -135,23 +106,16 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
         )
     }
 
-    private fun stopListening() {
+    override fun stopListening() {
         sensorManager.unregisterListener(this)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        event?.values?.firstOrNull()?.let {
-            binding.sensorDataLayout.sensorValueView.text =
-                getString(R.string.step_detection_value, Date())
-        }
+        event?.values?.let { displaySensorValues(it) }
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        binding.sensorDataLayout.sensorAccuracyView.text = if (accuracy == -1) {
-            getString(R.string.accuracy_no_contact)
-        } else {
-            resources.getStringArray(R.array.accuracy_values)[accuracy]
-        }
+        ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
 
     override fun getUnitResId() = R.string.unitless

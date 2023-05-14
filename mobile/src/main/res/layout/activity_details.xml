@@ -89,6 +89,20 @@
                 android:paddingVertical="8dp"
                 tools:text="" />
 
+            <TextView
+                android:id="@+id/samples_label_view"
+                style="@style/App.Raw.Details.Section.Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/raw_details_label_samples" />
+
+            <LinearLayout
+                android:id="@+id/samples_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp" />
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -19,11 +19,78 @@ package com.reboot297.sensors
 import android.annotation.SuppressLint
 import android.hardware.Sensor
 import android.os.Build
+import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
+import com.reboot297.sensors.databinding.ActivityDetailsBinding
 import com.reboot297.sensors.databinding.LayoutSensorInfoBinding
+import com.reboot297.sensors.sections.SectionUI
 
 abstract class BaseSensorDetailsActivity : BaseActivity() {
+
+    protected lateinit var binding: ActivityDetailsBinding
+
+    protected lateinit var ui: SectionUI
+        private set
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        ui = createSectionsUI()
+
+        with(binding) {
+            measureSwitch.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    sensorDataLayout.root.isVisible = true
+                    startListening()
+                } else {
+                    stopListening()
+                }
+            }
+
+            sensorDataLabelView.setOnClickListener {
+                sensorDataLayout.root.isVisible = !sensorDataLayout.root.isVisible
+            }
+
+            sensorInfoLabelView.setOnClickListener {
+                sensorInfoLayout.root.isVisible = !sensorInfoLayout.root.isVisible
+            }
+
+            sensorDescriptionLabelView.setOnClickListener {
+                sensorDescriptionView.isVisible = !sensorDescriptionView.isVisible
+            }
+
+            ui.displayDescription(sensorDescriptionView)
+
+            samplesLabelView.setOnClickListener {
+                samplesLayout.isVisible = !samplesLayout.isVisible
+            }
+
+            ui.displaySamples(samplesLayout)
+        }
+    }
+
+    protected abstract fun startListening()
+
+    protected abstract fun stopListening()
+
+    protected abstract fun createSectionsUI(): SectionUI
+
+    protected fun displaySensorValues(values: FloatArray) {
+        ui.displaySensorValue(binding.sensorDataLayout.sensorValueView, values)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        stopListening()
+    }
 
     protected fun showSensorNotAvailableDialog(): AlertDialog =
         AlertDialog.Builder(this)
@@ -82,39 +149,4 @@ abstract class BaseSensorDetailsActivity : BaseActivity() {
         .append(unit)
         .toString()
 
-    protected fun formatTextValue(value: Float) = StringBuilder()
-        .append(value)
-        .append(" ")
-        .append(getUnit())
-        .toString()
-
-    protected fun format3Items(array: FloatArray): String {
-        val unit = getUnit()
-        return StringBuilder()
-            .append("x: ").append(array[0]).append(" ").append(unit).append("\n")
-            .append("y: ").append(array[1]).append(" ").append(unit).append("\n")
-            .append("z: ").append(array[2]).append(" ").append(unit)
-            .toString()
-    }
-
-    protected fun format6Items(array: FloatArray): String {
-        val unit = getUnit()
-        return StringBuilder()
-            .append("raw x: ").append(array[0]).append(" ").append(unit).append("\n")
-            .append("raw y: ").append(array[1]).append(" ").append(unit).append("\n")
-            .append("raw z: ").append(array[2]).append(" ").append(unit).append("\n")
-            .append("x: ").append(array[3]).append(" ").append(unit).append("\n")
-            .append("y: ").append(array[4]).append(" ").append(unit).append("\n")
-            .append("z: ").append(array[5]).append(" ").append(unit)
-            .toString()
-    }
-
-    protected fun formatRotationVector(array: FloatArray): String {
-        return StringBuilder()
-            .append("x: ").append(array[0]).append("\n")
-            .append("y: ").append(array[1]).append("\n")
-            .append("z: ").append(array[2]).append("\n")
-            .append("scalar: ").append(array[3])
-            .toString()
-    }
 }
