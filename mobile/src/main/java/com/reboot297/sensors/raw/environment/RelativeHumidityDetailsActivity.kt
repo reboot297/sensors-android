@@ -24,10 +24,11 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.sections.description.Description
-import com.reboot297.sensors.sections.sensor_values.OneSensorValue
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
+import com.reboot297.sensors.sections.sensor_values.OneSensorValue
 
 class RelativeHumidityDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
@@ -41,7 +42,8 @@ class RelativeHumidityDetailsActivity : BaseSensorDetailsActivity(), SensorEvent
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = OneSensorValue(unit = getString(R.string.unit_relative_humidity)),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_relative_humidity)),
         description = Description(R.string.description_relative_humidity)
     )
 
@@ -49,7 +51,7 @@ class RelativeHumidityDetailsActivity : BaseSensorDetailsActivity(), SensorEvent
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -74,6 +76,4 @@ class RelativeHumidityDetailsActivity : BaseSensorDetailsActivity(), SensorEvent
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_relative_humidity
 }

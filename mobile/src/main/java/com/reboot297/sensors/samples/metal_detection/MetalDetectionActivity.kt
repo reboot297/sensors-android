@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reboot297.sensors.altitude
+package com.reboot297.sensors.samples.metal_detection
 
 import android.content.Context
 import android.hardware.Sensor
@@ -26,19 +26,20 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityAltitudeBinding
+import com.reboot297.sensors.databinding.ActivityMetalDetectionBinding
+import kotlin.math.sqrt
 
-class AltitudeActivity : BaseActivity(), SensorEventListener {
 
+class MetalDetectionActivity: BaseActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityAltitudeBinding
+    private lateinit var binding: ActivityMetalDetectionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityAltitudeBinding.inflate(layoutInflater)
+        binding = ActivityMetalDetectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -57,7 +58,7 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
     override fun onStart() {
         super.onStart()
 
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         if (sensor == null) {
             AlertDialog.Builder(this)
                 .setMessage(R.string.warning_sensor_not_available)
@@ -74,7 +75,7 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
 
     fun startListening() {
         sensorManager.registerListener(
-            this@AltitudeActivity,
+            this@MetalDetectionActivity,
             sensor,
             SensorManager.SENSOR_DELAY_NORMAL,
         )
@@ -85,21 +86,17 @@ class AltitudeActivity : BaseActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        event?.values?.firstOrNull()?.let {
-            binding.sensorValueView.text = formatTextValue(it, R.string.unit_pressure)
-            binding.altitudeValueView.text =
-                formatTextValue(getAltitude(it), R.string.unit_altitude)
+        event?.values?.let {
+            val magnitude = sqrt((it[0] * it[0] + it[1] * it[1] + it[2] * it[2]).toDouble())
+            binding.valueView.text = formatTextValue(magnitude, R.string.unit_magnetic_field)
         }
     }
 
-    private fun formatTextValue(value: Float, @StringRes unit: Int) = StringBuilder()
+    private fun formatTextValue(value: Double, @StringRes unit: Int) = StringBuilder()
         .append(value)
         .append(" ")
         .append(getString(unit))
         .toString()
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
-
-    private fun getAltitude(pressure: Float) =
-        SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)
 }

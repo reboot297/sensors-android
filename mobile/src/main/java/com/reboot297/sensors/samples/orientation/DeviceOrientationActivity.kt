@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reboot297.sensors.orientation
+package com.reboot297.sensors.samples.orientation
 
 import android.content.Context
 import android.hardware.Sensor

@@ -86,6 +86,16 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <style name="App.Samples.Item.Text" parent="">
+        <item name="android:textSize">@dimen/app_samples_item_text_size</item>
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <style name="App.Sample.Label" parent="">
         <item name="android:textSize">@dimen/app_sample_label_text_size</item>
         <item name="android:textStyle">bold</item>

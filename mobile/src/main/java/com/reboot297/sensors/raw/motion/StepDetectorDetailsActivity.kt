@@ -32,9 +32,10 @@ import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.sections.description.Description
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.TriggerSensorValue
 
 class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
@@ -76,7 +77,8 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = TriggerSensorValue(R.string.step_detection_value),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext),
         description = Description(R.string.description_step_detector)
     )
 
@@ -92,7 +94,7 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
     private fun initSensor() {
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -117,6 +119,4 @@ class StepDetectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventList
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unitless
 }

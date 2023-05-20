@@ -14,17 +14,12 @@
  * limitations under the License.
  */
 
-package com.reboot297.sensors.sections
+package com.reboot297.sensors.sections.info
 
 import android.hardware.Sensor
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.reboot297.sensors.databinding.LayoutSensorInfoBinding
+import com.reboot297.sensors.sections.Section
 
-interface SectionUI {
-    fun displaySensorValue(view: TextView, values: FloatArray)
-    fun displaySensorAccuracy(view: TextView, value: Int)
+interface InfoSection : Section {
     fun displaySensorInfo(sensor: Sensor, sensorInfoBinding: LayoutSensorInfoBinding)
-    fun displayDescription(view: TextView)
-    fun displaySamples(layout: LinearLayout)
 }

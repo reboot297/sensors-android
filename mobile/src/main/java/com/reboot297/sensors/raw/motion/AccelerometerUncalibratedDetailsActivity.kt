@@ -26,9 +26,10 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.sections.description.Description
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.SixSensorValues
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -44,7 +45,8 @@ class AccelerometerUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = SixSensorValues(unit = getString(R.string.unit_acceleration)),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_acceleration)),
         description = Description(R.string.description_accelerometer_uncalibrated)
     )
 
@@ -52,7 +54,7 @@ class AccelerometerUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER_UNCALIBRATED)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -77,6 +79,4 @@ class AccelerometerUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_acceleration
 }

@@ -27,6 +27,7 @@ import com.reboot297.sensors.R
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
 import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.OneSensorValue
 
 class AmbientTemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
@@ -43,7 +44,8 @@ class AmbientTemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEve
     override fun createSectionsUI() =
         SectionUIImpl(
             sensorValue = OneSensorValue(unit = getString(R.string.unit_ambient_temperature)),
-            accuracyValue = AccuracySensorValue(this),
+            accuracyValue = AccuracySensorValue(applicationContext),
+            sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_ambient_temperature)),
             description = Description(R.string.description_ambient_temperature),
         )
 
@@ -51,7 +53,7 @@ class AmbientTemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEve
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -76,6 +78,4 @@ class AmbientTemperatureDetailsActivity : BaseSensorDetailsActivity(), SensorEve
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_ambient_temperature
 }

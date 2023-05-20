@@ -24,12 +24,13 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.orientation.DeviceOrientationActivity
-import com.reboot297.sensors.sections.sensor_values.ThreeSensorValues
-import com.reboot297.sensors.sections.description.Description
-import com.reboot297.sensors.sections.samples.Samples
+import com.reboot297.sensors.samples.orientation.DeviceOrientationActivity
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
+import com.reboot297.sensors.sections.samples.Samples
+import com.reboot297.sensors.sections.sensor_values.ThreeSensorValues
 
 class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
@@ -43,7 +44,8 @@ class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = ThreeSensorValues(unit = getString(R.string.unit_acceleration)),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_acceleration)),
         description = Description(R.string.description_accelerometer),
         sample = Samples(
             listOf(
@@ -56,7 +58,7 @@ class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -81,6 +83,4 @@ class AccelerometerDetailsActivity : BaseSensorDetailsActivity(), SensorEventLis
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_acceleration
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.reboot297.sensors.metal_detection
+package com.reboot297.sensors.samples.altitude
 
 import android.content.Context
 import android.hardware.Sensor
@@ -26,20 +26,19 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.reboot297.sensors.BaseActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.databinding.ActivityMetalDetectionBinding
-import kotlin.math.sqrt
+import com.reboot297.sensors.databinding.ActivityAltitudeBinding
 
+class AltitudeActivity : BaseActivity(), SensorEventListener {
 
-class MetalDetectionActivity: BaseActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var _sensor: Sensor? = null
     private val sensor: Sensor? get() = _sensor
-    private lateinit var binding: ActivityMetalDetectionBinding
+    private lateinit var binding: ActivityAltitudeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMetalDetectionBinding.inflate(layoutInflater)
+        binding = ActivityAltitudeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -58,7 +57,7 @@ class MetalDetectionActivity: BaseActivity(), SensorEventListener {
     override fun onStart() {
         super.onStart()
 
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
         if (sensor == null) {
             AlertDialog.Builder(this)
                 .setMessage(R.string.warning_sensor_not_available)
@@ -75,7 +74,7 @@ class MetalDetectionActivity: BaseActivity(), SensorEventListener {
 
     fun startListening() {
         sensorManager.registerListener(
-            this@MetalDetectionActivity,
+            this@AltitudeActivity,
             sensor,
             SensorManager.SENSOR_DELAY_NORMAL,
         )
@@ -86,17 +85,21 @@ class MetalDetectionActivity: BaseActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        event?.values?.let {
-            val magnitude = sqrt((it[0] * it[0] + it[1] * it[1] + it[2] * it[2]).toDouble())
-            binding.valueView.text = formatTextValue(magnitude, R.string.unit_magnetic_field)
+        event?.values?.firstOrNull()?.let {
+            binding.sensorValueView.text = formatTextValue(it, R.string.unit_pressure)
+            binding.altitudeValueView.text =
+                formatTextValue(getAltitude(it), R.string.unit_altitude)
         }
     }
 
-    private fun formatTextValue(value: Double, @StringRes unit: Int) = StringBuilder()
+    private fun formatTextValue(value: Float, @StringRes unit: Int) = StringBuilder()
         .append(value)
         .append(" ")
         .append(getString(unit))
         .toString()
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+
+    private fun getAltitude(pressure: Float) =
+        SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, pressure)
 }

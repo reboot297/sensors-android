@@ -24,10 +24,11 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.sections.description.Description
-import com.reboot297.sensors.sections.sensor_values.RotationVectorSensorValues
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
+import com.reboot297.sensors.sections.sensor_values.RotationVectorSensorValues
 
 class RotationVectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
@@ -41,7 +42,8 @@ class RotationVectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventLi
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = RotationVectorSensorValues(),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext),
         description = Description(R.string.description_rotation_vector)
     )
 
@@ -49,7 +51,7 @@ class RotationVectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventLi
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -74,6 +76,4 @@ class RotationVectorDetailsActivity : BaseSensorDetailsActivity(), SensorEventLi
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unitless
 }

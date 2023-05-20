@@ -27,6 +27,7 @@ import com.reboot297.sensors.R
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
 import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.SixSensorValues
 
 class MagneticFieldUncalibratedDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
@@ -41,7 +42,8 @@ class MagneticFieldUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = SixSensorValues(unit = getString(R.string.unit_magnetic_field)),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_magnetic_field)),
         description = Description(R.string.description_magnetic_field_uncalibrated)
     )
 
@@ -49,7 +51,7 @@ class MagneticFieldUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -74,6 +76,4 @@ class MagneticFieldUncalibratedDetailsActivity : BaseSensorDetailsActivity(), Se
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_magnetic_field
 }

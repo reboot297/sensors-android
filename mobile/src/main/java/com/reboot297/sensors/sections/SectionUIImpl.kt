@@ -16,10 +16,13 @@
 
 package com.reboot297.sensors.sections
 
+import android.hardware.Sensor
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.reboot297.sensors.databinding.LayoutSensorInfoBinding
 import com.reboot297.sensors.sections.accuracy.AccuracyValueSection
 import com.reboot297.sensors.sections.description.DescriptionSection
+import com.reboot297.sensors.sections.info.InfoSection
 import com.reboot297.sensors.sections.samples.Samples
 import com.reboot297.sensors.sections.samples.SamplesSection
 import com.reboot297.sensors.sections.sensor_values.SensorValueSection
@@ -27,6 +30,7 @@ import com.reboot297.sensors.sections.sensor_values.SensorValueSection
 class SectionUIImpl constructor(
     private val sensorValue: SensorValueSection,
     private val accuracyValue: AccuracyValueSection,
+    private val sensorInfo: InfoSection,
     private val description: DescriptionSection,
     private val sample: SamplesSection = Samples(emptyList())
 ) : SectionUI {
@@ -36,6 +40,10 @@ class SectionUIImpl constructor(
 
     override fun displaySensorAccuracy(view: TextView, value: Int) {
         accuracyValue.onDrawValues(view, value)
+    }
+
+    override fun displaySensorInfo(sensor: Sensor, sensorInfoBinding: LayoutSensorInfoBinding) {
+        sensorInfo.displaySensorInfo(sensor, sensorInfoBinding)
     }
 
     override fun displayDescription(view: TextView) {

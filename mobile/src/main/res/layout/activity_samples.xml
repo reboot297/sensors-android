@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".HomeActivity">
+    tools:context=".raw.RawDataActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -34,26 +34,33 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/screen_padding"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/raw_data_button"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_button_raw_data" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/samples_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_button_samples" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/altitude_item_view"
+                style="@style/App.Samples.Item.Text"
+                android:text="@string/title_altitude" />
 
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/device_orientation_item_view"
+                style="@style/App.Samples.Item.Text"
+                android:text="@string/title_device_orientation" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/metal_detection_item_view"
+                style="@style/App.Samples.Item.Text"
+                android:text="@string/title_metal_detection" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

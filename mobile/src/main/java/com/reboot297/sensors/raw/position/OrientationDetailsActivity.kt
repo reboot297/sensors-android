@@ -27,6 +27,7 @@ import com.reboot297.sensors.R
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
 import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.ThreeSensorValues
 
 class OrientationDetailsActivity : BaseSensorDetailsActivity(), SensorEventListener {
@@ -41,7 +42,8 @@ class OrientationDetailsActivity : BaseSensorDetailsActivity(), SensorEventListe
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = ThreeSensorValues(unit = getString(R.string.unit_orientation)),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext, getString(R.string.unit_orientation)),
         description = Description(R.string.description_orientation)
     )
 
@@ -50,7 +52,7 @@ class OrientationDetailsActivity : BaseSensorDetailsActivity(), SensorEventListe
         @Suppress("DEPRECATION")
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -76,6 +78,4 @@ class OrientationDetailsActivity : BaseSensorDetailsActivity(), SensorEventListe
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         ui.displaySensorAccuracy(binding.sensorDataLayout.sensorAccuracyView, accuracy)
     }
-
-    override fun getUnitResId() = R.string.unit_orientation
 }

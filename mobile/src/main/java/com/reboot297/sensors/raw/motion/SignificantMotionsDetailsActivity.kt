@@ -24,9 +24,10 @@ import android.hardware.TriggerEventListener
 import android.os.Bundle
 import com.reboot297.sensors.BaseSensorDetailsActivity
 import com.reboot297.sensors.R
-import com.reboot297.sensors.sections.description.Description
 import com.reboot297.sensors.sections.SectionUIImpl
 import com.reboot297.sensors.sections.accuracy.AccuracySensorValue
+import com.reboot297.sensors.sections.description.Description
+import com.reboot297.sensors.sections.info.SensorInfo
 import com.reboot297.sensors.sections.sensor_values.TriggerSensorValue
 
 class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
@@ -41,7 +42,8 @@ class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
 
     override fun createSectionsUI() = SectionUIImpl(
         sensorValue = TriggerSensorValue(R.string.significant_motion_value),
-        accuracyValue = AccuracySensorValue(this),
+        accuracyValue = AccuracySensorValue(applicationContext),
+        sensorInfo = SensorInfo(applicationContext),
         description = Description(R.string.description_significant_motion)
     )
 
@@ -49,7 +51,7 @@ class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
         super.onStart()
         _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
         if (sensor != null) {
-            displaySensorInfo(sensor!!, binding.sensorInfoLayout)
+            ui.displaySensorInfo(sensor!!, binding.sensorInfoLayout)
         } else {
             showSensorNotAvailableDialog()
         }
@@ -72,6 +74,4 @@ class SignificantMotionsDetailsActivity : BaseSensorDetailsActivity() {
             event?.values?.let { displaySensorValues(it) }
         }
     }
-
-    override fun getUnitResId() = R.string.unitless
 }
