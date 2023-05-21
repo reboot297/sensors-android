@@ -46,17 +46,17 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/altitude_item_view"
-                style="@style/App.Samples.Item.Text"
+                style="@style/App.Item.Sample"
                 android:text="@string/title_altitude" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/device_orientation_item_view"
-                style="@style/App.Samples.Item.Text"
+                style="@style/App.Item.Sample"
                 android:text="@string/title_device_orientation" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/metal_detection_item_view"
-                style="@style/App.Samples.Item.Text"
+                style="@style/App.Item.Sample"
                 android:text="@string/title_metal_detection" />
 
 

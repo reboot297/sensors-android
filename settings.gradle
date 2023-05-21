@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Sensors"
 include ':mobile'
+include ':wear'
+include ':lib_mobile_sensors'

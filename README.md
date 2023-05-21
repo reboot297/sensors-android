@@ -1,7 +1,11 @@
 # Examples of using Android sensors.
 
+### Android mobile version
 [<img src="doc/google-play-badge.png" height=75 align=center>](https://play.google.com/store/apps/details?id=com.reboot297.sensors)
 [<img src="doc/amazon-appstore-badge-english-black.png" height=50 align=center>](http://www.amazon.com/gp/mas/dl/android?p=com.reboot297.sensors)
+
+### Version for android Wear
+[<img src="doc/google-play-badge.png" height=75 align=center>](https://play.google.com/store/apps/details?id=com.reboot297.sensors.wear)
 
 This project is an example of reading data from Android sensors.
 
@@ -10,34 +14,34 @@ For simplicity, I don't use view models, fragments, DI, etc. and I have each cod
 In a real project, consider optimizing your code to suit your application's architecture.
 
 
-# Examples of reading raw data from:
+## Examples of reading raw data from:
 
-- [Ambient Temperature](mobile/src/main/java/com/reboot297/sensors/raw/environment/AmbientTemperatureDetailsActivity.kt)
-- [Light](mobile/src/main/java/com/reboot297/sensors/raw/environment/LightDetailsActivity.kt)
-- [Pressure](mobile/src/main/java/com/reboot297/sensors/raw/environment/PressureDetailsActivity.kt)
-- [Relative Humidity](mobile/src/main/java/com/reboot297/sensors/raw/environment/RelativeHumidityDetailsActivity.kt)
-- [Temperature](mobile/src/main/java/com/reboot297/sensors/raw/environment/TemperatureDetailsActivity.kt)
+- [Ambient Temperature](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/AmbientTemperaturelifecycleObserver.kt)
+- [Light](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/LightLifecycleObserver.kt)
+- [Pressure](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/PressureLifecycleObserver.kt)
+- [Relative Humidity](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/RelativeHumidityLifecycleObserver.kt)
+- [Temperature](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/TemperatureLifecycleObserver.kt)
 
-- [Accelerometer](mobile/src/main/java/com/reboot297/sensors/raw/motion/AccelerometerDetailsActivity.kt)
-- [Accelerometer Uncalibrated](mobile/src/main/java/com/reboot297/sensors/raw/motion/AccelerometerUncalibratedDetailsActivity.kt)
-- [Gravity](mobile/src/main/java/com/reboot297/sensors/raw/motion/GravityDetailsActivity.kt)
-- [Gyroscope](mobile/src/main/java/com/reboot297/sensors/raw/motion/GyroscopeDetailsActivity.kt)
-- [Gyroscope Uncalibrated](mobile/src/main/java/com/reboot297/sensors/raw/motion/GyroscopeUncalibratedDetailsActivity.kt)
-- [Linear Acceleration](mobile/src/main/java/com/reboot297/sensors/raw/motion/LinearAccelerationDetailsActivity.kt)
-- [Rotation Vector](mobile/src/main/java/com/reboot297/sensors/raw/motion/RotationVectorDetailsActivity.kt)
-- [Significant Motions](mobile/src/main/java/com/reboot297/sensors/raw/motion/SignificantMotionsDetailsActivity.kt)
-- [Step Counter](mobile/src/main/java/com/reboot297/sensors/raw/motion/StepCounterDetailsActivity.kt)
-- [Step Detector](mobile/src/main/java/com/reboot297/sensors/raw/motion/StepDetectorDetailsActivity.kt)
+- [Accelerometer](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/AccelerometerLifecycleObserver.kt)
+- [Accelerometer Uncalibrated](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/AccelerometerUncalibratedLifecycleObserver.kt)
+- [Gravity](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/GravityLifecycleObserver.kt)
+- [Gyroscope](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/GyroscopeLifecycleObserver.kt)
+- [Gyroscope Uncalibrated](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/GyroscopeUncalibratedLifecycleObserver.kt)
+- [Linear Acceleration](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/LinearAccelerationLifecycleObserver.kt)
+- [Rotation Vector](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/RotationVectorLifecycleObserver.kt)
+- [Significant Motions](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/SignificantMotionsLifecycleObserver.kt)
+- [Step Counter](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/StepCounterLifecycleObserver.kt)
+- [Step Detector](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/raw/StepDetectorLifecycleObserver.kt)
 
-- [Game Rotation Vector](mobile/src/main/java/com/reboot297/sensors/raw/position/GameRotationVectorDetailsActivity.kt)
-- [Geomagnetic Rotation Vector](mobile/src/main/java/com/reboot297/sensors/raw/position/GeomagneticRotationVectorDetailsActivity.kt)
-- [Magnetic Field](mobile/src/main/java/com/reboot297/sensors/raw/position/MagneticFieldDetailsActivity.kt)
-- [Magnetic Field Uncalibrated](mobile/src/main/java/com/reboot297/sensors/raw/position/MagneticFieldUncalibratedDetailsActivity.kt)
-- [Orientation](mobile/src/main/java/com/reboot297/sensors/raw/position/OrientationDetailsActivity.kt)
-- [Proximity](mobile/src/main/java/com/reboot297/sensors/raw/position/ProximityDetailsActivity.kt)
+- [Game Rotation Vector](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/GameRotationVectorLifecycleObserver.kt)
+- [Geomagnetic Rotation Vector](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/GeomagneticRotationVectorLifecycleObserver.kt)
+- [Magnetic Field](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/MagneticFieldLifecycleObserver.kt)
+- [Magnetic Field Uncalibrated](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/MagneticFieldUncalibratedLifecycleObserver.kt)
+- [Orientation](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/OrientationLifecycleObserver.kt)
+- [Proximity](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/raw/ProximityLifecycleObserver.kt)
 
-# Other examples:
+## Other examples:
 
-- [Altitude](mobile/src/main/java/com/reboot297/sensors/samples/altitude/AltitudeActivity.kt)
-- [Device Orientation](mobile/src/main/java/com/reboot297/sensors/samples/orientation/DeviceOrientationActivity.kt)
-- [Metal Detection](mobile/src/main/java/com/reboot297/sensors/samples/metal_detection/MetalDetectionActivity.kt)
+- [Altitude](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/samples/AltitudeLifecycleObserver.kt)
+- [Device Orientation](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/samples/DeviceOrientationLifecycleObserver.kt)
+- [Metal Detection](lib_mobilie_sensors/src/main/kotlin/com/reboot297/sensors/samples/MetalDetectionLifecycleObserver.kt)

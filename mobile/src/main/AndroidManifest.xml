@@ -218,7 +218,7 @@
                 android:value=".samples.SamplesActivity" />
         </activity>
         <activity
-            android:name="com.reboot297.sensors.samples.metal_detection.MetalDetectionActivity"
+            android:name="com.reboot297.sensors.samples.metaldetection.MetalDetectionActivity"
             android:exported="false"
             android:label="@string/screen_metal_detection_title">
             <meta-data
