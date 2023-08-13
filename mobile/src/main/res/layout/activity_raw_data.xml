@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".RawDataActivity">
+    tools:context=".raw.RawDataActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -46,128 +46,128 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/motion_label"
-                style="@style/App.RawData.Section.Text"
+                style="@style/App.Section.RawData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/raw_data_label_motion" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/accelerometer_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_accelerometer" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/accelerometer_uncalibrated_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_accelerometer_uncalibrated" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/gravity_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_gravity" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/gyroscope_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_gyroscope" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/gyroscope_uncalibrated_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_gyroscope_uncalibrated" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/linear_acceleration_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_linear_acceleration" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rotation_vector_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_rotation_vector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/significant_motions_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_significant_motions" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/step_detector_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_step_detector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/step_counter_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_step_counter" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/position_label"
-                style="@style/App.RawData.Section.Text"
+                style="@style/App.Section.RawData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/raw_data_label_position" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/game_rotation_vector_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_game_rotation_vector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/geomagnetic_rotation_vector_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_geomagnetic_rotation_vector" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/magnetic_field_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_magnetic_field" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/magnetic_field_uncalibrated_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_magnetic_field_uncalibrated" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/orientation_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_orientation" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/proximity_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_proximity" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/environment_label"
-                style="@style/App.RawData.Section.Text"
+                style="@style/App.Section.RawData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/raw_data_label_environment" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/ambient_temperature_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_ambient_temperature" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/temperature_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_temperature" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/light_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_light" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/pressure_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_pressure" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/relative_humidity_item_view"
-                style="@style/App.RawData.Item.Text"
+                style="@style/App.Item.RawData"
                 android:text="@string/title_relative_humidity" />
 
 

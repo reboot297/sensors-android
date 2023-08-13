@@ -15,173 +15,124 @@
   -->
 
 <resources>
-    <string name="app_name">Sensors</string>
+
+    <string name="about_author" translatable="false">Viktor Pop</string>
+    <string name="about_author_label">Author:</string>
+    <string name="about_email" translatable="false">reboot297@gmail.com</string>
+    <string name="about_email_label">Email:</string>
+    <string name="about_description">Simple application to view sensors info on android device</string>
+    <string name="about_source" translatable="false">https://github.com/reboot297/sensors-android</string>
+    <string name="about_source_label">Source:</string>
+    <string name="about_version_label">Version:</string>
 
     <string name="action_about">About</string>
     <string name="action_privacy">Privacy Policy</string>
 
-    <string name="home_button_raw_data">Raw Data</string>
-    <string name="home_button_altitude">Altitude</string>
-    <string name="home_button_device_orientation">Device Orientation</string>
-    <string name="home_button_metal_detection">Metal Detection</string>
+    <string name="altitude_description_value">In this example, altitude is calculated in meters from atmospheric pressure and sea level pressure.\n\nWe read atmospheric pressure from Sensor.TYPE_PRESSURE.\nAnd we are using PRESSURE_STANDARD_ATMOSPHERE (1013.25hPa) as an approximation of sea level pressure, so altitude may not be accurate.</string>
+    <string name="altitude_pressure_sensor_label">Pressure sensor value:</string>
+    <string name="altitude_value_label">Altitude value:</string>
 
-    <string name="raw_data_label_environment">Environment sensors:</string>
-    <string name="raw_data_label_position">Position sensors:</string>
-    <string name="raw_data_label_motion">Motion sensors:</string>
-
-    <string name="title_accelerometer">Accelerometer</string>
-    <string name="title_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
-    <string name="title_gravity">Gravity</string>
-    <string name="title_gyroscope">Gyroscope</string>
-    <string name="title_gyroscope_uncalibrated">Gyroscope Uncalibrated</string>
-    <string name="title_linear_acceleration">Linear Acceleration</string>
-    <string name="title_rotation_vector">Rotation Vector</string>
-    <string name="title_significant_motions">Significant Motions</string>
-    <string name="title_step_counter">Step Counter</string>
-    <string name="title_step_detector">Step Detector</string>
-    <string name="title_proximity">Proximity</string>
-    <string name="title_game_rotation_vector">Game Rotation Vector</string>
-    <string name="title_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
-    <string name="title_magnetic_field">Magnetic Field</string>
-    <string name="title_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
-    <string name="title_orientation">Orientation</string>
-    <string name="title_ambient_temperature">Ambient Temperature</string>
-    <string name="title_temperature">Temperature</string>
-    <string name="title_light">Light</string>
-    <string name="title_pressure">Pressure</string>
-    <string name="title_relative_humidity">Relative Humidity</string>
-
-    <string name="screen_raw_data_title">Raw Data</string>
-    <string name="screen_altitude_title">Altitude</string>
-    <string name="screen_orientation_title">Device orientation</string>
-    <string name="screen_metal_detection_title">Metal detection</string>
-    <string name="screen_about">About…</string>
-
-    <string name="warning_sensor_not_available">Sensor is not available</string>
-    <string name="warning_api_24"><![CDATA[Available on devices with API >= 24]]></string>
-    <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
+    <string name="app_name">Sensors</string>
 
     <string name="details_start_listening">Start Listening</string>
 
-    <string name="details_sensor_name">Name:</string>
-    <string name="details_sensor_id">Id:</string>
-    <string name="details_sensor_type">Type:</string>
-    <string name="details_sensor_type_id">Type Id:</string>
-    <string name="details_sensor_vendor">Vendor:</string>
-    <string name="details_sensor_version">Version:</string>
-    <string name="details_sensor_power">Power:</string>
-    <string name="details_sensor_max_range">Max Range:</string>
-    <string name="details_sensor_resolution">Resolution:</string>
-    <string name="details_sensor_min_delay">Min delay:</string>
-    <string name="details_sensor_max_delay">Max Delay:</string>
-    <string name="details_sensor_fifo_max">FIFO max events count:</string>
-    <string name="details_sensor_fifo_reserved">FIFO reserved events count:</string>
-    <string name="details_sensor_is_wakeup">Is WakeUp sensor:</string>
-    <string name="details_sensor_unit">Unit:</string>
-    <string name="details_sensor_reporting_mode">Reporting mode:</string>
-    <string name="details_sensor_additional_info">Is additional info supported:</string>
-    <string name="details_sensor_direct_report_rate_level">Highest direct report rate level:</string>
-    <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
+    <string name="description_accelerometer">An accelerometer sensor reports the acceleration of the device along the three sensor axes.\nThe measured acceleration includes both the physical acceleration (change of velocity) and the gravity.\nAll values are in units (m/s^2) and measure the acceleration of the device minus the force of gravity along the three sensor axes.\nHere are examples:\n\n- The norm of (x, y, z) should be close to 0 when in free fall.\n\n- When the device lies flat on a table and is pushed on its left side toward the right, the x acceleration value is positive.\n\n- When the device lies flat on a table, the acceleration value along z is +9.81 alo, which corresponds to the acceleration of the device (0 m/s^2) minus the force of gravity (-9.81 m/s^2).\n\n- When the device lies flat on a table and is pushed toward the sky, the acceleration value is greater than +9.81, which corresponds to the acceleration of the device (+A m/s^2) minus the force of gravity (-9.81 m/s^2).</string>
+    <string name="description_accelerometer_uncalibrated">An uncalibrated accelerometer sensor reports the acceleration of the device along the three sensor axes without any bias correction (factory bias and temperature compensation are applied to uncalibrated measurements), along with a bias estimate. </string>
+    <string name="description_ambient_temperature">This sensor measures the ambient temperature in °C.</string>
+    <string name="description_game_rotation_vector">The game rotation vector sensor is identical to the Rotation vector sensor, except it does not use the geomagnetic field. Therefore the Y axis does not point north but instead to some other reference. That reference is allowed to drift by the same order of magnitude as the gyroscope drifts around the Z axis.\n\nBecause the game rotation vector sensor does not use the magnetic field, relative rotations are more accurate, and not impacted by magnetic field changes. Use this sensor in a game if you do not care about where north is, and the normal rotation vector does not fit your needs because of its reliance on the magnetic field.</string>
+    <string name="description_geomagnetic_rotation_vector">The geomagnetic rotation vector sensor is similar to the rotation vector sensor, but it does not use the gyroscope. The accuracy of this sensor is lower than the normal rotation vector sensor, but the power consumption is reduced. Use this sensor only if you want to collect rotation information in the background without using too much battery. This sensor is most useful when used in conjunction with batching.</string>
+    <string name="description_gravity">The gravity sensor provides a three dimensional vector indicating the direction and magnitude of gravity. Typically, this sensor is used to determine the device\'s relative orientation in space.\nThe units are the same as those used by the acceleration sensor (m/s2), and the coordinate system is the same as the one used by the acceleration sensor.\nNote: When a device is at rest, the output of the gravity sensor should be identical to that of the accelerometer.</string>
+    <string name="description_gyroscope">The gyroscope measures the rate of rotation in rad/s around a device\'s x, y, and z axis.\nNote: If your app targets Android 12 (API level 31) or higher, this sensor is rate-limited.\nThe sensor\'s coordinate system is the same as the one used for the acceleration sensor. Rotation is positive in the counter-clockwise direction; that is, an observer looking from some positive location on the x, y or z axis at a device positioned on the origin would report positive rotation if the device appeared to be rotating counter clockwise. This is the standard mathematical definition of positive rotation and is not the same as the definition for roll that is used by the orientation sensor.\nStandard gyroscopes provide raw rotational data without any filtering or correction for noise and drift (bias). In practice, gyroscope noise and drift will introduce errors that need to be compensated for. You usually determine the drift (bias) and noise by monitoring other sensors, such as the gravity sensor or accelerometer.</string>
+    <string name="description_gyroscope_uncalibrated"> An uncalibrated gyroscope reports the rate of rotation around the sensor axes without applying bias compensation to them, along with a bias estimate.\nConceptually, the uncalibrated measurement is the sum of the calibrated measurement and the bias estimate: _uncalibrated = _calibrated + _bias. \nThe x_bias, y_bias and z_bias values are expected to jump as soon as the estimate of the bias changes, and they should be stable the rest of the time. \nSee the definition of the gyroscope sensor for details on the coordinate system used.</string>
+    <string name="description_light">This sensor measures the illumination in lux.\nApproximate values:\nNO_MOON\t			0.001\nFULL_MOON\t			0.25\nCLOUDY\t\t			100.0\nLIGHT_SUNRISE\t		400.0\nOVERCAST\t\t	 10 000.0\nSHADE\t\t\t		 20 000.0\nSUNLIGHT\t\t	110 000.0\nSUNLIGHT_MAX\t 	120 000.0</string>
+    <string name="description_linear_acceleration">The linear acceleration sensor provides you with a three-dimensional vector representing acceleration along each device axis, excluding gravity. Readings on all axes should be close to 0 when the device is immobile. You can use this value to perform gesture detection. The value can also serve as input to an inertial navigation system, which uses dead reckoning.</string>
+    <string name="description_magnetic_field">The geomagnetic field sensor lets you monitor changes in the earth\'s magnetic field. This sensor provides raw field strength data (in μT) for each of the three coordinate axes.\nNote: When testing your app, you can improve the sensor\'s accuracy by waving the device in a figure-8 pattern.</string>
+    <string name="description_magnetic_field_uncalibrated">Similar to Sensor.TYPE_MAGNETIC_FIELD, but the hard iron calibration is reported separately instead of being included in the measurement.\nFactory calibration and temperature compensation will still be applied to the \"uncalibrated\" measurement.\nAssumptions that the magnetic field is due to the Earth\'s poles is avoided.\n\nx_uncalib, y_uncalib, z_uncalib are the measured magnetic field in X, Y, Z axes.\nSoft iron and temperature calibrations are applied. But the hard iron calibration is not applied. The values are in micro-Tesla (uT).\n\nx_bias, y_bias, z_bias give the iron bias estimated in X, Y, Z axes. Each field is a component of the estimated hard iron calibration. The values are in micro-Tesla (uT).\nHard iron - These distortions arise due to the magnetized iron, steel or permanent magnets on the device.\nSoft iron - These distortions arise due to the interaction with the earth\'s magnetic field.\n\nConceptually, the uncalibrated measurement is the sum of the calibrated measurement and the bias estimate: _uncalibrated = _calibrated + _bias.</string>
+    <string name="description_orientation">This is an older sensor type that has been deprecated in the Android SDK. It has been replaced by the rotation vector sensor, which is more clearly defined. Use the rotation vector sensor over the orientation sensor whenever possible.\nAll values are angles in degrees.\n\tvalues[0]: Azimuth, angle between the magnetic north direction and the y-axis, around the z-axis (0 to 359). 0=North, 90=East, 180=South, 270=West\n\tvalues[1]: Pitch, rotation around x-axis (-180 to 180), with positive values when the z-axis moves toward the y-axis.\n\tvalues[2]: Roll, rotation around the y-axis (-90 to 90) increasing as the device moves clockwise.\nNote: This definition is different from yaw, pitch and roll used in aviation where the X axis is along the long side of the plane (tail to nose).\nNote: This sensor type exists for legacy reasons, please use rotation vector sensor type and getRotationMatrix()\nin conjunction with remapCoordinateSystem() and getOrientation() to compute these values instead.\nImportant note: For historical reasons the roll angle is positive in the clockwise direction (mathematically speaking, it should be positive in the counter-clockwise direction).</string>
+    <string name="description_pressure">This sensor measure atmospheric pressure in hPa (millibar).\nThe barometer is often used to estimate elevation changes.\nTo estimate absolute elevation, the sea-level pressure (changing depending on the weather) must be used as a reference. </string>
+    <string name="description_proximity">The proximity sensor lets you determine how far away an object is from a device. The proximity sensor is usually used to determine how far away a person\'s head is from the face of a handset device (for example, when a user is making or receiving a phone call). Most proximity sensors return the absolute distance, in cm, but some return only near and far values.\nNote: On some device models, the proximity sensor is located underneath the screen, which can cause a blinking dot to appear on the screen if enabled while the screen is on.\nNote: Some proximity sensors return binary values that represent "near" or "far." In this case, the sensor usually reports its maximum range value in the far state and a lesser value in the near state. Typically, the far value is a value > 5 cm, but this can vary from sensor to sensor.</string>
+    <string name="description_relative_humidity">This sensor measure ambient relative humidity.</string>
+    <string name="description_rotation_vector"> A rotation vector sensor reports the orientation of the device relative to the East-North-Up coordinates frame.\nIt\'s usually obtained by integration of accelerometer, gyroscope, and magnetometer readings.\nThe East-North-Up coordinate system is defined as a direct orthonormal basis where:\n\tX points east and is tangential to the ground.\n\tY points north and is tangential to the ground.\n\tZ points towards the sky and is perpendicular to the ground.\nThe orientation of the phone is represented by the rotation necessary to align the East-North-Up coordinates with the phone\'s coordinates.\nThat is, applying the rotation to the world frame (X,Y,Z) would align them with the phone coordinates (x,y,z).\nThe rotation can be seen as rotating the phone by an angle theta around an axis rot_axis to go from the reference\n(East-North-Up aligned) device orientation to the current device orientation. The rotation is encoded as the four unit-less x, y, z, w components ofa unit quaternion:\n\tsensors_event_t.data[0] = rot_axis.x*sin(theta/2)\n\tsensors_event_t.data[1] = rot_axis.y*sin(theta/2)\n\tsensors_event_t.data[2] = rot_axis.z*sin(theta/2)\n\tsensors_event_t.data[3] = cos(theta/2)\nWhere:\n\tThe x, y, and z fields of rot_axis are the East-North-Up coordinates of a unit length vector representing the rotation axistheta is the rotation angle.\nIn addition, this sensor reports an estimated heading accuracy:\n\tsensors_event_t.data[4] = estimated_accuracy (in radians)</string>
+    <string name="description_significant_motion">A significant motion detector triggers when detecting a significant motion: a motion that might lead to a change in the user location.\nExamples of such significant motions are:\n - Walking or biking\n - Sitting in a moving car, coach, or train\nExamples of situations that don\'t trigger significant motion:\n - Phone in pocket and person isn\'t moving\n - Phone is on a table and the table shakes a bit due to nearby traffic or washing machine\nAt the high level, the significant motion detector is used to reduce the power consumption of location determination.When the localization algorithms detect that the device is static, they can switch to a low-power mode,where they rely on significant motion to wake the device up when the user is changing location.</string>
+    <string name="description_step_counter">The step counter sensor provides the number of steps taken by the user since the last reboot while the sensor was activated. The step counter has more latency (up to 10 seconds) but more accuracy than the step detector sensor.</string>
+    <string name="description_step_detector">The step detector sensor triggers an event each time the user takes a step. The latency is expected to be below 2 seconds.</string>
+    <string name="description_temperature">This sensor measure the temperature in °C.\nImplementations vary from device to device.\nThis sensor was deprecated in Android 4.0 (API Level 14).</string>
 
-    <string name="unit_pressure" translatable="false">hPa</string>
-    <string name="unit_altitude" translatable="false">m</string>
-    <string name="unit_step" translatable="false">step</string>
-    <string name="unit_light" translatable="false">lx</string>
-    <string name="unit_relative_humidity" translatable="false">%</string>
-    <string name="unit_ambient_temperature" translatable="false">°C</string>
-    <string name="unit_proximity" translatable="false">cm</string>
-    <string name="unit_acceleration" translatable="false">\u33a8</string>
-    <string name="unitless" translatable="false" />
-    <string name="unit_gravity" translatable="false">\u33a8</string>
-    <string name="unit_gyroscope" translatable="false">rad/s</string>
-    <string name="unit_magnetic_field" translatable="false">μT</string>
-    <string name="unit_orientation" translatable="false">Degrees</string>
-    <string name="unit_power" translatable="false">mA</string>
-    <string name="unit_microseconds" translatable="false">microseconds</string>
+    <string name="home_button_samples">Samples</string>
+    <string name="home_button_raw_sensors_data">Raw Sensors Data</string>
 
+    <string name="metal_detection_description_value"></string>
+    <string name="metal_detection_sensor_label">Magnetic field values:</string>
+    <string name="metal_detection_value_label">Metal detection value:</string>
 
-    <string-array name="reporting_modes" translatable="false">
-        <item>REPORTING_MODE_CONTINUOUS</item>
-        <item>REPORTING_MODE_ON_CHANGE</item>
-        <item>REPORTING_MODE_ONE_SHOT</item>
-        <item>REPORTING_MODE_SPECIAL_TRIGGER</item>
-    </string-array>
+    <string name="orientation_calculated_label">Calculated data values:</string>
+    <string name="orientation_description_value">The system computes the orientation angles by using a device\'s geomagnetic field sensor in combination with the device\'s accelerometer.</string>
 
-    <string-array name="report_rate_levels" translatable="false">
-        <item>RATE_STOP</item>
-        <item>RATE_NORMAL(50Hz)</item>
-        <item>RATE_FAST(~200Hz)</item>
-        <item>RATE_VERY_FAST(~800Hz)</item>
-    </string-array>
+    <string name="permission_denied">The permission required to enable this sensor.</string>
 
-    <string name="accuracy_no_contact" translatable="false">SENSOR_STATUS_NO_CONTACT</string>
-    <string-array name="accuracy_values" translatable="false">
-        <item>SENSOR_STATUS_UNRELIABLE</item>
-        <item>SENSOR_STATUS_ACCURACY_LOW</item>
-        <item>SENSOR_STATUS_ACCURACY_MEDIUM</item>
-        <item>SENSOR_STATUS_ACCURACY_HIGH</item>
-    </string-array>
+    <string name="raw_data_label_environment">Environment sensors:</string>
+    <string name="raw_data_label_motion">Motion sensors:</string>
+    <string name="raw_data_label_position">Position sensors:</string>
 
-    <string name="about_version_label">Version:</string>
-    <string name="about_author_label">Author:</string>
-    <string name="about_author">Viktor Pop</string>
-    <string name="about_email_label">Email:</string>
-    <string name="about_email" translatable="false">reboot297@gmail.com</string>
-    <string name="about_source_label">Source:</string>
-    <string name="about_source" translatable="false">https://github.com/reboot297/sensors-android</string>
-    <string name="about_description">Simple application to view sensors info on android device</string>
-
-    <string name="significant_motion_value">Last significant motion triggered at %1$s</string>
-    <string name="step_detection_value">Last step_detections was at %1$s</string>
-
-
-    <string name="raw_details_label_data">Sensor data</string>
-    <string name="raw_details_data_label_values">Values:</string>
     <string name="raw_details_data_label_accuracy">Accuracy:</string>
+    <string name="raw_details_data_label_values">Values:</string>
+    <string name="raw_details_label_data">Sensor data</string>
     <string name="raw_details_label_description">Description</string>
-    <string name="raw_details_label_samples">Samples</string>
     <string name="raw_details_label_info">Sensor Info</string>
-
+    <string name="raw_details_label_samples">Samples</string>
 
     <string name="sample_altitude">Altitude</string>
     <string name="sample_device_orientation">Device Orientation</string>
     <string name="sample_metal_detection">Metal Detection</string>
 
-    <string name="metal_detection_value_label">Metal detection value:</string>
-    <string name="metal_detection_description_value"></string>
-
-
-    <string name="altitude_pressure_sensor_label">Pressure sensor value:</string>
-    <string name="altitude_value_label">Altitude value:</string>
-    <string name="altitude_description_value">In this example, altitude is calculated in meters from atmospheric pressure and sea level pressure.\n\nWe read atmospheric pressure from Sensor.TYPE_PRESSURE.\nAnd we are using PRESSURE_STANDARD_ATMOSPHERE (1013.25hPa) as an approximation of sea level pressure, so altitude may not be accurate.</string>
-
-    <string name="orientation_calculated_label">Calculated data values:</string>
-    <string name="orientation_description_value">The system computes the orientation angles by using a device\'s geomagnetic field sensor in combination with the device\'s accelerometer.</string>
-
-
-    <string name="description_ambient_temperature">This sensor measure ambient air temperature in °C.</string>
-    <string name="description_light">This sensor measures the illumination in lux.\nApproximate values:\nNO_MOON\t			0.001\nFULL_MOON\t			0.25\nCLOUDY\t\t			100.0\nLIGHT_SUNRISE\t		400.0\nOVERCAST\t\t	 10 000.0\nSHADE\t\t\t		 20 000.0\nSUNLIGHT\t\t	110 000.0\nSUNLIGHT_MAX\t 	120 000.0</string>
-    <string name="description_pressure">This sensor measure atmospheric pressure in hPa (millibar).</string>
-    <string name="description_relative_humidity">This sensor measure ambient relative humidity.</string>
-    <string name="description_temperature">This sensor measure the temperature in °C.\nImplementations vary from device to device.\nThis sensor was deprecated in Android 4.0 (API Level 14).</string>
-    <string name="description_accelerometer">An acceleration sensor measures the acceleration applied to the device, including the force of gravity. Unit of the measure - \u33a8\nNote: If your app targets Android 12 (API level 31) or higher, this sensor is rate-limited.</string>
-    <string name="description_accelerometer_uncalibrated">Measured acceleration along the X/Y/Z axis without any bias compensation. Unit of the measure - \u33a8\n</string>
-    <string name="description_gravity">The gravity sensor provides a three dimensional vector indicating the direction and magnitude of gravity. Typically, this sensor is used to determine the device\'s relative orientation in space.\nThe units are the same as those used by the acceleration sensor (m/s2), and the coordinate system is the same as the one used by the acceleration sensor.\nNote: When a device is at rest, the output of the gravity sensor should be identical to that of the accelerometer.</string>
-    <string name="description_gyroscope">The gyroscope measures the rate of rotation in rad/s around a device\'s x, y, and z axis.\nNote: If your app targets Android 12 (API level 31) or higher, this sensor is rate-limited.\nThe sensor\'s coordinate system is the same as the one used for the acceleration sensor. Rotation is positive in the counter-clockwise direction; that is, an observer looking from some positive location on the x, y or z axis at a device positioned on the origin would report positive rotation if the device appeared to be rotating counter clockwise. This is the standard mathematical definition of positive rotation and is not the same as the definition for roll that is used by the orientation sensor.\nStandard gyroscopes provide raw rotational data without any filtering or correction for noise and drift (bias). In practice, gyroscope noise and drift will introduce errors that need to be compensated for. You usually determine the drift (bias) and noise by monitoring other sensors, such as the gravity sensor or accelerometer.</string>
-    <string name="description_gyroscope_uncalibrated"></string>
-    <string name="description_linear_acceleration">The linear acceleration sensor provides you with a three-dimensional vector representing acceleration along each device axis, excluding gravity. You can use this value to perform gesture detection. The value can also serve as input to an inertial navigation system, which uses dead reckoning.</string>
-    <string name="description_rotation_vector">The rotation vector represents the orientation of the device as a combination of an angle and an axis, in which the device has rotated through an angle θ around an axis (x, y, or z).</string>
-    <string name="description_significant_motion">The significant motion sensor triggers an event each time significant motion is detected and then it disables itself. A significant motion is a motion that might lead to a change in the user\'s location; for example walking, biking, or sitting in a moving car. </string>
-    <string name="description_step_counter">The step counter sensor provides the number of steps taken by the user since the last reboot while the sensor was activated. The step counter has more latency (up to 10 seconds) but more accuracy than the step detector sensor.</string>
-    <string name="description_step_detector">The step detector sensor triggers an event each time the user takes a step. The latency is expected to be below 2 seconds.</string>
-    <string name="description_game_rotation_vector">The game rotation vector sensor is identical to the Rotation vector sensor, except it does not use the geomagnetic field. Therefore the Y axis does not point north but instead to some other reference. That reference is allowed to drift by the same order of magnitude as the gyroscope drifts around the Z axis.\n\nBecause the game rotation vector sensor does not use the magnetic field, relative rotations are more accurate, and not impacted by magnetic field changes. Use this sensor in a game if you do not care about where north is, and the normal rotation vector does not fit your needs because of its reliance on the magnetic field.</string>
-    <string name="description_geomagnetic_rotation_vector">The geomagnetic rotation vector sensor is similar to the rotation vector sensor, but it does not use the gyroscope. The accuracy of this sensor is lower than the normal rotation vector sensor, but the power consumption is reduced. Use this sensor only if you want to collect rotation information in the background without using too much battery. This sensor is most useful when used in conjunction with batching.</string>
-    <string name="description_magnetic_field">The geomagnetic field sensor lets you monitor changes in the earth\'s magnetic field. This sensor provides raw field strength data (in μT) for each of the three coordinate axes.\nNote: When testing your app, you can improve the sensor\'s accuracy by waving the device in a figure-8 pattern.</string>
-    <string name="description_magnetic_field_uncalibrated"></string>
-    <string name="description_orientation">This sensor was deprecated in Android 2.2 (API level 8), and this sensor type was deprecated in Android 4.4W (API level 20).</string>
-    <string name="description_proximity">The proximity sensor lets you determine how far away an object is from a device. The proximity sensor is usually used to determine how far away a person\'s head is from the face of a handset device (for example, when a user is making or receiving a phone call). Most proximity sensors return the absolute distance, in cm, but some return only near and far values.\nNote: On some device models, the proximity sensor is located underneath the screen, which can cause a blinking dot to appear on the screen if enabled while the screen is on.\nNote: Some proximity sensors return binary values that represent "near" or "far." In this case, the sensor usually reports its maximum range value in the far state and a lesser value in the near state. Typically, the far value is a value > 5 cm, but this can vary from sensor to sensor.</string>
+    <string name="screen_about">About…</string>
+    <string name="screen_altitude_title">Altitude</string>
+    <string name="screen_metal_detection_title">Metal detection</string>
+    <string name="screen_orientation_title">Device orientation</string>
+    <string name="screen_raw_data_title">Raw Data</string>
+    <string name="screen_samples_title">Samples</string>
 
     <string name="settings">Settings</string>
-    <string name="permission_denied">The permission required to enable this sensor.</string>
+
+    <string name="title_accelerometer">Accelerometer</string>
+    <string name="title_accelerometer_uncalibrated">Accelerometer Uncalibrated</string>
+    <string name="title_altitude">Altitude</string>
+    <string name="title_ambient_temperature">Ambient Temperature</string>
+    <string name="title_device_orientation">Device Orientation</string>
+    <string name="title_game_rotation_vector">Game Rotation Vector</string>
+    <string name="title_geomagnetic_rotation_vector">Geomagnetic Rotation Vector</string>
+    <string name="title_gyroscope">Gyroscope</string>
+    <string name="title_gyroscope_uncalibrated">Gyroscope Uncalibrated</string>
+    <string name="title_gravity">Gravity</string>
+    <string name="title_light">Light</string>
+    <string name="title_linear_acceleration">Linear Acceleration</string>
+    <string name="title_magnetic_field">Magnetic Field</string>
+    <string name="title_magnetic_field_uncalibrated">Magnetic Field Uncalibrated</string>
+    <string name="title_metal_detection">Metal Detection</string>
+    <string name="title_orientation">Orientation</string>
+    <string name="title_pressure">Pressure</string>
+    <string name="title_proximity">Proximity</string>
+    <string name="title_relative_humidity">Relative Humidity</string>
+    <string name="title_rotation_vector">Rotation Vector</string>
+    <string name="title_significant_motions">Significant Motions</string>
+    <string name="title_step_counter">Step Counter</string>
+    <string name="title_step_detector">Step Detector</string>
+    <string name="title_temperature">Temperature</string>
+
+    <string name="unit_acceleration" translatable="false">\u33a8</string>
+    <string name="unit_gravity" translatable="false">\u33a8</string>
+    <string name="unit_gyroscope" translatable="false">rad/s</string>
+    <string name="unit_humidity" translatable="false">%</string>
+    <string name="unit_light" translatable="false">lx</string>
+    <string name="unit_magnetic_field" translatable="false">μT</string>
+    <string name="unit_orientation" translatable="false">Degrees</string>
+    <string name="unit_pressure" translatable="false">hPa</string>
+    <string name="unit_proximity" translatable="false">cm</string>
+    <string name="unit_step" translatable="false">step</string>
+    <string name="unit_temperature" translatable="false">°C</string>
+    <string name="unitless" translatable="false" />
+
+    <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
+    <string name="warning_sensor_not_available">Sensor is not available</string>
 
 </resources>

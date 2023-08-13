@@ -1,0 +1,84 @@
+<!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <string name="accuracy_no_contact" translatable="false">No contact</string>
+    <string-array name="accuracy_values" translatable="false">
+        <item>Unreliable</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string name="details_sensor_additional_info">Is additional info supported:</string>
+    <string name="details_sensor_direct_report_rate_level">Highest direct report rate level:</string>
+    <string name="details_sensor_fifo_max">FIFO max events count:</string>
+    <string name="details_sensor_fifo_reserved">FIFO reserved events count:</string>
+    <string name="details_sensor_id">Id:</string>
+    <string name="details_sensor_is_dynamic">Is dynamic sensor:</string>
+    <string name="details_sensor_is_wakeup">Is WakeUp sensor:</string>
+    <string name="details_sensor_max_delay">Max Delay:</string>
+    <string name="details_sensor_max_range">Max Range:</string>
+    <string name="details_sensor_min_delay">Min delay:</string>
+    <string name="details_sensor_name">Name:</string>
+    <string name="details_sensor_power">Power:</string>
+    <string name="details_sensor_reporting_mode">Reporting mode:</string>
+    <string name="details_sensor_resolution">Resolution:</string>
+    <string name="details_sensor_type">Type:</string>
+    <string name="details_sensor_type_id">Type Id:</string>
+    <string name="details_sensor_unit">Unit:</string>
+    <string name="details_sensor_vendor">Vendor:</string>
+    <string name="details_sensor_version">Version:</string>
+
+    <string-array name="reporting_modes" translatable="false">
+        <item>REPORTING_MODE_CONTINUOUS</item>
+        <item>REPORTING_MODE_ON_CHANGE</item>
+        <item>REPORTING_MODE_ONE_SHOT</item>
+        <item>REPORTING_MODE_SPECIAL_TRIGGER</item>
+    </string-array>
+
+    <string-array name="report_rate_levels" translatable="false">
+        <item>RATE_STOP</item>
+        <item>RATE_NORMAL(50Hz)</item>
+        <item>RATE_FAST(~200Hz)</item>
+        <item>RATE_VERY_FAST(~800Hz)</item>
+    </string-array>
+
+    <string name="significant_motion_value">Last significant motion triggered at %1$s</string>
+    <string name="step_detection_value">Last step_detections was at %1$s</string>
+
+    <string name="unit_acceleration" translatable="false">\u33a8</string>
+    <string name="unit_altitude" translatable="false">m</string>
+    <string name="unit_gyroscope" translatable="false">rad/s</string>
+    <string name="unit_gravity" translatable="false">\u33a8</string>
+    <string name="unit_humidity" translatable="false">%</string>
+    <string name="unit_light" translatable="false">lx</string>
+    <string name="unit_magnetic_field" translatable="false">μT</string>
+    <string name="unit_microseconds" translatable="false">microseconds</string>
+    <string name="unit_orientation" translatable="false">Degrees</string>
+    <string name="unit_power" translatable="false">mA</string>
+    <string name="unit_pressure" translatable="false">hPa</string>
+    <string name="unit_proximity" translatable="false">cm</string>
+    <string name="unit_step" translatable="false">step</string>
+    <string name="unit_temperature" translatable="false">°C</string>
+
+    <string name="unitless" translatable="false" />
+
+    <string name="warning_api_24"><![CDATA[Available on devices with API >= 24]]></string>
+    <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
+
+</resources>

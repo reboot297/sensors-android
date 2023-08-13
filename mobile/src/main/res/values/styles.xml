@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+
+    <!-- Items -->
+    <style name="App.Item">
+        <item name="android:textAppearance">@style/App.TextAppearance.Body.Large</item>
+        <item name="android:textSize">@dimen/app_raw_data_item_text_size</item>
+    </style>
+
+    <style name="App.Item.RawData">
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="App.Item.Sample">
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Labels -->
+    <style name="App.Label">
+        <item name="android:textAppearance">@style/App.TextAppearance.Body.Large.Bold</item>
+    </style>
+
+    <style name="App.Label.RawDetails">
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+    </style>
+
+    <style name="App.Label.Sample" />
+
+    <!-- Values -->
+    <style name="App.Value">
+        <item name="android:textAppearance">@style/App.TextAppearance.Body.Large</item>
+    </style>
+
+    <style name="App.Value.RawDetails">
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+    </style>
+
+    <style name="App.Value.RawSample">
+        <item name="android:textColor">#ff8888ff</item>
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+    </style>
+
+    <style name="App.Value.Sample" />
+
+
+    <!-- Sections -->
+    <style name="App.Section">
+        <item name="android:textAppearance">@style/App.TextAppearance.Body.Large.Bold.White</item>
+        <item name="android:textSize">@dimen/app_raw_data_section_text_size</item>
+    </style>
+
+    <style name="App.Section.RawDetails">
+        <item name="android:background">@color/raw_data_section_background</item>
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="App.Section.RawData">
+        <item name="android:background">@color/raw_data_section_background</item>
+        <item name="android:paddingStart">@dimen/screen_padding</item>
+        <item name="android:paddingEnd">@dimen/screen_padding</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+</resources>

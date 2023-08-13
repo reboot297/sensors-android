@@ -54,15 +54,15 @@
 
             <TextView
                 android:id="@+id/sensorValueLabelView"
-                style="@style/App.Sample.Label"
+                style="@style/App.Label.Sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/altitude_pressure_sensor_label"
                 app:layout_constraintTop_toBottomOf="@+id/measureSwitch" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <com.reboot297.sensors.lib.view.PressureValueView
                 android:id="@+id/sensor_value_view"
-                style="@style/App.Sample.Value"
+                style="@style/App.Value.Sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
@@ -71,15 +71,15 @@
 
             <TextView
                 android:id="@+id/altitude_label_view"
-                style="@style/App.Sample.Label"
+                style="@style/App.Label.Sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/altitude_value_label"
                 app:layout_constraintTop_toBottomOf="@+id/sensor_value_view" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <com.reboot297.sensors.lib.view.AltitudeValueView
                 android:id="@+id/altitude_value_view"
-                style="@style/App.Sample.Value"
+                style="@style/App.Value.Sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
@@ -88,7 +88,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/altitude_description_view"
-                style="@style/App.Sample.Value"
+                style="@style/App.Value.Sample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
