@@ -16,7 +16,7 @@ In a real project, consider optimizing your code to suit your application's arch
 
 ## Examples of reading raw data from:
 
-- [Ambient Temperature](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/lib/raw/AmbientTemperaturelifecycleObserver.kt)
+- [Ambient Temperature](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/lib/raw/AmbientTemperatureLifecycleObserver.kt)
 - [Light](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/lib/raw/LightLifecycleObserver.kt)
 - [Pressure](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/lib/raw/PressureLifecycleObserver.kt)
 - [Relative Humidity](lib_mobile_sensors/src/main/kotlin/com/reboot297/sensors/lib/raw/RelativeHumidityLifecycleObserver.kt)
