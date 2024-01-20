@@ -14,31 +14,54 @@
   ~ limitations under the License.
   -->
 
-<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
-        app:layout_boxedEdges="all">
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="32dp">
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/measureSwitch"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/values_switch_listen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.reboot297.sensors.lib.view.StepCounterValueView
             android:id="@+id/valuesView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:scrollbars="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/measureSwitch" />
+            app:layout_constraintTop_toBottomOf="@+id/measureSwitch"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat felis nunc, sed tincidunt leo aliquam sit amet. Nullam eget placerat risus. Nulla facilisi. Maecenas a sapien eget est sodales condimentum eu ut ligula." />
 
+        <TextView
+            android:id="@+id/accuracyLabelView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/values_label_accuracy"
+            app:layout_constraintTop_toBottomOf="@+id/valuesView" />
+
+        <com.reboot297.sensors.lib.view.AccuracyView
+            android:id="@+id/accuracyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/accuracyLabelView"
+            tools:text="" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
-</androidx.wear.widget.BoxInsetLayout>

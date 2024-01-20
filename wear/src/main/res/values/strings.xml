@@ -109,6 +109,7 @@
     <string name="description_proximity">The proximity sensor lets you determine how far away an object is from a device. The proximity sensor is usually used to determine how far away a person\'s head is from the face of a handset device (for example, when a user is making or receiving a phone call). Most proximity sensors return the absolute distance, in cm, but some return only near and far values.\nNote: On some device models, the proximity sensor is located underneath the screen, which can cause a blinking dot to appear on the screen if enabled while the screen is on.\nNote: Some proximity sensors return binary values that represent "near" or "far." In this case, the sensor usually reports its maximum range value in the far state and a lesser value in the near state. Typically, the far value is a value > 5 cm, but this can vary from sensor to sensor.</string>
 
     <string name="values_switch_listen">Listen:</string>
+    <string name="values_label_accuracy">Accuracy:</string>
     <string name="warning_api_26"><![CDATA[Available on devices with API >= 26]]></string>
 
 
