@@ -56,6 +56,6 @@ class ValuesActivity : BaseSensorActivity(), SensorValuesListener, ActivityListe
     }
 
     override fun onAccuracyValueChanged(accuracy: Int) {
-        // TODO("Not yet implemented")
+        binding.accuracyView.setValue(accuracy)
     }
 }

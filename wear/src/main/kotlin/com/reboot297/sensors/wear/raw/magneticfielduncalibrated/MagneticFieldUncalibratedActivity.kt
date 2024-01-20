@@ -31,7 +31,7 @@ class MagneticFieldUncalibratedActivity : BaseRawSensorActivity() {
         setContentView(binding.root)
 
         with(binding) {
-            labelView.setText(R.string.title_gyroscope_uncalibrated)
+            labelView.setText(R.string.title_magnetic_field_uncalibrated)
             valuesButton.setOnClickListener { openSection(ValuesActivity::class.java) }
             descriptionButton.setOnClickListener { openDetails(R.string.description_magnetic_field_uncalibrated) }
             infoButton.setOnClickListener { openSection(InfoActivity::class.java) }
