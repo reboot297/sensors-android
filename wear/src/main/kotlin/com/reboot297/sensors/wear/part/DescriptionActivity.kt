@@ -32,7 +32,7 @@ class DescriptionActivity : ComponentActivity() {
         binding = ActivityDetailsDescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val description = intent.getIntExtra(com.reboot297.sensors.wear.part.DescriptionActivity.Companion.KEY_RESOURCE_ID, -1)
+        val description = intent.getIntExtra(KEY_RESOURCE_ID, -1)
 
         binding.valueView.setText(description)
     }
@@ -41,8 +41,8 @@ class DescriptionActivity : ComponentActivity() {
         private const val KEY_RESOURCE_ID = "resourceId"
         fun start(context: Context, @StringRes descriptionId: Int) {
             context.startActivity(
-                Intent(context, com.reboot297.sensors.wear.part.DescriptionActivity::class.java).apply {
-                    putExtra(com.reboot297.sensors.wear.part.DescriptionActivity.Companion.KEY_RESOURCE_ID, descriptionId)
+                Intent(context, DescriptionActivity::class.java).apply {
+                    putExtra(KEY_RESOURCE_ID, descriptionId)
                 },
             )
         }
