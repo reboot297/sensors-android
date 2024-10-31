@@ -16,5 +16,4 @@
 
 <resources>
     <color name="raw_data_section_background">#FF222222</color>
-    <color name="raw_data_section_text_color">#FFFFFFFF</color>
 </resources>

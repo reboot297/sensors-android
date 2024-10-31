@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_name_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_name_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_name_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_name_label"
+        tools:text="Sensor Name" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_direct_report_rate_level_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_direct_report_rate_level"
+        app:layout_constraintTop_toBottomOf="@id/sensor_name_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_direct_report_rate_level_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/warning_api_26"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_direct_report_rate_level_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_direct_report_rate_level_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_direct_report_rate_level_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_id_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_id"
+        app:layout_constraintTop_toBottomOf="@id/sensor_direct_report_rate_level_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_id_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/warning_api_24"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_id_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_id_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_id_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_type_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_type"
+        app:layout_constraintTop_toBottomOf="@id/sensor_id_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_type_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_type_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_type_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_type_label"
+        tools:text="Sensor Type" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_type_id_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_type_id"
+        app:layout_constraintTop_toBottomOf="@id/sensor_type_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_type_id_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_type_id_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_type_id_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_type_id_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_vendor_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_vendor"
+        app:layout_constraintTop_toBottomOf="@id/sensor_type_id_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_vendor_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_vendor_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_vendor_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_vendor_label"
+        tools:text="vendor" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_version_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_version"
+        app:layout_constraintTop_toBottomOf="@id/sensor_vendor_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_version_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_version_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_version_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_version_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_power_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_power"
+        app:layout_constraintTop_toBottomOf="@id/sensor_version_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_power_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_power_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_power_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_power_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_max_range_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_max_range"
+        app:layout_constraintTop_toBottomOf="@id/sensor_power_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_max_range_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_max_range_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_max_range_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_max_range_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_resolution_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_resolution"
+        app:layout_constraintTop_toBottomOf="@id/sensor_max_range_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_resolution_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_resolution_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_resolution_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_resolution_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_min_delay_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_min_delay"
+        app:layout_constraintTop_toBottomOf="@id/sensor_resolution_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_min_delay_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_min_delay_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_min_delay_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_min_delay_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_max_delay_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_max_delay"
+        app:layout_constraintTop_toBottomOf="@id/sensor_min_delay_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_max_delay_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_max_delay_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_max_delay_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_max_delay_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_fifo_max_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_fifo_max"
+        app:layout_constraintTop_toBottomOf="@id/sensor_max_delay_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_fifo_max_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_fifo_max_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_fifo_max_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_fifo_max_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_fifo_reserved_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_fifo_reserved"
+        app:layout_constraintTop_toBottomOf="@id/sensor_fifo_max_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_fifo_reserved_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_fifo_reserved_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_fifo_reserved_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_fifo_reserved_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_is_wakeup_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_is_wakeup"
+        app:layout_constraintTop_toBottomOf="@id/sensor_fifo_reserved_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_is_wakeup_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_is_wakeup_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_is_wakeup_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_is_wakeup_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_unit_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_unit"
+        app:layout_constraintTop_toBottomOf="@id/sensor_is_wakeup_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_unit_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_unit_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_unit_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_unit_label"
+        tools:text="unit" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_reporting_mode_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_reporting_mode"
+        app:layout_constraintTop_toBottomOf="@id/sensor_unit_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_reporting_mode_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_reporting_mode_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_reporting_mode_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_reporting_mode_label"
+        tools:text="0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_additional_info_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_additional_info"
+        app:layout_constraintTop_toBottomOf="@id/sensor_reporting_mode_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_additional_info_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/warning_api_24"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_additional_info_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_additional_info_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_additional_info_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_is_dynamic_label"
+        style="@style/App.Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/details_sensor_is_dynamic"
+        app:layout_constraintTop_toBottomOf="@id/sensor_additional_info_value" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/sensor_is_dynamic_value"
+        style="@style/App.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/warning_api_24"
+        app:layout_constraintBottom_toBottomOf="@+id/sensor_is_dynamic_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sensor_is_dynamic_label"
+        app:layout_constraintTop_toTopOf="@+id/sensor_is_dynamic_label" />
+</androidx.constraintlayout.widget.ConstraintLayout>

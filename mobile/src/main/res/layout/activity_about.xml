@@ -46,7 +46,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/app_name_value"
-                style="@style/App.Raw.Details.Value"
+                style="@style/App.Value.RawDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -55,7 +55,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/app_version_label"
-                style="@style/App.About.Label"
+                style="@style/App.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_version_label"
@@ -63,7 +63,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/app_version_value"
-                style="@style/App.About.Value"
+                style="@style/App.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/app_version_label"
@@ -71,7 +71,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/author_label"
-                style="@style/App.About.Label"
+                style="@style/App.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_author_label"
@@ -79,7 +79,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/author_value"
-                style="@style/App.About.Value"
+                style="@style/App.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_author"
@@ -87,7 +87,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/email_label"
-                style="@style/App.About.Label"
+                style="@style/App.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_email_label"
@@ -95,7 +95,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/email_value"
-                style="@style/App.About.Value"
+                style="@style/App.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="email"
@@ -104,7 +104,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/source_label"
-                style="@style/App.About.Label"
+                style="@style/App.Label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/about_source_label"
@@ -112,7 +112,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/source_value"
-                style="@style/App.About.Value"
+                style="@style/App.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
@@ -121,7 +121,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/description_value"
-                style="@style/App.About.Value"
+                style="@style/App.Value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"

@@ -15,6 +15,9 @@
   -->
 
 <resources>
+
+    <style name="App"/>
+
     <!-- Base application theme. -->
     <style name="Base.Theme.Sensors" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -23,74 +26,4 @@
 
     <style name="Theme.Sensors" parent="Base.Theme.Sensors" />
 
-    <style name="App.Raw.Details.Section.Text" parent="">
-        <item name="android:textSize">@dimen/app_raw_data_section_text_size</item>
-        <item name="android:background">@color/raw_data_section_background</item>
-        <item name="android:textColor">@color/raw_data_section_text_color</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
-    </style>
-
-    <style name="App.Raw.Details.Label" parent="">
-        <item name="android:textSize">@dimen/app_raw_details_label_text_size</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-    </style>
-
-    <style name="App.Raw.Details.Value" parent="">
-        <item name="android:textSize">@dimen/app_raw_details_value_text_size</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-    </style>
-
-    <style name="App.Raw.Sample.Value" parent="">
-        <item name="android:textSize">@dimen/app_raw_details_value_text_size</item>
-        <item name="android:textColor">#ff8888ff</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-    </style>
-
-    <style name="App.About.Label" parent="">
-        <item name="android:textSize">@dimen/app_about_label_text_size</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="App.About.Value" parent="">
-        <item name="android:textSize">@dimen/app_about_value_text_size</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="App.RawData.Section.Text" parent="">
-        <item name="android:textSize">@dimen/app_raw_data_section_text_size</item>
-        <item name="android:background">@color/raw_data_section_background</item>
-        <item name="android:textColor">@color/raw_data_section_text_color</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
-    </style>
-
-    <style name="App.RawData.Item.Text" parent="">
-        <item name="android:textSize">@dimen/app_raw_data_item_text_size</item>
-        <item name="android:paddingStart">@dimen/screen_padding</item>
-        <item name="android:paddingEnd">@dimen/screen_padding</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-    </style>
-
-    <style name="App.Sample.Label" parent="">
-        <item name="android:textSize">@dimen/app_sample_label_text_size</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="App.Sample.Value" parent="">
-        <item name="android:textSize">@dimen/app_sample_value_text_size</item>
-        <item name="android:textStyle">normal</item>
-    </style>
 </resources>

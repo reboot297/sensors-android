@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/measureSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/values_switch_listen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.reboot297.sensors.lib.view.AccelerometerUncalibratedValueView
+            android:id="@+id/valuesView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/measureSwitch"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat felis nunc, sed tincidunt leo aliquam sit amet. Nullam eget placerat risus. Nulla facilisi. Maecenas a sapien eget est sodales condimentum eu ut ligula." />
+
+        <TextView
+            android:id="@+id/accuracyLabelView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/values_label_accuracy"
+            app:layout_constraintTop_toBottomOf="@+id/valuesView" />
+
+        <com.reboot297.sensors.lib.view.AccuracyView
+            android:id="@+id/accuracyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/accuracyLabelView"
+            tools:text="" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

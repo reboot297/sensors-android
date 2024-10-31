@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2023. Viktor Pop
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Material3.Dark.NoActionBar">
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="true" />
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name="com.reboot297.sensors.wear.HomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.reboot297.sensors.wear.raw.RawDataActivity" />
+
+        <activity android:name=".wear.raw.accelerometer.AccelerometerActivity" />
+        <activity android:name=".wear.raw.accelerometer.ValuesActivity" />
+        <activity android:name=".wear.raw.accelerometer.InfoActivity" />
+        <activity android:name=".wear.raw.accelerometer.SamplesActivity" />
+
+        <activity android:name=".wear.raw.accelerometeruncalibrated.AccelerometerUncalibratedActivity" />
+        <activity android:name=".wear.raw.accelerometeruncalibrated.InfoActivity" />
+        <activity android:name=".wear.raw.accelerometeruncalibrated.ValuesActivity" />
+
+        <activity android:name=".wear.raw.ambienttemperature.AmbientTemperatureActivity" />
+        <activity android:name=".wear.raw.ambienttemperature.InfoActivity" />
+        <activity android:name=".wear.raw.ambienttemperature.ValuesActivity" />
+
+        <activity android:name=".wear.raw.gamerotationvector.GameRotationVectorActivity" />
+        <activity android:name=".wear.raw.gamerotationvector.InfoActivity" />
+        <activity android:name=".wear.raw.gamerotationvector.ValuesActivity" />
+
+        <activity android:name=".wear.raw.geomagneticrotationvector.GeomagneticRotationVectorActivity" />
+        <activity android:name=".wear.raw.geomagneticrotationvector.InfoActivity" />
+        <activity android:name=".wear.raw.geomagneticrotationvector.ValuesActivity" />
+
+        <activity android:name=".wear.raw.gravity.GravityActivity" />
+        <activity android:name=".wear.raw.gravity.ValuesActivity" />
+        <activity android:name=".wear.raw.gravity.InfoActivity" />
+
+        <activity android:name=".wear.raw.gyroscope.GyroscopeActivity" />
+        <activity android:name=".wear.raw.gyroscope.InfoActivity" />
+        <activity android:name=".wear.raw.gyroscope.ValuesActivity" />
+
+        <activity android:name=".wear.raw.gyroscopeuncalibrated.GyroscopeUncalibratedActivity" />
+        <activity android:name=".wear.raw.gyroscopeuncalibrated.InfoActivity" />
+        <activity android:name=".wear.raw.gyroscopeuncalibrated.ValuesActivity" />
+
+        <activity android:name=".wear.raw.light.LightActivity" />
+        <activity android:name=".wear.raw.light.InfoActivity" />
+        <activity android:name=".wear.raw.light.ValuesActivity" />
+
+        <activity android:name=".wear.raw.linearacceleration.LinearAccelerationActivity" />
+        <activity android:name=".wear.raw.linearacceleration.InfoActivity" />
+        <activity android:name=".wear.raw.linearacceleration.ValuesActivity" />
+
+        <activity android:name=".wear.raw.magneticfield.MagneticFieldActivity" />
+        <activity android:name=".wear.raw.magneticfield.InfoActivity" />
+        <activity android:name=".wear.raw.magneticfield.ValuesActivity" />
+        <activity android:name=".wear.raw.magneticfield.SamplesActivity" />
+
+        <activity android:name=".wear.raw.magneticfielduncalibrated.MagneticFieldUncalibratedActivity" />
+        <activity android:name=".wear.raw.magneticfielduncalibrated.InfoActivity" />
+        <activity android:name=".wear.raw.magneticfielduncalibrated.ValuesActivity" />
+
+        <activity android:name=".wear.raw.orientation.OrientationActivity" />
+        <activity android:name=".wear.raw.orientation.InfoActivity" />
+        <activity android:name=".wear.raw.orientation.ValuesActivity" />
+
+        <activity android:name=".wear.raw.pressure.PressureActivity" />
+        <activity android:name=".wear.raw.pressure.InfoActivity" />
+        <activity android:name=".wear.raw.pressure.ValuesActivity" />
+        <activity android:name=".wear.raw.pressure.SamplesActivity" />
+
+        <activity android:name=".wear.raw.proximity.ProximityActivity" />
+        <activity android:name=".wear.raw.proximity.InfoActivity" />
+        <activity android:name=".wear.raw.proximity.ValuesActivity" />
+
+        <activity android:name=".wear.raw.relativehumidity.RelativeHumidityActivity" />
+        <activity android:name=".wear.raw.relativehumidity.InfoActivity" />
+        <activity android:name=".wear.raw.relativehumidity.ValuesActivity" />
+
+        <activity android:name=".wear.raw.rotationvector.RotationVectorActivity" />
+        <activity android:name=".wear.raw.rotationvector.InfoActivity" />
+        <activity android:name=".wear.raw.rotationvector.ValuesActivity" />
+
+        <activity android:name=".wear.raw.significantmotion.SignificantMotionActivity" />
+        <activity android:name=".wear.raw.significantmotion.InfoActivity" />
+        <activity android:name=".wear.raw.significantmotion.ValuesActivity" />
+
+        <activity android:name=".wear.raw.stepcounter.StepCounterActivity" />
+        <activity android:name=".wear.raw.stepcounter.InfoActivity" />
+        <activity android:name=".wear.raw.stepcounter.ValuesActivity" />
+
+        <activity android:name=".wear.raw.stepdetection.StepDetectionActivity" />
+        <activity android:name=".wear.raw.stepdetection.InfoActivity" />
+        <activity android:name=".wear.raw.stepdetection.ValuesActivity" />
+
+        <activity android:name=".wear.raw.temperature.TemperatureActivity" />
+        <activity android:name=".wear.raw.temperature.InfoActivity" />
+        <activity android:name=".wear.raw.temperature.ValuesActivity" />
+
+        <activity android:name=".wear.samples.SamplesActivity" />
+
+        <activity android:name=".wear.samples.altitude.AltitudeActivity" />
+        <activity android:name=".wear.samples.altitude.ValuesActivity" />
+
+        <activity android:name=".wear.samples.deviceorientation.DeviceOrientationActivity" />
+        <activity android:name=".wear.samples.deviceorientation.ValuesActivity" />
+
+        <activity android:name=".wear.samples.metaldetection.MetalDetectionActivity" />
+        <activity android:name=".wear.samples.metaldetection.ValuesActivity" />
+
+        <activity android:name="com.reboot297.sensors.wear.part.DescriptionActivity" />
+
+    </application>
+
+</manifest>

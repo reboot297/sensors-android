@@ -45,19 +45,13 @@
             android:id="@+id/raw_data_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/home_button_raw_data"/>
+            android:text="@string/home_button_raw_sensors_data" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/altitude_button"
+            android:id="@+id/samples_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/home_button_altitude"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/device_orientation_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/home_button_device_orientation"/>
+            android:text="@string/home_button_samples" />
 
     </LinearLayout>
 
