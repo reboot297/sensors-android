@@ -25,7 +25,6 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.GravityLifecycleObserver
 
 class GravityDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     override val sensorObserver = GravityLifecycleObserver(this, this, this)
 
     lateinit var binding: ActivityRawGravityBinding

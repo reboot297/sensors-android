@@ -25,11 +25,12 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.GyroscopeUncalibratedLifecycleObserver
 
 class GyroscopeUncalibratedDetailsActivity : BaseSensorValuesDetailsActivity() {
-    override val sensorObserver = GyroscopeUncalibratedLifecycleObserver(
-        this,
-        this,
-        this,
-    )
+    override val sensorObserver =
+        GyroscopeUncalibratedLifecycleObserver(
+            this,
+            this,
+            this,
+        )
 
     lateinit var binding: ActivityRawGyroscopeUncalibratedBinding
 

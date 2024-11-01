@@ -56,11 +56,10 @@ class RotationVectorLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: SensorValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -74,7 +73,7 @@ class RotationVectorLifecycleObserver(
         /**
          * getDefaultSensor(SENSOR_TYPE_ROTATION_VECTOR) returns a non-wake-up sensor
          */
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -117,7 +116,10 @@ class RotationVectorLifecycleObserver(
         valuesListener?.onSensorValuesChanged(event?.values)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
         valuesListener?.onAccuracyValueChanged(accuracy)
     }
 }

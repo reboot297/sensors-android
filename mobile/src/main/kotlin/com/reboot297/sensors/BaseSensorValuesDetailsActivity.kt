@@ -18,4 +18,6 @@ package com.reboot297.sensors
 
 import com.reboot297.sensors.lib.raw.base.SensorValuesListener
 
-abstract class BaseSensorValuesDetailsActivity : BaseSensorDetailsActivity(), SensorValuesListener
+abstract class BaseSensorValuesDetailsActivity :
+    BaseSensorDetailsActivity(),
+    SensorValuesListener

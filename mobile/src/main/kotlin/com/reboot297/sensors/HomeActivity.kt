@@ -8,7 +8,6 @@ import com.reboot297.sensors.raw.RawDataActivity
 import com.reboot297.sensors.samples.SamplesActivity
 
 class HomeActivity : BaseActivity() {
-
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

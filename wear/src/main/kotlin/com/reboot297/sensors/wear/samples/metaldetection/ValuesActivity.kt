@@ -23,15 +23,18 @@ import com.reboot297.sensors.lib.raw.base.MetalDetectionValuesListener
 import com.reboot297.sensors.lib.samples.MetalDetectionLifecycleObserver
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class ValuesActivity : BaseSensorActivity(), ActivityListener, MetalDetectionValuesListener {
-
+class ValuesActivity :
+    BaseSensorActivity(),
+    ActivityListener,
+    MetalDetectionValuesListener {
     private lateinit var binding: ActivitySampleValuesMetalDetectionBinding
 
-    private val sensorObserver = MetalDetectionLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-        valuesListener = this,
-    )
+    private val sensorObserver =
+        MetalDetectionLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+            valuesListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,10 @@ class ValuesActivity : BaseSensorActivity(), ActivityListener, MetalDetectionVal
         }
     }
 
-    override fun onValuesChanged(rawValues: FloatArray?, value: Double) {
+    override fun onValuesChanged(
+        rawValues: FloatArray?,
+        value: Double,
+    ) {
         binding.sensorValuesView.setValues(rawValues)
         binding.valueView.setValue(value)
     }

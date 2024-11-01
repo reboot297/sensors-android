@@ -22,8 +22,9 @@ import com.reboot297.sensors.databinding.ActivityAltitudeBinding
 import com.reboot297.sensors.lib.raw.base.AltitudeValuesListener
 import com.reboot297.sensors.lib.samples.AltitudeLifecycleObserver
 
-class AltitudeActivity : BaseSensorDetailsActivity(), AltitudeValuesListener {
-
+class AltitudeActivity :
+    BaseSensorDetailsActivity(),
+    AltitudeValuesListener {
     override val sensorObserver = AltitudeLifecycleObserver(this, this, this)
 
     private lateinit var binding: ActivityAltitudeBinding
@@ -49,7 +50,10 @@ class AltitudeActivity : BaseSensorDetailsActivity(), AltitudeValuesListener {
 
     override fun enableUI(enabled: Boolean) {}
 
-    override fun onValuesChanged(pressure: Float, altitude: Float) {
+    override fun onValuesChanged(
+        pressure: Float,
+        altitude: Float,
+    ) {
         binding.sensorValueView.setValue(pressure)
         binding.altitudeValueView.setValue(altitude)
     }

@@ -22,8 +22,9 @@ import com.reboot297.sensors.databinding.ActivityMetalDetectionBinding
 import com.reboot297.sensors.lib.raw.base.MetalDetectionValuesListener
 import com.reboot297.sensors.lib.samples.MetalDetectionLifecycleObserver
 
-class MetalDetectionActivity : BaseSensorDetailsActivity(), MetalDetectionValuesListener {
-
+class MetalDetectionActivity :
+    BaseSensorDetailsActivity(),
+    MetalDetectionValuesListener {
     override val sensorObserver = MetalDetectionLifecycleObserver(this, this, this)
     private lateinit var binding: ActivityMetalDetectionBinding
 
@@ -48,7 +49,10 @@ class MetalDetectionActivity : BaseSensorDetailsActivity(), MetalDetectionValues
 
     override fun enableUI(enabled: Boolean) {}
 
-    override fun onValuesChanged(rawValues: FloatArray?, value: Double) {
+    override fun onValuesChanged(
+        rawValues: FloatArray?,
+        value: Double,
+    ) {
         binding.sensorValuesView.setValues(rawValues)
         binding.valueView.setValue(value)
     }

@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.reboot297.sensors'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.reboot297.sensors"
         minSdk 21
-        targetSdk 34
+        targetSdk 35
         versionCode 2
         versionName "1.1.0"
     }

@@ -21,9 +21,10 @@ import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 import com.reboot297.sensors.lib.R
 
-class AccuracyView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class AccuracyView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     private val availableValues: Array<String>
     private val defaultValue: String
 
@@ -33,10 +34,11 @@ class AccuracyView(context: Context, attrs: AttributeSet?) :
     }
 
     fun setValue(value: Int) {
-        text = if (value == -1) {
-            defaultValue
-        } else {
-            availableValues[value]
-        }
+        text =
+            if (value == -1) {
+                defaultValue
+            } else {
+                availableValues[value]
+            }
     }
 }

@@ -23,15 +23,18 @@ import com.reboot297.sensors.lib.raw.base.AltitudeValuesListener
 import com.reboot297.sensors.lib.samples.AltitudeLifecycleObserver
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class ValuesActivity : BaseSensorActivity(), ActivityListener, AltitudeValuesListener {
-
+class ValuesActivity :
+    BaseSensorActivity(),
+    ActivityListener,
+    AltitudeValuesListener {
     private lateinit var binding: ActivitySampleDetailsValuesAltitudeBinding
 
-    private val sensorObserver = AltitudeLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-        valuesListener = this,
-    )
+    private val sensorObserver =
+        AltitudeLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+            valuesListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +54,10 @@ class ValuesActivity : BaseSensorActivity(), ActivityListener, AltitudeValuesLis
         }
     }
 
-    override fun onValuesChanged(pressure: Float, altitude: Float) {
+    override fun onValuesChanged(
+        pressure: Float,
+        altitude: Float,
+    ) {
         binding.pressureValueView.setValue(pressure)
         binding.altitudeView.setValue(altitude)
     }

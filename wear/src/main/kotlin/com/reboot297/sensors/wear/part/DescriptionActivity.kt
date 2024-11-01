@@ -24,7 +24,6 @@ import androidx.annotation.StringRes
 import com.reboot297.sensors.databinding.ActivityDetailsDescriptionBinding
 
 class DescriptionActivity : ComponentActivity() {
-
     private lateinit var binding: ActivityDetailsDescriptionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,11 @@ class DescriptionActivity : ComponentActivity() {
 
     companion object {
         private const val KEY_RESOURCE_ID = "resourceId"
-        fun start(context: Context, @StringRes descriptionId: Int) {
+
+        fun start(
+            context: Context,
+            @StringRes descriptionId: Int,
+        ) {
             context.startActivity(
                 Intent(context, DescriptionActivity::class.java).apply {
                     putExtra(KEY_RESOURCE_ID, descriptionId)

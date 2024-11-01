@@ -36,7 +36,8 @@ abstract class BaseSensorDetailsActivity :
     }
 
     private fun showSensorNotAvailableDialog(): AlertDialog =
-        AlertDialog.Builder(this)
+        AlertDialog
+            .Builder(this)
             .setMessage(R.string.warning_sensor_not_available)
             .setPositiveButton(android.R.string.ok) { _, _ -> finish() }
             .setCancelable(false)

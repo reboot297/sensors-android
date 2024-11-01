@@ -22,9 +22,10 @@ import androidx.annotation.StringRes
 import com.reboot297.sensors.wear.part.DescriptionActivity
 
 abstract class BaseRawSensorActivity : ComponentActivity() {
-
-    protected fun openDetails(@StringRes descriptionResId: Int) {
-        com.reboot297.sensors.wear.part.DescriptionActivity.start(this, descriptionResId)
+    protected fun openDetails(
+        @StringRes descriptionResId: Int,
+    ) {
+        DescriptionActivity.start(this, descriptionResId)
     }
 
     protected fun openSection(cls: Class<*>) {

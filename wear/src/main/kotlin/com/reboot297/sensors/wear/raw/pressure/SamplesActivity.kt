@@ -23,7 +23,6 @@ import com.reboot297.sensors.databinding.ActivitySamplesPressureBinding
 import com.reboot297.sensors.wear.samples.altitude.AltitudeActivity
 
 class SamplesActivity : ComponentActivity() {
-
     private lateinit var binding: ActivitySamplesPressureBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

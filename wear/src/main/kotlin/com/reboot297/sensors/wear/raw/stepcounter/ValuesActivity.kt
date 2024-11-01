@@ -23,16 +23,19 @@ import com.reboot297.sensors.lib.raw.base.ActivityListener
 import com.reboot297.sensors.lib.raw.base.SensorValuesListener
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class ValuesActivity : BaseSensorActivity(), SensorValuesListener, ActivityListener {
-
+class ValuesActivity :
+    BaseSensorActivity(),
+    SensorValuesListener,
+    ActivityListener {
     private lateinit var binding: ActivityRawDetailsValuesStepCounterBinding
 
     // TODO(Viktor) permissions
-    private val sensorObserver = StepCounterLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-        valuesListener = this,
-    )
+    private val sensorObserver =
+        StepCounterLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+            valuesListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

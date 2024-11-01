@@ -21,9 +21,10 @@ import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 import com.reboot297.sensors.lib.R
 
-class StepCounterValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class StepCounterValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     private val unit: String
 
     init {
@@ -36,6 +37,9 @@ class StepCounterValueView(context: Context, attrs: AttributeSet?) :
 
     private fun formatValue(values: FloatArray) =
         StringBuilder()
-            .append("\t").append(values[0]).append(" ").append(unit)
+            .append("\t")
+            .append(values[0])
+            .append(" ")
+            .append(unit)
             .toString()
 }

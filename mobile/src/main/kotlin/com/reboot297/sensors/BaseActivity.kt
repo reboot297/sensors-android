@@ -26,7 +26,6 @@ import androidx.appcompat.app.AppCompatActivity
 const val PRIVACY_URL = "https://sites.google.com/view/reboot297-sensors/home"
 
 open class BaseActivity : AppCompatActivity() {
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
         return true

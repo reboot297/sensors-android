@@ -28,14 +28,14 @@ import com.reboot297.sensors.lib.raw.AccelerometerUncalibratedLifecycleObserver
 
 @RequiresApi(Build.VERSION_CODES.O)
 class AccelerometerUncalibratedDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     lateinit var binding: ActivityRawAccelerometerUncalibratedBinding
 
-    override val sensorObserver = AccelerometerUncalibratedLifecycleObserver(
-        this,
-        this,
-        this,
-    )
+    override val sensorObserver =
+        AccelerometerUncalibratedLifecycleObserver(
+            this,
+            this,
+            this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

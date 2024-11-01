@@ -46,33 +46,31 @@ import com.reboot297.sensors.wear.raw.stepdetection.StepDetectionActivity
 import com.reboot297.sensors.wear.raw.temperature.TemperatureActivity
 
 class RawDataActivity : ComponentActivity() {
-
     private lateinit var binding: ActivityRawDataBinding
 
-    private val map = mapOf<Int, Class<*>>(
-        R.id.accelerometer_button to AccelerometerActivity::class.java,
-        R.id.gravity_button to GravityActivity::class.java,
-        R.id.gyroscope_button to GyroscopeActivity::class.java,
-        R.id.gyroscope_uncalibrated_button to GyroscopeUncalibratedActivity::class.java,
-        R.id.linear_acceleration_button to LinearAccelerationActivity::class.java,
-        R.id.rotation_vector_button to RotationVectorActivity::class.java,
-        R.id.significant_motion_button to SignificantMotionActivity::class.java,
-        R.id.step_detector_button to StepDetectionActivity::class.java,
-        R.id.step_counter_button to StepCounterActivity::class.java,
-
-        R.id.game_rotation_vector_button to GameRotationVectorActivity::class.java,
-        R.id.geomagnetic_rotation_vector_button to GeomagneticRotationVectorActivity::class.java,
-        R.id.magnetic_field_button to MagneticFieldActivity::class.java,
-        R.id.magnetic_field_uncalibrated_button to MagneticFieldUncalibratedActivity::class.java,
-        R.id.orientation_button to OrientationActivity::class.java,
-        R.id.proximity_button to ProximityActivity::class.java,
-
-        R.id.ambient_temperature_button to AmbientTemperatureActivity::class.java,
-        R.id.temperature_button to TemperatureActivity::class.java,
-        R.id.light_button to LightActivity::class.java,
-        R.id.pressure_button to PressureActivity::class.java,
-        R.id.relative_humidity_button to RelativeHumidityActivity::class.java,
-    )
+    private val map =
+        mapOf<Int, Class<*>>(
+            R.id.accelerometer_button to AccelerometerActivity::class.java,
+            R.id.gravity_button to GravityActivity::class.java,
+            R.id.gyroscope_button to GyroscopeActivity::class.java,
+            R.id.gyroscope_uncalibrated_button to GyroscopeUncalibratedActivity::class.java,
+            R.id.linear_acceleration_button to LinearAccelerationActivity::class.java,
+            R.id.rotation_vector_button to RotationVectorActivity::class.java,
+            R.id.significant_motion_button to SignificantMotionActivity::class.java,
+            R.id.step_detector_button to StepDetectionActivity::class.java,
+            R.id.step_counter_button to StepCounterActivity::class.java,
+            R.id.game_rotation_vector_button to GameRotationVectorActivity::class.java,
+            R.id.geomagnetic_rotation_vector_button to GeomagneticRotationVectorActivity::class.java,
+            R.id.magnetic_field_button to MagneticFieldActivity::class.java,
+            R.id.magnetic_field_uncalibrated_button to MagneticFieldUncalibratedActivity::class.java,
+            R.id.orientation_button to OrientationActivity::class.java,
+            R.id.proximity_button to ProximityActivity::class.java,
+            R.id.ambient_temperature_button to AmbientTemperatureActivity::class.java,
+            R.id.temperature_button to TemperatureActivity::class.java,
+            R.id.light_button to LightActivity::class.java,
+            R.id.pressure_button to PressureActivity::class.java,
+            R.id.relative_humidity_button to RelativeHumidityActivity::class.java,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +88,8 @@ class RawDataActivity : ComponentActivity() {
                 getString(R.string.title_accelerometer_uncalibrated) + "\n" + getString(R.string.warning_api_26)
         }
 
-        map.keys.asSequence()
+        map.keys
+            .asSequence()
             .map { findViewById<View>(it) }
             .forEach { it.setOnClickListener { view -> openDetails(view) } }
     }

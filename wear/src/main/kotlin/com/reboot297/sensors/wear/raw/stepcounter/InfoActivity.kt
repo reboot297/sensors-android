@@ -24,15 +24,17 @@ import com.reboot297.sensors.lib.raw.StepCounterLifecycleObserver
 import com.reboot297.sensors.lib.raw.base.ActivityListener
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class InfoActivity : BaseSensorActivity(), ActivityListener {
-
+class InfoActivity :
+    BaseSensorActivity(),
+    ActivityListener {
     private lateinit var binding: ActivityRawDetailsSensorInfoBinding
 
     // TODO(Viktor) permissions
-    private val sensorObserver = StepCounterLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-    )
+    private val sensorObserver =
+        StepCounterLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

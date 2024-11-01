@@ -14,7 +14,8 @@
   ~ limitations under the License.
   -->
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -51,9 +52,15 @@
         <activity android:name=".wear.raw.accelerometer.InfoActivity" />
         <activity android:name=".wear.raw.accelerometer.SamplesActivity" />
 
-        <activity android:name=".wear.raw.accelerometeruncalibrated.AccelerometerUncalibratedActivity" />
-        <activity android:name=".wear.raw.accelerometeruncalibrated.InfoActivity" />
-        <activity android:name=".wear.raw.accelerometeruncalibrated.ValuesActivity" />
+        <activity
+            android:name=".wear.raw.accelerometeruncalibrated.AccelerometerUncalibratedActivity"
+            tools:targetApi="o" />
+        <activity
+            android:name=".wear.raw.accelerometeruncalibrated.InfoActivity"
+            tools:targetApi="o" />
+        <activity
+            android:name=".wear.raw.accelerometeruncalibrated.ValuesActivity"
+            tools:targetApi="o" />
 
         <activity android:name=".wear.raw.ambienttemperature.AmbientTemperatureActivity" />
         <activity android:name=".wear.raw.ambienttemperature.InfoActivity" />

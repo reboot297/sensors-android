@@ -23,17 +23,21 @@ import android.view.Display
 
 interface ActivityListener {
     fun getApplicationContext(): Context
+
     fun requestPermissions(permission: String) = Unit
+
     fun getDefaultDisplay(): Display? = null
 }
 
 interface SensorAvailabilityListener {
     fun onSensorAvailable(sensor: Sensor)
+
     fun onSensorNotAvailable()
 }
 
 interface SensorValuesListener {
     fun onSensorValuesChanged(values: FloatArray?)
+
     fun onAccuracyValueChanged(accuracy: Int)
 }
 
@@ -42,11 +46,17 @@ interface SensorTriggerValuesListener {
 }
 
 interface AltitudeValuesListener {
-    fun onValuesChanged(pressure: Float, altitude: Float)
+    fun onValuesChanged(
+        pressure: Float,
+        altitude: Float,
+    )
 }
 
 interface MetalDetectionValuesListener {
-    fun onValuesChanged(rawValues: FloatArray?, value: Double)
+    fun onValuesChanged(
+        rawValues: FloatArray?,
+        value: Double,
+    )
 }
 
 interface DeviceOrientationValuesListener {

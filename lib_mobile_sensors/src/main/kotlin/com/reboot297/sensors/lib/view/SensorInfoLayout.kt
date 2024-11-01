@@ -24,9 +24,10 @@ import android.widget.FrameLayout
 import com.reboot297.sensors.lib.R
 import com.reboot297.sensors.lib.databinding.LayoutSensorInfoBinding
 
-class SensorInfoLayout(context: Context, attrs: AttributeSet?) :
-    FrameLayout(context, attrs) {
-
+class SensorInfoLayout(
+    context: Context,
+    attrs: AttributeSet?,
+) : FrameLayout(context, attrs) {
     private val unitPower: String
     private val unitMicroseconds: String
     private val reportingModes: Array<String>
@@ -43,7 +44,10 @@ class SensorInfoLayout(context: Context, attrs: AttributeSet?) :
             context.resources.getStringArray(R.array.report_rate_levels)
     }
 
-    fun setInfo(sensor: Sensor, unit: String) = with(binding) {
+    fun setInfo(
+        sensor: Sensor,
+        unit: String,
+    ) = with(binding) {
         sensorNameValue.text = sensor.name
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             sensorIdValue.text = sensor.id.toString()
@@ -72,13 +76,19 @@ class SensorInfoLayout(context: Context, attrs: AttributeSet?) :
         }
     }
 
-    private fun formatTextValue(value: Int, unit: String) = StringBuilder()
+    private fun formatTextValue(
+        value: Int,
+        unit: String,
+    ) = StringBuilder()
         .append(value)
         .append(" ")
         .append(unit)
         .toString()
 
-    private fun formatTextValue(value: Float, unit: String) = StringBuilder()
+    private fun formatTextValue(
+        value: Float,
+        unit: String,
+    ) = StringBuilder()
         .append(value)
         .append(" ")
         .append(unit)

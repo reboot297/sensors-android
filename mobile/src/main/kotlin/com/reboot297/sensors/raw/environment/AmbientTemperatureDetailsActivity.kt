@@ -25,7 +25,6 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.AmbientTemperatureLifecycleObserver
 
 class AmbientTemperatureDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     override val sensorObserver = AmbientTemperatureLifecycleObserver(this, this, this)
 
     lateinit var binding: ActivityRawAmbientTemperatureBinding

@@ -36,11 +36,10 @@ class RelativeHumidityLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: SensorValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -54,7 +53,7 @@ class RelativeHumidityLifecycleObserver(
         /**
          * getDefaultSensor(SENSOR_TYPE_RELATIVE_HUMIDITY) returns a non-wake-up sensor
          */
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -90,7 +89,10 @@ class RelativeHumidityLifecycleObserver(
         valuesListener?.onSensorValuesChanged(event?.values)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
         valuesListener?.onAccuracyValueChanged(accuracy)
     }
 }
