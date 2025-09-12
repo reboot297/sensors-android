@@ -27,11 +27,12 @@ import com.reboot297.sensors.lib.raw.MagneticFieldUncalibratedLifecycleObserver
 class MagneticFieldUncalibratedDetailsActivity : BaseSensorValuesDetailsActivity() {
     lateinit var binding: ActivityRawMagneticFieldUncalibratedBinding
 
-    override val sensorObserver = MagneticFieldUncalibratedLifecycleObserver(
-        this,
-        this,
-        this,
-    )
+    override val sensorObserver =
+        MagneticFieldUncalibratedLifecycleObserver(
+            this,
+            this,
+            this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

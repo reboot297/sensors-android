@@ -20,17 +20,25 @@ import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 
-class DeviceOrientationValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class DeviceOrientationValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     fun setValues(values: FloatArray?) {
         text = values?.let { formatValue(it) }
     }
 
-    private fun formatValue(array: FloatArray): String {
-        return StringBuilder()
-            .append("Azimuth: ").append(Math.toDegrees(array[0].toDouble()).toFloat()).append("\n")
-            .append("Pitch: ").append(Math.toDegrees(array[1].toDouble()).toFloat()).append("\n")
-            .append("Roll: ").append(Math.toDegrees(array[2].toDouble())).toString()
-    }
+    private fun formatValue(array: FloatArray): String =
+        StringBuilder()
+            .append("Azimuth: ")
+            .append(
+                Math.toDegrees(array[0].toDouble()).toFloat(),
+            ).append("\n")
+            .append("Pitch: ")
+            .append(
+                Math.toDegrees(array[1].toDouble()).toFloat(),
+            ).append("\n")
+            .append("Roll: ")
+            .append(Math.toDegrees(array[2].toDouble()))
+            .toString()
 }

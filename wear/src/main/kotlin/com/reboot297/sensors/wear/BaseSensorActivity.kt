@@ -22,8 +22,9 @@ import androidx.activity.ComponentActivity
 import com.reboot297.sensors.R
 import com.reboot297.sensors.lib.raw.base.SensorAvailabilityListener
 
-abstract class BaseSensorActivity : ComponentActivity(), SensorAvailabilityListener {
-
+abstract class BaseSensorActivity :
+    ComponentActivity(),
+    SensorAvailabilityListener {
     override fun onSensorAvailable(sensor: Sensor) {}
 
     override fun onSensorNotAvailable() {

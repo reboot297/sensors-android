@@ -25,8 +25,9 @@ import com.reboot297.sensors.databinding.ActivityDeviceOrientationBinding
 import com.reboot297.sensors.lib.raw.base.DeviceOrientationValuesListener
 import com.reboot297.sensors.lib.samples.DeviceOrientationLifecycleObserver
 
-class DeviceOrientationActivity : BaseSensorDetailsActivity(), DeviceOrientationValuesListener {
-
+class DeviceOrientationActivity :
+    BaseSensorDetailsActivity(),
+    DeviceOrientationValuesListener {
     override val sensorObserver = DeviceOrientationLifecycleObserver(this, this, this)
 
     private lateinit var binding: ActivityDeviceOrientationBinding
@@ -51,14 +52,13 @@ class DeviceOrientationActivity : BaseSensorDetailsActivity(), DeviceOrientation
         }
     }
 
-    override fun getDefaultDisplay(): Display? {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    override fun getDefaultDisplay(): Display? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             display!!
         } else {
             @Suppress("DEPRECATION")
             (getSystemService(WINDOW_SERVICE) as WindowManager).defaultDisplay
         }
-    }
 
     override fun enableUI(enabled: Boolean) {}
 

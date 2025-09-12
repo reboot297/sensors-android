@@ -25,11 +25,12 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.GeomagneticRotationVectorLifecycleObserver
 
 class GeomagneticRotationVectorDetailsActivity : BaseSensorValuesDetailsActivity() {
-    override val sensorObserver = GeomagneticRotationVectorLifecycleObserver(
-        this,
-        this,
-        this,
-    )
+    override val sensorObserver =
+        GeomagneticRotationVectorLifecycleObserver(
+            this,
+            this,
+            this,
+        )
 
     lateinit var binding: ActivityRawGeomagneticRotationVectorBinding
 

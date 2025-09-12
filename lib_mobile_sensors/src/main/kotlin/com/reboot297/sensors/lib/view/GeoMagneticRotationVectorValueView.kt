@@ -20,19 +20,30 @@ import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 
-class GeoMagneticRotationVectorValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class GeoMagneticRotationVectorValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     fun setValues(values: FloatArray?) {
         text = values?.let { formatValue(it) }
     }
 
     private fun formatValue(values: FloatArray) =
         StringBuilder()
-            .append("x: ").append(values[0]).append("\n")
-            .append("y: ").append(values[1]).append("\n")
-            .append("z: ").append(values[2]).append("\n")
-            .append("scalar: ").append(values[3]).append("\n")
-            .append("heading accuracy: ").append(values[4]).append("rad.")
+            .append("x: ")
+            .append(values[0])
+            .append("\n")
+            .append("y: ")
+            .append(values[1])
+            .append("\n")
+            .append("z: ")
+            .append(values[2])
+            .append("\n")
+            .append("scalar: ")
+            .append(values[3])
+            .append("\n")
+            .append("heading accuracy: ")
+            .append(values[4])
+            .append("rad.")
             .toString()
 }

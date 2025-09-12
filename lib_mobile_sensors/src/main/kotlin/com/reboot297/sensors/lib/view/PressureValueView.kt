@@ -21,9 +21,10 @@ import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 import com.reboot297.sensors.lib.R
 
-class PressureValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class PressureValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     private val unit: String
 
     init {
@@ -40,6 +41,9 @@ class PressureValueView(context: Context, attrs: AttributeSet?) :
 
     private fun formatValue(value: Float) =
         StringBuilder()
-            .append("\t").append(value).append(" ").append(unit)
+            .append("\t")
+            .append(value)
+            .append(" ")
+            .append(unit)
             .toString()
 }

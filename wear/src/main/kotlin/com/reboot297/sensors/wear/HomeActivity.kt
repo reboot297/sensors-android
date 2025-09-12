@@ -24,7 +24,6 @@ import com.reboot297.sensors.wear.raw.RawDataActivity
 import com.reboot297.sensors.wear.samples.SamplesActivity
 
 class HomeActivity : ComponentActivity() {
-
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

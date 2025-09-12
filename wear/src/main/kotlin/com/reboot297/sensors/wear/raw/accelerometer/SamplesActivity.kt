@@ -23,7 +23,6 @@ import com.reboot297.sensors.databinding.ActivitySamplesAccelerometerBinding
 import com.reboot297.sensors.wear.samples.deviceorientation.DeviceOrientationActivity
 
 class SamplesActivity : ComponentActivity() {
-
     private lateinit var binding: ActivitySamplesAccelerometerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

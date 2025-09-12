@@ -24,15 +24,18 @@ import com.reboot297.sensors.lib.raw.base.ActivityListener
 import com.reboot297.sensors.lib.raw.base.SensorTriggerValuesListener
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class ValuesActivity : BaseSensorActivity(), SensorTriggerValuesListener, ActivityListener {
-
+class ValuesActivity :
+    BaseSensorActivity(),
+    SensorTriggerValuesListener,
+    ActivityListener {
     private lateinit var binding: ActivityRawDetailsValuesSignificantMotionBinding
 
-    private val sensorObserver = SignificantMotionLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-        triggerValueListener = this,
-    )
+    private val sensorObserver =
+        SignificantMotionLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+            triggerValueListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

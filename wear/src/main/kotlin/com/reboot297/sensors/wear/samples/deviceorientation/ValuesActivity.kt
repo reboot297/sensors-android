@@ -27,15 +27,18 @@ import com.reboot297.sensors.lib.raw.base.DeviceOrientationValuesListener
 import com.reboot297.sensors.lib.samples.DeviceOrientationLifecycleObserver
 import com.reboot297.sensors.wear.BaseSensorActivity
 
-class ValuesActivity : BaseSensorActivity(), ActivityListener, DeviceOrientationValuesListener {
-
+class ValuesActivity :
+    BaseSensorActivity(),
+    ActivityListener,
+    DeviceOrientationValuesListener {
     private lateinit var binding: ActivitySampleValuesDeviceOrientationBinding
 
-    private val sensorObserver = DeviceOrientationLifecycleObserver(
-        activityListener = this,
-        availabilityListener = this,
-        valuesListener = this,
-    )
+    private val sensorObserver =
+        DeviceOrientationLifecycleObserver(
+            activityListener = this,
+            availabilityListener = this,
+            valuesListener = this,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +62,11 @@ class ValuesActivity : BaseSensorActivity(), ActivityListener, DeviceOrientation
         binding.valueView.setValues(values)
     }
 
-    override fun getDefaultDisplay(): Display? {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    override fun getDefaultDisplay(): Display? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             display!!
         } else {
             @Suppress("DEPRECATION")
             (getSystemService(AppCompatActivity.WINDOW_SERVICE) as WindowManager).defaultDisplay
         }
-    }
 }

@@ -26,7 +26,6 @@ import com.reboot297.sensors.lib.raw.PressureLifecycleObserver
 import com.reboot297.sensors.samples.altitude.AltitudeActivity
 
 class PressureDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     override val sensorObserver = PressureLifecycleObserver(this, this, this)
 
     lateinit var binding: ActivityRawPressureBinding

@@ -27,14 +27,14 @@ import com.reboot297.sensors.samples.metaldetection.MetalDetectionActivity
 import com.reboot297.sensors.samples.orientation.DeviceOrientationActivity
 
 class SamplesActivity : BaseActivity() {
-
     private lateinit var binding: ActivitySamplesBinding
 
-    private val map = mapOf<Int, Class<*>>(
-        R.id.altitude_item_view to AltitudeActivity::class.java,
-        R.id.device_orientation_item_view to DeviceOrientationActivity::class.java,
-        R.id.metal_detection_item_view to MetalDetectionActivity::class.java,
-    )
+    private val map =
+        mapOf<Int, Class<*>>(
+            R.id.altitude_item_view to AltitudeActivity::class.java,
+            R.id.device_orientation_item_view to DeviceOrientationActivity::class.java,
+            R.id.metal_detection_item_view to MetalDetectionActivity::class.java,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,8 @@ class SamplesActivity : BaseActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        map.keys.asSequence()
+        map.keys
+            .asSequence()
             .map { findViewById<View>(it) }
             .forEach { it.setOnClickListener { view -> openDetails(view) } }
     }

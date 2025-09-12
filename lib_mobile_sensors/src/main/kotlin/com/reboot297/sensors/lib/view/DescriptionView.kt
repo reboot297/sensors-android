@@ -20,4 +20,7 @@ import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 
-class DescriptionView(context: Context, attrs: AttributeSet?) : MaterialTextView(context, attrs)
+class DescriptionView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs)

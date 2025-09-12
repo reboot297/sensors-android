@@ -32,11 +32,10 @@ class MetalDetectionLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: MetalDetectionValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -47,7 +46,7 @@ class MetalDetectionLifecycleObserver(
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -81,5 +80,9 @@ class MetalDetectionLifecycleObserver(
         }
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
+    }
 }

@@ -21,9 +21,10 @@ import android.util.AttributeSet
 import com.google.android.material.textview.MaterialTextView
 import com.reboot297.sensors.lib.R
 
-class GyroscopeUncalibratedValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class GyroscopeUncalibratedValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     private val unit: String
 
     init {
@@ -36,13 +37,38 @@ class GyroscopeUncalibratedValueView(context: Context, attrs: AttributeSet?) :
 
     private fun formatValue(values: FloatArray) =
         StringBuilder()
-            .append("Uncalibrated data:").append("\n")
-            .append("x: ").append(values[0]).append(" ").append(unit).append("\n")
-            .append("y: ").append(values[1]).append(" ").append(unit).append("\n")
-            .append("z: ").append(values[2]).append(" ").append(unit).append("\n")
-            .append("Estimated drift:").append("\n")
-            .append("x: ").append(values[3]).append(" ").append(unit).append("\n")
-            .append("y: ").append(values[4]).append(" ").append(unit).append("\n")
-            .append("z: ").append(values[5]).append(" ").append(unit)
+            .append("Uncalibrated data:")
+            .append("\n")
+            .append("x: ")
+            .append(values[0])
+            .append(" ")
+            .append(unit)
+            .append("\n")
+            .append("y: ")
+            .append(values[1])
+            .append(" ")
+            .append(unit)
+            .append("\n")
+            .append("z: ")
+            .append(values[2])
+            .append(" ")
+            .append(unit)
+            .append("\n")
+            .append("Estimated drift:")
+            .append("\n")
+            .append("x: ")
+            .append(values[3])
+            .append(" ")
+            .append(unit)
+            .append("\n")
+            .append("y: ")
+            .append(values[4])
+            .append(" ")
+            .append(unit)
+            .append("\n")
+            .append("z: ")
+            .append(values[5])
+            .append(" ")
+            .append(unit)
             .toString()
 }

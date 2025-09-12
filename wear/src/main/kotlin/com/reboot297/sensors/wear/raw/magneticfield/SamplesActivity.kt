@@ -24,7 +24,6 @@ import com.reboot297.sensors.wear.samples.deviceorientation.DeviceOrientationAct
 import com.reboot297.sensors.wear.samples.metaldetection.MetalDetectionActivity
 
 class SamplesActivity : ComponentActivity() {
-
     private lateinit var binding: ActivitySamplesMagneticFieldBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

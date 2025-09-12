@@ -20,11 +20,11 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 
 abstract class BaseSensorObserver : DefaultLifecycleObserver {
-
     fun registerLifecycle(lifecycle: Lifecycle) {
         lifecycle.addObserver(this)
     } // TODO unregister lifecycle and ui handle to null
 
     abstract fun startListening()
+
     abstract fun stopListening()
 }

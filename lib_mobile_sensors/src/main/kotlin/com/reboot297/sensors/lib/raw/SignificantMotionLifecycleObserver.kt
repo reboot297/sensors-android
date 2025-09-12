@@ -50,10 +50,8 @@ class SignificantMotionLifecycleObserver(
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val triggerValueListener: SensorTriggerValuesListener? = null,
 ) : BaseSensorObserver() {
-
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -67,7 +65,7 @@ class SignificantMotionLifecycleObserver(
         /**
          * getDefaultSensor(SENSOR_TYPE_SIGNIFICANT_MOTION) returns a wake-up sensor
          */
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -94,16 +92,17 @@ class SignificantMotionLifecycleObserver(
         }
     }
 
-    private val triggerEventListener = object : TriggerEventListener() {
-        override fun onTrigger(event: TriggerEvent?) {
-            /**
-             *  Reporting-mode: One-shot
-             *  Underlying physical sensor: Accelerometer (or another as long as low power)
-             *
-             * value[0] = 1.0 when the sensor triggers. 1.0 is the only allowed value.
-             */
+    private val triggerEventListener =
+        object : TriggerEventListener() {
+            override fun onTrigger(event: TriggerEvent?) {
+                /**
+                 *  Reporting-mode: One-shot
+                 *  Underlying physical sensor: Accelerometer (or another as long as low power)
+                 *
+                 * value[0] = 1.0 when the sensor triggers. 1.0 is the only allowed value.
+                 */
 
-            event?.let { triggerValueListener?.onTrigger(it) }
+                event?.let { triggerValueListener?.onTrigger(it) }
+            }
         }
-    }
 }

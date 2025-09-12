@@ -22,7 +22,6 @@ import com.reboot297.sensors.databinding.ActivityRawSensorBinding
 import com.reboot297.sensors.wear.raw.BaseRawSensorActivity
 
 class GyroscopeUncalibratedActivity : BaseRawSensorActivity() {
-
     private lateinit var binding: ActivityRawSensorBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

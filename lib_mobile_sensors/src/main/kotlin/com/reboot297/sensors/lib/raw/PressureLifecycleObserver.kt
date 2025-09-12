@@ -34,11 +34,10 @@ class PressureLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: SensorValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -49,7 +48,7 @@ class PressureLifecycleObserver(
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -85,7 +84,10 @@ class PressureLifecycleObserver(
         valuesListener?.onSensorValuesChanged(event?.values)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
         valuesListener?.onAccuracyValueChanged(accuracy)
     }
 }

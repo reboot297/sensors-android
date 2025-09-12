@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.reboot297.sensors'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.reboot297.sensors"
         minSdk 21
-        targetSdk 34
+        targetSdk 36
         versionCode 2
         versionName "1.1.0"
     }
@@ -22,11 +22,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '21'
     }
     buildFeatures {
         viewBinding true

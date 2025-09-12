@@ -26,7 +26,6 @@ import com.reboot297.sensors.lib.raw.AccelerometerLifecycleObserver
 import com.reboot297.sensors.samples.orientation.DeviceOrientationActivity
 
 class AccelerometerDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     lateinit var binding: ActivityRawAccelerometerBinding
 
     override val sensorObserver = AccelerometerLifecycleObserver(this, this, this)

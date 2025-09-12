@@ -33,14 +33,12 @@ class DeviceOrientationLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: DeviceOrientationValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _accelerometerSensor: Sensor? = null
-    private val accelerometerSensor: Sensor? get() = _accelerometerSensor
+    private var accelerometerSensor: Sensor? = null
 
-    private var _magneticFieldSensor: Sensor? = null
-    private val magneticFieldSensor: Sensor? get() = _magneticFieldSensor
+    private var magneticFieldSensor: Sensor? = null
 
     private val accelerometerReading = FloatArray(3)
     private val magnetometerReading = FloatArray(3)
@@ -61,8 +59,8 @@ class DeviceOrientationLifecycleObserver(
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        _accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        _magneticFieldSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
+        accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        magneticFieldSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD)
         availabilityListener?.let {
             if (accelerometerSensor != null) {
                 it.onSensorAvailable(accelerometerSensor!!)
@@ -125,41 +123,49 @@ class DeviceOrientationLifecycleObserver(
         valuesListener?.onValuesChanged(orientationAngles)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {}
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
+    }
 
     private fun updateOrientationAngles() {
         // Update rotation matrix, which is needed to update orientation angles.
-        val success = SensorManager.getRotationMatrix(
-            rotationMatrix,
-            null,
-            accelerometerReading,
-            magnetometerReading,
-        )
+        val success =
+            SensorManager.getRotationMatrix(
+                rotationMatrix,
+                null,
+                accelerometerReading,
+                magnetometerReading,
+            )
         if (success) {
             // Remap the matrix based on current device/activity rotation.
             var rotationMatrixAdjusted = FloatArray(9)
             when (defaultDisplay.rotation) {
                 Surface.ROTATION_0 -> rotationMatrixAdjusted = rotationMatrix.clone()
-                Surface.ROTATION_90 -> SensorManager.remapCoordinateSystem(
-                    rotationMatrix,
-                    SensorManager.AXIS_Y,
-                    SensorManager.AXIS_MINUS_X,
-                    rotationMatrixAdjusted,
-                )
+                Surface.ROTATION_90 ->
+                    SensorManager.remapCoordinateSystem(
+                        rotationMatrix,
+                        SensorManager.AXIS_Y,
+                        SensorManager.AXIS_MINUS_X,
+                        rotationMatrixAdjusted,
+                    )
 
-                Surface.ROTATION_180 -> SensorManager.remapCoordinateSystem(
-                    rotationMatrix,
-                    SensorManager.AXIS_MINUS_X,
-                    SensorManager.AXIS_MINUS_Y,
-                    rotationMatrixAdjusted,
-                )
+                Surface.ROTATION_180 ->
+                    SensorManager.remapCoordinateSystem(
+                        rotationMatrix,
+                        SensorManager.AXIS_MINUS_X,
+                        SensorManager.AXIS_MINUS_Y,
+                        rotationMatrixAdjusted,
+                    )
 
-                Surface.ROTATION_270 -> SensorManager.remapCoordinateSystem(
-                    rotationMatrix,
-                    SensorManager.AXIS_MINUS_Y,
-                    SensorManager.AXIS_X,
-                    rotationMatrixAdjusted,
-                )
+                Surface.ROTATION_270 ->
+                    SensorManager.remapCoordinateSystem(
+                        rotationMatrix,
+                        SensorManager.AXIS_MINUS_Y,
+                        SensorManager.AXIS_X,
+                        rotationMatrixAdjusted,
+                    )
             }
 
             SensorManager.getOrientation(rotationMatrixAdjusted, orientationAngles)

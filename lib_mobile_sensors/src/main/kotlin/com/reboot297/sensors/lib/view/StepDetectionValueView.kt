@@ -22,9 +22,10 @@ import com.google.android.material.textview.MaterialTextView
 import com.reboot297.sensors.lib.R
 import java.util.Date
 
-class StepDetectionValueView(context: Context, attrs: AttributeSet?) :
-    MaterialTextView(context, attrs) {
-
+class StepDetectionValueView(
+    context: Context,
+    attrs: AttributeSet?,
+) : MaterialTextView(context, attrs) {
     private val message: String
 
     init {

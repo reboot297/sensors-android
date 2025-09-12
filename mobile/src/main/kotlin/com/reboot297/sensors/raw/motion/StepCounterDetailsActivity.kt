@@ -30,26 +30,24 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.StepCounterLifecycleObserver
 
 class StepCounterDetailsActivity : BaseSensorValuesDetailsActivity() {
-
     override val sensorObserver = StepCounterLifecycleObserver(this, this, this)
 
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission(),
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            sensorObserver.permissionGranted()
-        } else {
-            Snackbar.make(binding.root, R.string.permission_denied, Snackbar.LENGTH_LONG)
-                .setAction(R.string.settings) {
-                    startActivity(
-                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                            data = Uri.fromParts("package", packageName, null)
-                        },
-                    )
-                }
-                .show()
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+            if (isGranted) {
+                sensorObserver.permissionGranted()
+            } else {
+                Snackbar
+                    .make(binding.root, R.string.permission_denied, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.settings) {
+                        startActivity(
+                            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                                data = Uri.fromParts("package", packageName, null)
+                            },
+                        )
+                    }.show()
+            }
         }
-    }
 
     override fun requestPermissions(permission: String) {
         requestPermissionLauncher.launch(permission)

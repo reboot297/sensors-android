@@ -26,7 +26,6 @@ import com.reboot297.sensors.extensions.handleVisibility
 import com.reboot297.sensors.lib.raw.SignificantMotionLifecycleObserver
 
 class SignificantMotionsDetailsActivity : BaseSensorTriggerDetailsActivity() {
-
     override val sensorObserver = SignificantMotionLifecycleObserver(this, this, this)
 
     lateinit var binding: ActivityRawSignificatMotionBinding

@@ -22,7 +22,6 @@ import com.reboot297.sensors.databinding.ActivitySampleBinding
 import com.reboot297.sensors.wear.raw.BaseRawSensorActivity
 
 class DeviceOrientationActivity : BaseRawSensorActivity() {
-
     private lateinit var binding: ActivitySampleBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

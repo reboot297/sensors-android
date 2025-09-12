@@ -41,11 +41,10 @@ class GyroscopeUncalibratedLifecycleObserver(
     private val activityListener: ActivityListener,
     private val availabilityListener: SensorAvailabilityListener? = null,
     private val valuesListener: SensorValuesListener? = null,
-) : BaseSensorObserver(), SensorEventListener {
-
+) : BaseSensorObserver(),
+    SensorEventListener {
     private lateinit var sensorManager: SensorManager
-    private var _sensor: Sensor? = null
-    private val sensor: Sensor? get() = _sensor
+    private var sensor: Sensor? = null
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -59,7 +58,7 @@ class GyroscopeUncalibratedLifecycleObserver(
         /**
          * getDefaultSensor(SENSOR_TYPE_GYROSCOPE_UNCALIBRATED) returns a non-wake-up sensor
          */
-        _sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED)
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED)
         availabilityListener?.let {
             if (sensor != null) {
                 it.onSensorAvailable(sensor!!)
@@ -101,7 +100,10 @@ class GyroscopeUncalibratedLifecycleObserver(
         valuesListener?.onSensorValuesChanged(event?.values)
     }
 
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    override fun onAccuracyChanged(
+        sensor: Sensor?,
+        accuracy: Int,
+    ) {
         valuesListener?.onAccuracyValueChanged(accuracy)
     }
 }

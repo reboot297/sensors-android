@@ -27,21 +27,22 @@ import com.reboot297.sensors.wear.samples.deviceorientation.DeviceOrientationAct
 import com.reboot297.sensors.wear.samples.metaldetection.MetalDetectionActivity
 
 class SamplesActivity : ComponentActivity() {
-
     private lateinit var binding: ActivitySamplesBinding
 
-    private val map = mapOf<Int, Class<*>>(
-        R.id.altitude_button to AltitudeActivity::class.java,
-        R.id.device_orientation_button to DeviceOrientationActivity::class.java,
-        R.id.metal_detection_button to MetalDetectionActivity::class.java,
-    )
+    private val map =
+        mapOf<Int, Class<*>>(
+            R.id.altitude_button to AltitudeActivity::class.java,
+            R.id.device_orientation_button to DeviceOrientationActivity::class.java,
+            R.id.metal_detection_button to MetalDetectionActivity::class.java,
+        )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySamplesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        map.keys.asSequence()
+        map.keys
+            .asSequence()
             .map { findViewById<View>(it) }
             .forEach { it.setOnClickListener { view -> openDetails(view) } }
     }
